@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+/* Dark with purble as primary, light greenish as accent
+@import '~@angular/material/prebuilt-themes/purple-green.css'; 
+*/
+/*Light with blue as primary, pink as accent
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+*/
+/* Light with purple als primary and yellow as accent
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+*/
+/*Dark with pink as primary, grey as accent*/
+@import '@angular/material/prebuilt-themes/pink-bluegrey.css';
