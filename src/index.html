@@ -9,9 +9,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/src/assets/images/favicon16x16fuller.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/src/assets/images/favicon32x32fuller.png" />
 </head>
 
 <body>
+  <header>
+    <nav>
+      <!-- <svg viewbox="0 0 24 24" width="24" height="24">
+        <path fill="" d=""></path>
+        <path fill="" d=""></path>
+      </svg> -->
+      <h4>Digitized</h4>
+      <ul>
+        <li><a>Photos</a></li>
+        <li><a>Digital Art</a></li>
+        <li>|</li>
+        <li>
+          <mat-chip-list>
+            <mat-chip (click)="register()">Register</mat-chip>
+            <mat-chip (click)="login()">Log in</mat-chip>
+          </mat-chip-list>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
   <app-root></app-root>
 </body>
 

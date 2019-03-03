@@ -7,7 +7,8 @@ import { CarouselComponent } from './carousel/carousel.component';
 import {
   MatCardModule,
   MatIconModule,
-  MatButtonModule
+  MatButtonModule,
+  MatChipsModule
 } from '@angular/material';
 
 @NgModule({
@@ -17,7 +18,8 @@ import {
     BrowserAnimationsModule,
     MatCardModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatChipsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

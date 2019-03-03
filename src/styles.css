@@ -1,12 +1,55 @@
-/* You can add global styles to this file, and also import other style files */
-/* Dark with purble as primary, light greenish as accent
-@import '~@angular/material/prebuilt-themes/purple-green.css'; 
-*/
-/*Light with blue as primary, pink as accent
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
-*/
-/* Light with purple als primary and yellow as accent
-@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
-*/
-/*Dark with pink as primary, grey as accent*/
 @import '@angular/material/prebuilt-themes/pink-bluegrey.css';
+
+@font-face {
+  font-family: DoctorGlitch;
+  src: url(/src/assets/fonts/Doctor\Glitch.otf) format('otf');
+}
+
+:root {
+  /*Color Palette*/
+  --darkTheme1: #14272f;
+  --darkTheme2: #0c2129;
+  --ligthTheme: #f5f6f6;
+  --lightPurple: #c92c9b;
+  --purpleBlue: #5400d2;
+  --darkPurple: #7207ef;
+  --neonPink: #ce2e96;
+  --darkPink: #ed2e7a;
+  --green: #00ca69;
+  --neonGreen: #04e276;
+  --darkGreen: #00a65d;
+  --swampGreen: #a4c039;
+  --lightBlue: #08adb2;
+  --blue: #425bdc;
+  --filfthyOrange: #ff4825;
+  --filfthyYellow: #e7bc34;
+
+  /*Fonts*/
+  --digitizedFont: DoctorGlitch, sans-serif;
+  /* --bodyFont:; */
+  /*--headerFont:;*/
+}
+
+h3 {
+  font-family: var(--digitizedFont);
+  display: inline;
+}
+
+nav {
+  background-color: var(--darkTheme1);
+  color: var(--ligthTheme);
+
+}
+
+mat-chip {
+  background-color: var(--neonGreen);
+  color: var(--darkTheme1);
+}
+
+nav ul {
+  list-style-type: none;
+}
+
+nav ul li {
+  display: inline;
+}
