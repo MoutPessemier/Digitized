@@ -10,9 +10,11 @@ import {
   MatButtonModule,
   MatChipsModule
 } from '@angular/material';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
-  declarations: [AppComponent, CarouselComponent],
+  declarations: [AppComponent, CarouselComponent, HeaderComponent, FooterComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
