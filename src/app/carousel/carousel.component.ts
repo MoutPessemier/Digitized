@@ -8,7 +8,12 @@ import { Component, OnInit } from '@angular/core';
 export class CarouselComponent implements OnInit {
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    // document.addEventListener('DOMContentLoaded', function () {
+    //   var elems = document.querySelectorAll('.carousel');
+    //   var instances = M.Carousel.init(elems);
+    // });
+  }
 
   previous() {
     console.log('previous');

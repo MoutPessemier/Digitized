@@ -1,5 +1,8 @@
 @import '@angular/material/prebuilt-themes/pink-bluegrey.css';
 
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+@import url('https://fonts.googleapis.com/css?family=Sanchez');
+
 @font-face {
   font-family: DoctorGlitch;
   src: url(/src/assets/fonts/Doctor\Glitch.otf) format('otf');
@@ -26,41 +29,7 @@
 
   /*Fonts*/
   --digitizedFont: DoctorGlitch, sans-serif;
-  /* --bodyFont:; */
-  /*--headerFont:;*/
-}
-
-/* ul.navList {
-  display: none;
-}
-
-.logo {
-  display: inline;
-}
-
-nav {
-  display: inline;
-}
-h3 {
-  display: inline;
-}
-
-header {
-  height: 40px;
-  background-color: var(--darkTheme1);
-  color: var(--ligthTheme);
-}
-
-@media screen and (min-wdith: 900px) {
-  ul.navList {
-    list-style-type: none;
-    display: inline;
-  }
-
-  ul.navList li {
-    display: inline;
-  }
-} */
-body {
-  background-color: var(--darkTheme1);
+  --bodyFont: 'Sanchez', serif;
+  --headerFont: 'Montserrat', sans-serif;
+  ;
 }

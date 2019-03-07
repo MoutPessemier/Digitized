@@ -4,4 +4,14 @@
 
 .navOption {
   color: var(--filfthyYellow);
+  font-family: var(--headerFont);
+}
+
+.logo {
+  margin-top: 5px;
+  width: 60px;
+}
+
+header {
+  background-color: var(--darkTheme2);
 }

@@ -1,4 +1,9 @@
 .page-footer {
   background-color: var(--darkTheme2);
   color: var(--ligthTheme);
+  font-family: var(--headerFont);
+}
+
+.digitizedFont {
+  font-family: var(--digitizedFont);
 }

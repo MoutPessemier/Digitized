@@ -12,9 +12,20 @@ import {
 } from '@angular/material';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { VideoComponent } from './video/video.component';
+import { ImageComponent } from './image/image.component';
+import { DigitalArtComponent } from './digital-art/digital-art.component';
 
 @NgModule({
-  declarations: [AppComponent, CarouselComponent, HeaderComponent, FooterComponent],
+  declarations: [
+    AppComponent,
+    CarouselComponent,
+    HeaderComponent,
+    FooterComponent,
+    VideoComponent,
+    ImageComponent,
+    DigitalArtComponent
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
