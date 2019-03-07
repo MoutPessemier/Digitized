@@ -7,6 +7,10 @@
   font-family: var(--headerFont);
 }
 
+.navOption:hover {
+  background-color: var(--darkTheme1);
+}
+
 .logo {
   margin-top: 5px;
   width: 60px;
