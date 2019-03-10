@@ -7,3 +7,7 @@
 .digitizedFont {
   font-family: var(--digitizedFont);
 }
+
+footer {
+  margin-top: 3vw;
+}

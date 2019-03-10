@@ -15,3 +15,16 @@
   <button mat-raised-button color="primary" (click)="next()">Next</button>
 </mat-card-actions>
 </mat-card>  -->
+
+
+<div class="container">
+  <div class="left navigator" (click)="previous()">
+    <!--left arrow-->
+    <i class="material-icons">keyboard_arrow_left</i>
+  </div>
+  <app-image></app-image>
+  <div class="right navigator" (click)="next()">
+    <!--right arrow-->
+    <i class="material-icons">keyboard_arrow_right</i>
+  </div>
+</div>

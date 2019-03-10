@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ImageComponent } from '../image/image.component';
 
 @Component({
   selector: 'app-carousel',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./carousel.component.css']
 })
 export class CarouselComponent implements OnInit {
+  @Input() images: ImageComponent[];
+
   constructor() {}
 
   ngOnInit() {

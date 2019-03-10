@@ -1,0 +1,8 @@
+.navigator:hover {
+  background: var(--filfthyYellow);
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+}

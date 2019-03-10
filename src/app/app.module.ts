@@ -8,13 +8,16 @@ import {
   MatCardModule,
   MatIconModule,
   MatButtonModule,
-  MatChipsModule
+  MatChipsModule,
+  MatGridListModule
 } from '@angular/material';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { VideoComponent } from './video/video.component';
 import { ImageComponent } from './image/image.component';
 import { DigitalArtComponent } from './digital-art/digital-art.component';
+import { FormsModule } from '@angular/forms';
+import { GridComponent } from './grid/grid.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,8 @@ import { DigitalArtComponent } from './digital-art/digital-art.component';
     FooterComponent,
     VideoComponent,
     ImageComponent,
-    DigitalArtComponent
+    DigitalArtComponent,
+    GridComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +36,9 @@ import { DigitalArtComponent } from './digital-art/digital-art.component';
     MatCardModule,
     MatIconModule,
     MatButtonModule,
-    MatChipsModule
+    MatChipsModule,
+    FormsModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,11 @@
+.btn-floating {
+  background-color: var(--darkTheme2)
+}
+
+.card-title {
+  font-family: var(--headerFont);
+}
+
+.content {
+  font-family: var(--bodyFont);
+}
