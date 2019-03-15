@@ -8,9 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
   constructor() {}
 
-  ngOnInit() {
-    // M.AutoInit();
-  }
+  ngOnInit() {}
 
   sideNav() {
     console.log('sideNav');

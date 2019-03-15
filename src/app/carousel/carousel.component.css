@@ -1,8 +1,22 @@
-.navigator:hover {
-  background: var(--filfthyYellow);
+.btn-floating {
+  background-color: var(--filfthyYellow);
+  vertical-align: middle;
+}
+
+.navigator {
+  padding-top: 25%;
+}
+
+.material-icons {
+  color: var(--darkTheme2);
 }
 
 .container {
   display: flex;
   justify-content: space-between;
 }
+
+/* .body {
+  background-color: var(--darkTheme2);
+  width: 100%;
+} */

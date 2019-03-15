@@ -1,4 +1,24 @@
 <app-header></app-header>
-<app-carousel></app-carousel>
-<app-grid></app-grid>
+<div id="photography">
+  <h3 class="header">Photography</h3>
+  <app-carousel></app-carousel>
+</div>
+<!--parallax-->
+<img appParallax [ratio]="0.5" src="/src/assets/images/DSC_5087c.jpg" alt="">
+<div id="cinematography">
+  <h3 class="header">B-roll & Timelapse</h3>
+  <app-video></app-video>
+</div>
+<!--parallax-->
+<img appParallax [ratio]="0.5" src="" alt="">
+<div id="digitalArt">
+  <h3 class="header">Digital Art</h3>
+  <app-grid></app-grid>
+</div>
+<!--parallax-->
+<img appParallax [ratio]="0.5" src="" alt="">
+<div id="contact">
+  <h3 class="header">Contact</h3>
+  <app-contact-form></app-contact-form>
+</div>
 <app-footer></app-footer>

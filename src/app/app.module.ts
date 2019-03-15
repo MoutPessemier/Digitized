@@ -16,8 +16,10 @@ import { FooterComponent } from './footer/footer.component';
 import { VideoComponent } from './video/video.component';
 import { ImageComponent } from './image/image.component';
 import { DigitalArtComponent } from './digital-art/digital-art.component';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { GridComponent } from './grid/grid.component';
+import { ContactFormComponent } from './contact-form/contact-form.component';
+import { ParallaxDirective } from './parallax.directive';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { GridComponent } from './grid/grid.component';
     VideoComponent,
     ImageComponent,
     DigitalArtComponent,
-    GridComponent
+    GridComponent,
+    ContactFormComponent,
+    ParallaxDirective
   ],
   imports: [
     BrowserModule,
@@ -37,7 +41,7 @@ import { GridComponent } from './grid/grid.component';
     MatIconModule,
     MatButtonModule,
     MatChipsModule,
-    FormsModule,
+    ReactiveFormsModule,
     MatGridListModule
   ],
   providers: [],

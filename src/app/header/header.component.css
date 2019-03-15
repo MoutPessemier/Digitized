@@ -17,6 +17,18 @@
 }
 
 header {
-  background-color: var(--darkTheme2);
-  margin-bottom: 3vw;
+  /*background-color: var(--darkTheme2);*/
+  background-image: url(../../assets/images/DSC_5087c.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 750px;
+}
+
+.test {
+  width: 100%;
+}
+
+.trim {
+  max-height: 750px;
+  overflow: hidden;
 }
