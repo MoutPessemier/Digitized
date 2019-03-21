@@ -1,19 +1,19 @@
 export class Image {
   constructor(
-    private _iso: string,
-    private _shutter: string,
-    private _aperture: string
+    private _iso: number,
+    private _shutter: number,
+    private _aperture: number
   ) {}
 
-  get iso(): string {
+  get iso(): number {
     return this._iso;
   }
 
-  get shutter(): string {
+  get shutter(): number {
     return this._shutter;
   }
 
-  get aperture(): string {
+  get aperture(): number {
     return this._aperture;
   }
 

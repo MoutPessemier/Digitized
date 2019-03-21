@@ -20,6 +20,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { GridComponent } from './grid/grid.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { ParallaxDirective } from './parallax.directive';
+import { HttpClientModule } from '@angular/common/http';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 @NgModule({
   declarations: [
@@ -36,13 +38,15 @@ import { ParallaxDirective } from './parallax.directive';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     MatCardModule,
     MatIconModule,
     MatButtonModule,
     MatChipsModule,
     ReactiveFormsModule,
-    MatGridListModule
+    MatGridListModule,
+    AngularFontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

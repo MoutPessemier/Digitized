@@ -7,3 +7,17 @@
 .digitizedFont {
   font-family: var(--digitizedFont);
 }
+
+a {
+  margin: 0 1%;
+  background-color: var(--darkTheme1);
+  color: var(--ligthTheme);
+}
+
+a:hover {
+  background-color: var(--neonGreen);
+}
+
+a:visited {
+  background-color: var(--darkTheme1);
+}
