@@ -9,7 +9,9 @@ import {
   MatIconModule,
   MatButtonModule,
   MatChipsModule,
-  MatGridListModule
+  MatGridListModule,
+  MatFormFieldModule,
+  MatInputModule
 } from '@angular/material';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
@@ -22,6 +24,7 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
 import { ParallaxDirective } from './parallax.directive';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { DisplayImageFilterPipe } from './display-image-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -34,7 +37,8 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
     DigitalArtComponent,
     GridComponent,
     ContactFormComponent,
-    ParallaxDirective
+    ParallaxDirective,
+    DisplayImageFilterPipe
   ],
   imports: [
     BrowserModule,
@@ -46,7 +50,9 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
     MatChipsModule,
     ReactiveFormsModule,
     MatGridListModule,
-    AngularFontAwesomeModule
+    AngularFontAwesomeModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Image } from 'src/image.model';
 
 @Component({
   selector: 'app-image',
@@ -6,32 +7,20 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./image.component.css']
 })
 export class ImageComponent implements OnInit {
-  private _likes: number;
   private _icon: string;
-  @Input() public country: string;
+  @Input('image') public image: Image;
 
-  constructor(/*country:string*/) {
-    this._likes = 0;
-    this._icon = 'favorite_border';
-    /*this._country = country;*/
-  }
+  constructor() {}
 
   ngOnInit() {}
 
   like() {
     if (this._icon === 'favorite_border') {
-      this._likes++;
       this._icon = 'favorite';
     } else {
-      this._likes--;
       this._icon = 'favorite_border';
     }
-    console.log(this._likes);
     console.log(this._icon);
-  }
-
-  get likes(): number {
-    return this._likes;
   }
 
   get icon(): string {
@@ -42,11 +31,31 @@ export class ImageComponent implements OnInit {
     this._icon = value;
   }
 
-  /*get country(): string {
-    return this._country;
+  get iso(): string {
+    return this.image.iso;
   }
 
-  set country(value: string) {
-    this._country = value;
-  }*/
+  get aperture(): string {
+    return this.image.aperture;
+  }
+
+  get shutterspeed(): string {
+    return this.image.shutter;
+  }
+
+  get country(): string {
+    return this.image.country;
+  }
+
+  get name(): string {
+    return this.image.name;
+  }
+
+  get content(): string {
+    return this.image.content;
+  }
+
+  get likes(): number {
+    return this.image.likes;
+  }
 }

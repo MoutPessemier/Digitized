@@ -1,9 +1,10 @@
 <div class="container">
   <div class="card">
     <div class="card-image">
-      <img class="activator" src="../../assets/images/DSC_5087c.jpg">
+      <img class="activator" src={{content}}>
       <span class="card-title">{{country}}</span>
-      <a class="btn-floating halfway-fab waves-effect waves-light" (click)="like()"><i class="material-icons red-text">{{icon}}</i></a>
+      <a class="btn-floating halfway-fab waves-effect waves-light" (click)="like()"><i
+          class="material-icons red-text">{{icon}}</i></a>
     </div>
     <div class="card-content">
       <p class="content right">{{likes}}</p>
@@ -12,7 +13,7 @@
       <span class="card-title ">{{country}}<i class="material-icons right">close</i></span>
       <h3>Specifications</h3>
       <p>ISO: {{iso}}</p>
-      <p>Shutter Speed: {{shutter}}</p>
+      <p>Shutter Speed: {{shutterspeed}}</p>
       <p>Aperture: {{aperture}}</p>
     </div>
   </div>

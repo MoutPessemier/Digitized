@@ -14,10 +14,10 @@ a {
   color: var(--ligthTheme);
 }
 
-a:hover {
-  background-color: var(--neonGreen);
+a:focus {
+  background-color: var(--darkTheme1);
 }
 
-a:visited {
-  background-color: var(--darkTheme1);
+a:hover {
+  background-color: var(--neonGreen);
 }

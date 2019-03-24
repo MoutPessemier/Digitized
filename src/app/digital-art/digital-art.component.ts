@@ -6,18 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./digital-art.component.css']
 })
 export class DigitalArtComponent implements OnInit {
-  private _name: string;
-  constructor(/*name: string*/) {
-    /*this._name = name;*/
-  }
+  constructor() {}
 
   ngOnInit() {}
-
-  /*get name(): string {
-    return this._name;
-  }
-
-  set name(value: string) {
-    this._name = value;
-  }*/
 }

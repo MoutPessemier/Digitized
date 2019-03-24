@@ -1,4 +1,12 @@
-<label>
-  Name:
-  <input type="text" [formControl]="name">
-</label>
+<div class="container">
+  <form [formGroup]="contact" (ngSubmit)='onSubmit()'>
+    <input placeholder="Topic" type="text" formControlName="topic" aria-label="topic" #spy required>
+    <!-- <mat-error *ngIf="recipe.get('name')['errors']?.required && 
+            recipe.get('name').touched">
+      {{ getErrorMessage(contact.get('name')['errors']) }}
+    </mat-error> -->
+    <button class="right" type="submit" mat-raised-button [disabled]='!contact.valid'>
+      Send <mat-icon>send</mat-icon>
+    </button>
+  </form>
+</div>

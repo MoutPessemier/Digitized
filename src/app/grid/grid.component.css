@@ -1,0 +1,26 @@
+mat-form-field {
+  margin: 2vw 1vw;
+  padding: 0;
+}
+
+input {
+  color: var(--ligthTheme);
+  border: none !important;
+  margin: 0 !important;
+  padding: 0;
+}
+
+input:focus {
+  border: none !important;
+  box-shadow: none !important;
+  margin: 0 !important;
+  padding: 0;
+}
+
+
+/* div.mat-form-field-wrapper,
+.mat-form-field-wrapper,
+.mat-form-field-infix,
+.mat-form-field-appearance-legacy {
+  padding: 0 !important;
+} */

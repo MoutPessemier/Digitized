@@ -4,6 +4,7 @@
   /* padding-top: 2vw;
   padding-left: 1vw; */
   padding: 2vw 1vw;
+
 }
 
 #photography,
@@ -16,4 +17,20 @@
 #contact {
   background-color: var(--ligthTheme);
   margin: 0;
+}
+
+.one {
+  color: var(--filfthyOrange);
+}
+
+.two {
+  color: var(--darkGreen);
+}
+
+.three {
+  color: var(--swampGreen);
+}
+
+.four {
+  color: var(--darkPurple);
 }

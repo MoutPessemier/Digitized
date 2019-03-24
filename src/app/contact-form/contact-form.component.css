@@ -1,0 +1,14 @@
+.container {
+  padding: 13%;
+}
+
+button {
+  margin-top: 1%;
+  width: 40%;
+  background-color: var(--darkTheme1);
+  color: var(--swampGreen);
+}
+
+button:disabled {
+  background-color: var(--filfthyOrange);
+}
