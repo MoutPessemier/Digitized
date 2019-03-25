@@ -10,15 +10,19 @@ export class ImageComponent implements OnInit {
   private _icon: string;
   @Input('image') public image: Image;
 
-  constructor() {}
+  constructor() {
+    this._icon = 'favorite_border';
+  }
 
   ngOnInit() {}
 
   like() {
     if (this._icon === 'favorite_border') {
       this._icon = 'favorite';
+      this.likes++;
     } else {
       this._icon = 'favorite_border';
+      this.image.likes--;
     }
     console.log(this._icon);
   }
@@ -57,5 +61,9 @@ export class ImageComponent implements OnInit {
 
   get likes(): number {
     return this.image.likes;
+  }
+
+  set likes(value: number) {
+    this.image.likes = value;
   }
 }

@@ -13,7 +13,7 @@ export class ImageDataService {
 
   get images$(): Observable<Image[]> {
     return this.http
-      .get(`${environment.apiUrl}/images/`)
+      .get(`${environment.apiUrl}/images?name=display`) //verbeteren
       .pipe(map((list: any[]): Image[] => list.map(Image.fromJson)));
   }
 }

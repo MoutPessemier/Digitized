@@ -4,8 +4,13 @@
 
 .card-title {
   font-family: var(--headerFont);
+  display: inline !important;
 }
 
 .content {
   font-family: var(--bodyFont);
+}
+
+.card-content {
+  height: 185px;
 }

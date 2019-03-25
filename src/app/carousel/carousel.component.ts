@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ImageComponent } from '../image/image.component';
+import { Video } from 'src/video.model';
 
 @Component({
   selector: 'app-carousel',
@@ -7,16 +7,11 @@ import { ImageComponent } from '../image/image.component';
   styleUrls: ['./carousel.component.css']
 })
 export class CarouselComponent implements OnInit {
-  @Input() images: ImageComponent[];
+  public videos: Video[];
 
   constructor() {}
 
-  ngOnInit() {
-    // document.addEventListener('DOMContentLoaded', function () {
-    //   var elems = document.querySelectorAll('.carousel');
-    //   var instances = M.Carousel.init(elems);
-    // });
-  }
+  ngOnInit() {}
 
   previous() {
     console.log('previous');

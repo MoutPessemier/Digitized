@@ -30,13 +30,19 @@ export class GridComponent implements OnInit {
   }
 
   get images$(): Observable<Image[]> {
-    return this._fetchImages$
-      .pipe
-      // filter(i =>
-      //   i.values.filter(i => i.name.toLowerCase().startsWith('display'))
-      // )
-      ();
+    return this._fetchImages$;
+    // .pipe(
+    // //     map(i => i.filter(img => img.name.toLowerCase().startsWith('display')))
+    // );
   }
+
+  // get images$(): Observable<Image[]> {
+  //   return this._fetchImages$.pipe(
+  //     map(imgs =>
+  //       imgs.filter(img => img.name.toLowerCase().startsWith('display'))
+  //     )
+  //   );
+  // }
 
   ngOnInit() {}
 }

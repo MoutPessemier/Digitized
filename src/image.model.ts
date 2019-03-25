@@ -37,11 +37,15 @@ export class Image {
     return this._content;
   }
 
+  set likes(value: number) {
+    this._likes = value;
+  }
+
   static fromJson(json: any): Image {
     return new Image(
       json.name,
       json.iso,
-      json.shutter,
+      json.shutterSpeed,
       json.aperture,
       json.country,
       json.likes,
