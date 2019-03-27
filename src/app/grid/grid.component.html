@@ -3,7 +3,7 @@
     <input matInput placeholder="Country" type="text" #countryName (keyup)="filterImage$.next($event.target.value)"
       class="browser-default">
   </mat-form-field>
-  <mat-grid-list cols="3" gutterSize=" 5px" rowHeight="500px">
+  <mat-grid-list [cols]="breakpoint" gutterSize=" 5px" [rowHeight]="rowH" (window:resize)="onResize($event)">
     <mat-grid-tile *ngFor="let image of (images$ | async)">
       <app-image [image]="image"></app-image>
     </mat-grid-tile>

@@ -5,12 +5,12 @@ import { Image } from 'src/image.model';
   name: 'displayImageFilter'
 })
 export class DisplayImageFilterPipe implements PipeTransform {
-  transform(images: Image[], name: string): Image[] {
-    if (!name || name.length === 0) {
+  transform(images: Image[], country: string): Image[] {
+    if (!name || country.length === 0) {
       return images;
     }
     return images.filter(i =>
-      i.country.toLowerCase().startsWith(name.toLowerCase())
+      i.country.toLowerCase().startsWith(country.toLowerCase())
     );
   }
 }
