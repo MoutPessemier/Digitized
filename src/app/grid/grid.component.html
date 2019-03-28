@@ -1,10 +1,10 @@
 <div>
   <mat-form-field>
-    <input matInput placeholder="Country" type="text" #countryName (keyup)="filterImage$.next($event.target.value)"
-      class="browser-default">
+    <input matInput placeholder="Country" type="text" #displayImageFilter
+      (keyup)="filterImage$.next($event.target.value)" class="browser-default">
   </mat-form-field>
   <mat-grid-list [cols]="breakpoint" gutterSize=" 5px" [rowHeight]="rowH" (window:resize)="onResize($event)">
-    <mat-grid-tile *ngFor="let image of (images$ | async)">
+    <mat-grid-tile *ngFor="let image of (images$ | async | displayImageFilter : countryFilter )">
       <app-image [image]="image"></app-image>
     </mat-grid-tile>
   </mat-grid-list>

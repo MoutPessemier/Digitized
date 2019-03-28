@@ -19,7 +19,7 @@ export class ImageComponent implements OnInit {
   like() {
     if (this._icon === 'favorite_border') {
       this._icon = 'favorite';
-      this.likes++;
+      this.image.likes++;
     } else {
       this._icon = 'favorite_border';
       this.image.likes--;
@@ -33,37 +33,5 @@ export class ImageComponent implements OnInit {
 
   set icon(value: string) {
     this._icon = value;
-  }
-
-  get iso(): string {
-    return this.image.iso;
-  }
-
-  get aperture(): string {
-    return this.image.aperture;
-  }
-
-  get shutterspeed(): string {
-    return this.image.shutter;
-  }
-
-  get country(): string {
-    return this.image.country;
-  }
-
-  get name(): string {
-    return this.image.name;
-  }
-
-  get content(): string {
-    return this.image.content;
-  }
-
-  get likes(): number {
-    return this.image.likes;
-  }
-
-  set likes(value: number) {
-    this.image.likes = value;
   }
 }

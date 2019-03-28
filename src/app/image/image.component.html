@@ -1,19 +1,18 @@
 <div class="container">
   <div class="card">
     <div class="card-image">
-      <img class="activator" [src]="'data:image/jpg;base64,'+content">
+      <img class="activator" [src]="'data:image/jpg;base64,'+image.content">
       <a class="btn-floating halfway-fab waves-effect waves-light" (click)="like()"><i
           class="material-icons red-text">{{icon}}</i></a>
     </div>
     <div class="card-content">
-      <span class="card-title">{{country}}</span><span class="right">{{likes}}</span>
+      <span class="card-title">{{image.country}}</span><span class="right">{{image.likes}}</span>
       <span class="content ">
         <h5>Specifications</h5>
-        <p>ISO: {{iso}}</p>
-        <p>Shutter Speed: {{shutterspeed}}</p>
-        <p>Aperture: {{aperture}}</p>
+        <p>ISO: {{image.iso}}</p>
+        <p>Shutter Speed: {{image.shutterspeed}}</p>
+        <p>Aperture: {{image.aperture}}</p>
       </span>
-      <!-- <p class="content right thirty">{{likes}}</p> -->
     </div>
   </div>
 </div>
