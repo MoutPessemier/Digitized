@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import { Video } from 'src/video.model';
 import { Observable } from 'rxjs';
 import { VideoDataService } from '../video-data.service';
@@ -9,22 +9,43 @@ import { VideoDataService } from '../video-data.service';
   styleUrls: ['./carousel.component.css']
 })
 export class CarouselComponent implements OnInit {
-  public videos: Video[];
+  private _videos: Video[];
+  @Output() public currentVid: Video;
+  private _index = 0;
   private _fetchVideos$: Observable<Video[]> = this._videoDataService.videos$;
 
-  constructor(private _videoDataService: VideoDataService) {}
+  constructor(private _videoDataService: VideoDataService) {
+    this._videoDataService.videos$.subscribe(vids => (this._videos = vids));
+    //this.fillCurrentVideo();
+  }
 
-  ngOnInit() {}
+  ngOnInit() {
+    //this.fillCurrentVideo();
+  }
 
   get videos$(): Observable<Video[]> {
     return this._fetchVideos$;
   }
 
+  get videos(): Video[] {
+    return this._videos;
+  }
+
+  get currentVideo(): Video {
+    return this.currentVid;
+  }
+
   previous() {
-    console.log('previous');
+    this._index = (this._index - 1 + this._videos.length) % this._videos.length;
+    this.currentVid = this._videos[this._index];
   }
 
   next() {
-    console.log('next');
+    this._index = (this._index + 1) % this._videos.length;
+    this.currentVid = this._videos[this._index];
   }
+
+  // fillCurrentVideo() {
+  //   this.currentVid = this._videos[this._index];
+  // }
 }

@@ -1,6 +1,20 @@
-import { Component, OnInit, Output } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { EventEmitter } from 'protractor';
+import {
+  Component,
+  OnInit,
+  Output,
+  EventEmitter,
+  ViewChild,
+  NgZone
+} from '@angular/core';
+import {
+  FormControl,
+  FormGroup,
+  Validators,
+  FormBuilder
+} from '@angular/forms';
+import { Message } from 'src/message.model';
+import { CdkTextareaAutosize } from '@angular/cdk/text-field';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-contact-form',
@@ -9,18 +23,22 @@ import { EventEmitter } from 'protractor';
 })
 export class ContactFormComponent implements OnInit {
   public contact: FormGroup;
-  //@Output() public newContact = new EventEmitter();
+  @Output() public newMessage = new EventEmitter<Message>();
+  public readonly contactTypes = ['Question', 'Service', 'Feedback', 'Other'];
 
-  constructor() {
-    this.contact = new FormGroup({
-      topic: new FormControl('', [Validators.required, Validators.minLength(2)])
+  constructor(private fb: FormBuilder, private ngZone: NgZone) {}
+
+  ngOnInit() {
+    this.contact = this.fb.group({
+      topic: ['', [Validators.required]],
+      message: ['', [Validators.required, Validators.minLength(5)]]
     });
   }
 
-  ngOnInit() {}
-
   onSubmit() {
-    //this.newContact.emit(this.contact.value.name);
+    this.newMessage.emit(
+      new Message(this.contact.value.topic, this.contact.value.message)
+    );
   }
 
   getErrorMessage(error: any) {
@@ -30,5 +48,14 @@ export class ContactFormComponent implements OnInit {
       return `needs at least ${error.minLength.requiredLength}
       characters (got ${error.minLength.actualLength})`;
     }
+  }
+
+  @ViewChild('autosize') autosize: CdkTextareaAutosize;
+
+  triggerResize() {
+    // Wait for changes to be applied, then trigger textarea resize.
+    this.ngZone.onStable
+      .pipe(take(1))
+      .subscribe(() => this.autosize.resizeToFitContent(true));
   }
 }

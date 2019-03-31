@@ -16,13 +16,12 @@
   width: 60px;
 }
 
-header {
-  /*background-color: var(--darkTheme2);*/
-  background-image: url(../../assets/images/DSC_5087c.jpg);
+/* header {
+  background-image: url(../../assets/images/DSC_5087c.jpg); 
   background-size: cover;
   background-position: center;
   height: 750px;
-}
+}*/
 
 .test {
   width: 100%;
@@ -31,4 +30,8 @@ header {
 .trim {
   max-height: 750px;
   overflow: hidden;
+}
+
+nav {
+  background-color: var(--darkTheme2);
 }

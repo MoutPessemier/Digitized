@@ -11,7 +11,9 @@ import {
   MatChipsModule,
   MatGridListModule,
   MatFormFieldModule,
-  MatInputModule
+  MatInputModule,
+  MatSelectModule,
+  MatDialogModule
 } from '@angular/material';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
@@ -25,6 +27,9 @@ import { ParallaxDirective } from './parallax.directive';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { DisplayImageFilterPipe } from './display-image-filter.pipe';
+import { RegisterFormComponent } from './register-form/register-form.component';
+import { LoginFormComponent } from './login-form/login-form.component';
+import { SideNavComponent } from './side-nav/side-nav.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +43,10 @@ import { DisplayImageFilterPipe } from './display-image-filter.pipe';
     GridComponent,
     ContactFormComponent,
     ParallaxDirective,
-    DisplayImageFilterPipe
+    DisplayImageFilterPipe,
+    RegisterFormComponent,
+    LoginFormComponent,
+    SideNavComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +60,9 @@ import { DisplayImageFilterPipe } from './display-image-filter.pipe';
     MatGridListModule,
     AngularFontAwesomeModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatSelectModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -7,7 +7,7 @@ import { Video } from 'src/video.model';
   styleUrls: ['./video.component.css']
 })
 export class VideoComponent implements OnInit {
-  @Input('src') public video: Video;
+  @Input('video') public video: Video;
   constructor() {}
 
   ngOnInit() {}

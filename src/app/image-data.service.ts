@@ -12,8 +12,11 @@ export class ImageDataService {
   constructor(private http: HttpClient) {}
 
   get images$(): Observable<Image[]> {
-    return this.http
-      .get(`${environment.apiUrl}/images?name=display`) //verbeteren
-      .pipe(map((list: any[]): Image[] => list.map(Image.fromJson)));
+    return this.http.get(`${environment.apiUrl}/images/`).pipe(
+      map((list: any[]): Image[] => list.map(Image.fromJson)),
+      map(imgs =>
+        imgs.filter(img => img.name.toLowerCase().startsWith('display'))
+      )
+    );
   }
 }

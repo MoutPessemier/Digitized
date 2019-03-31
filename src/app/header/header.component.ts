@@ -13,4 +13,5 @@ export class HeaderComponent implements OnInit {
   sideNav() {
     console.log('sideNav');
   }
+  openDialog() {}
 }

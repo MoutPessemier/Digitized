@@ -1,9 +1,6 @@
 <header>
-  <!-- <div class="trim">
-    <img src="../../assets/images/DSC_5087c.jpg" class="test" alt="HomeImage - Photo of me taking a photo" />
-  </div> -->
   <div class="navbar-fixed">
-    <nav class="nav-wrapper transparent">
+    <nav class="nav-wrapper">
       <a href="#!" class="brand-logo center">
         <img src="" alt="logo" class="logo center" />
         <span class="BrandName hide-on-med-and-down">Digitized</span>
@@ -19,18 +16,9 @@
         <li><a class="navOption">B-roll & Timelapse</a></li>
       </ul>
       <ul class="right hide-on-med-and-down">
-        <li><a class="navOption">Login</a></li>
-        <li><a class="navOption">Register</a></li>
+        <li><a class="navOption" (click)="openDialog()">Login</a></li>
+        <li><a class="navOption" (click)="openDialog()">Register</a></li>
       </ul>
     </nav>
   </div>
-
-  <ul class="sidenav" id="mobileNav">
-    <li><a class="navOption">Photography</a></li>
-    <li><a class="navOption">Digital Art</a></li>
-    <li><a class="navOption">B-roll & Timelapse</a></li>
-    <li><a class="navOption">Login</a></li>
-    <li><a class="navOption">Register</a></li>
-  </ul>
-
 </header>

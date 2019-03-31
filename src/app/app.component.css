@@ -34,3 +34,7 @@
 .four {
   color: var(--darkPurple);
 }
+
+app-grid {
+  padding-bottom: 20px;
+}

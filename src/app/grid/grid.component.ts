@@ -31,17 +31,13 @@ export class GridComponent implements OnInit {
       .subscribe(val => (this.countryFilter = val));
   }
 
-  get images$(): Observable<Image[]> {
-    return this._fetchImages$;
-  }
-
   // get images$(): Observable<Image[]> {
-  //   return this._fetchImages$.pipe(
-  //     map(imgs =>
-  //       imgs.filter(img => img.name.toLowerCase().startsWith('display'))
-  //     )
-  //   );
+  //   return this._fetchImages$;
   // }
+
+  get images$(): Observable<Image[]> {
+    return this._fetchImages$.pipe();
+  }
 
   ngOnInit() {
     if (window.innerWidth <= 600) {
