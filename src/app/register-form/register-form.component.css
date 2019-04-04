@@ -1,5 +1,12 @@
-button[type="submit"] {
+button[type="submit"],
+button[type="submit"]:hover,
+button[type="submit"]:active {
   margin-left: 100px;
+  background-color: var(--swampGreen);
+}
+
+button {
+  background-color: var(--filfthyOrange);
 }
 
 h3 {
@@ -8,4 +15,8 @@ h3 {
 
 mat-form-field {
   width: 250px;
+}
+
+.buttonDiv {
+  margin-top: 5%;
 }

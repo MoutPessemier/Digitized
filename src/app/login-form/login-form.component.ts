@@ -20,6 +20,7 @@ export class LoginFormComponent implements OnInit {
       password: ['', [Validators.required]]
     });
   }
+
   getErrorMessage(errors: any) {
     if (errors.required) {
       return 'is required';
