@@ -10,7 +10,7 @@ button[type="submit"],
 button[type="submit"]:hover,
 button[type="submit"]:active {
   margin-left: 100px;
-  background-color: var(--swampGreen);
+  background-color: var(--neonGreen);
 }
 
 button {

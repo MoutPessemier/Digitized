@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output } from '@angular/core';
 import { Video } from 'src/video.model';
 import { Observable } from 'rxjs';
 import { VideoDataService } from '../video-data.service';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-carousel',
@@ -16,7 +17,8 @@ export class CarouselComponent implements OnInit {
 
   constructor(private _videoDataService: VideoDataService) {
     this._videoDataService.videos$.subscribe(vids => (this._videos = vids));
-    //this.fillCurrentVideo();
+    // this.currentVid = this.videos$.pipe(first())[0];
+    // this.fillCurrentVideo();
   }
 
   ngOnInit() {
@@ -56,7 +58,7 @@ export class CarouselComponent implements OnInit {
     this.currentVid = this._videos[this._index];
   }
 
-  // fillCurrentVideo() {
-  //   this.currentVid = this._videos[this._index];
-  // }
+  fillCurrentVideo() {
+    this.currentVid = this._videos[this._index];
+  }
 }

@@ -13,7 +13,8 @@ import {
   MatFormFieldModule,
   MatInputModule,
   MatSelectModule,
-  MatDialogModule
+  MatDialogModule,
+  MatSidenavModule
 } from '@angular/material';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
@@ -26,7 +27,6 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
 import { ParallaxDirective } from './parallax.directive';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
-import { DisplayImageFilterPipe } from './display-image-filter.pipe';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
@@ -43,7 +43,6 @@ import { SideNavComponent } from './side-nav/side-nav.component';
     GridComponent,
     ContactFormComponent,
     ParallaxDirective,
-    DisplayImageFilterPipe,
     RegisterFormComponent,
     LoginFormComponent,
     SideNavComponent
@@ -62,7 +61,8 @@ import { SideNavComponent } from './side-nav/side-nav.component';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSidenavModule
   ],
   entryComponents: [LoginFormComponent, RegisterFormComponent],
   providers: [],
