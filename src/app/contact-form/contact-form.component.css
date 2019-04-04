@@ -8,3 +8,11 @@ button {
   background-color: var(--darkTheme1);
   color: var(--swampGreen);
 }
+
+mat-form-field {
+  color: var(--swampGreen);
+}
+
+mat-select {
+  width: 200px !important;
+}

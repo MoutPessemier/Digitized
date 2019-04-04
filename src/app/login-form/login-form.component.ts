@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialogRef } from '@angular/material';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login-form',
@@ -6,8 +8,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login-form.component.css']
 })
 export class LoginFormComponent implements OnInit {
-  constructor() {}
+  public login: FormGroup;
+  constructor(
+    public dialogRef: MatDialogRef<LoginFormComponent>,
+    private fb: FormBuilder
+  ) {}
 
-  ngOnInit() {}
-  getErrorMessage() {}
+  ngOnInit() {
+    this.login = this.fb.group({
+      username: ['', [Validators.required]],
+      password: ['', [Validators.required]]
+    });
+  }
+  getErrorMessage(errors: any) {
+    if (errors.required) {
+      return 'is required';
+    }
+  }
+
+  onNoClick() {
+    this.dialogRef.close();
+  }
+
+  onSubmit() {}
 }

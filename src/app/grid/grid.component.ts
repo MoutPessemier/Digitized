@@ -21,15 +21,15 @@ export class GridComponent implements OnInit {
   public breakpoint: number;
   public rowH: number;
 
-  constructor(private _imageDataService: ImageDataService) {
-    this.filterImage$
-      .pipe(
-        distinctUntilChanged(),
-        debounceTime(400),
-        map(val => val.toLowerCase())
-      )
-      .subscribe(val => (this.countryFilter = val));
-  }
+  constructor(private _imageDataService: ImageDataService) {}
+  // this.filterImage$
+  //   .pipe(
+  //     distinctUntilChanged(),
+  //     debounceTime(400),
+  //     map(val => val.toLowerCase())
+  //   )
+  //   .subscribe(val => (this.countryFilter = val));
+  // }
 
   // get images$(): Observable<Image[]> {
   //   return this._fetchImages$;

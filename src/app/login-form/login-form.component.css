@@ -1,3 +1,11 @@
 h3 {
   font-family: var(--headerFont);
 }
+
+mat-form-field {
+  width: 250px;
+}
+
+button[type="submit"] {
+  margin-left: 100px;
+}

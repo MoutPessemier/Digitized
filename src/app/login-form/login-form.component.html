@@ -1,23 +1,22 @@
-<!-- <h3 mat-dialog-title>Login</h1>
+<h3 mat-dialog-title>Login</h3>
 <div mat-dialog-content>
- <form>
-   <mat-form-field>
-     <input matInput class="browser-default" aria-label="Email">
-     <mat-error>
-       {{ getErrorMessage() }}
-     </mat-error>
-   </mat-form-field>
-   <mat-form-field>
-     <input matInput class="browser-default" aria-label="Password" type="password">
-     <mat-error>
-       {{ getErrorMessage() }}
-     </mat-error>
-   </mat-form-field>
-   <button type="submit" mat-raised-button [disabled]='!login.valid'>
-     Login
-   </button>
- </form>
-<div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">No Thanks</button>
-  <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button>
-</div> -->
+  <form [formGroup]="login" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <input matInput aria-label="login" placeholder="Email" type="text" formControlName="username"
+        class="browser-default" />
+      <mat-error *ngIf="login.get('username')['errors']">
+        {{ getErrorMessage(login.get('username')['errors']) }}
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput aria-label="password" placeholder="Password" type="password" formControlName="password"
+        class="browser-default" />
+      <mat-error *ngIf="login.get('password')['errors']">
+        {{ getErrorMessage(login.get('password')['errors']) }}
+      </mat-error>
+    </mat-form-field>
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button mat-button type="submit" [disabled]="!login.valid" cdkFocusInitial>Login</button>
+  </form>
+</div>

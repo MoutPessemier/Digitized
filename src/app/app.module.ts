@@ -64,6 +64,7 @@ import { SideNavComponent } from './side-nav/side-nav.component';
     MatSelectModule,
     MatDialogModule
   ],
+  entryComponents: [LoginFormComponent, RegisterFormComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -2,11 +2,11 @@
   <div class="navbar-fixed">
     <nav class="nav-wrapper">
       <a href="#!" class="brand-logo center">
-        <img src="" alt="logo" class="logo center" />
+        <img src="../../assets/images/Logo.png" alt="logo" class="logo center hide-on-large-only" />
         <span class="BrandName hide-on-med-and-down">Digitized</span>
       </a>
 
-      <a href="#" data-target="mobileNav" class="sidenav-trigger" (click)="sideNav()">
+      <a href="#" class="sidenav-trigger" (click)="sideNav()">
         <i class="material-icons">menu</i>
       </a>
 
@@ -16,9 +16,10 @@
         <li><a class="navOption">B-roll & Timelapse</a></li>
       </ul>
       <ul class="right hide-on-med-and-down">
-        <li><a class="navOption" (click)="openDialog()">Login</a></li>
-        <li><a class="navOption" (click)="openDialog()">Register</a></li>
+        <li><a class="navOption" (click)="openDialogLogin()">Login</a></li>
+        <li><a class="navOption" (click)="openDialogRegister()">Register</a></li>
       </ul>
     </nav>
   </div>
 </header>
+<!-- data-target="mobileNav" -->

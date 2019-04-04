@@ -1,47 +1,28 @@
-<!-- <form>
-  <mat-form-field>
-    <input matInput class="browser-default" aria-label="First name">
-    <mat-error>
-      {{ getErrorMessage() }}
-    </mat-error>
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput class="browser-default" aria-label="Last name">
-    <mat-error>
-      {{ getErrorMessage() }}
-    </mat-error>
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput class="browser-default" aria-label="Email">
-    <mat-error>
-      {{ getErrorMessage() }}
-    </mat-error>
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput class="browser-default" aria-label="Phone number">
-    <mat-error>
-      {{ getErrorMessage() }}
-    </mat-error>
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput class="browser-default" aria-label="Country">
-    <mat-error>
-      {{ getErrorMessage() }}
-    </mat-error>
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput class="browser-default" aria-label="Password" type="password">
-    <mat-error>
-      {{ getErrorMessage() }}
-    </mat-error>
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput class="browser-default" aria-label="Confirmation password" type="password">
-    <mat-error>
-      {{ getErrorMessage() }}
-    </mat-error>
-  </mat-form-field>
-  <button type="submit" mat-raised-button [disabled]='!register.valid'>
-    Register
-  </button>
-</form> -->
+<h3 mat-dialog-title>Register</h3>
+<mat-dialog-content>
+  <form [formGroup]="register" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+
+    </mat-form-field>
+    <mat-form-field>
+
+    </mat-form-field>
+    <mat-form-field>
+
+    </mat-form-field>
+    <mat-form-field>
+
+    </mat-form-field>
+    <mat-form-field>
+
+    </mat-form-field>
+    <mat-form-field>
+
+    </mat-form-field>
+    <mat-form-field>
+
+    </mat-form-field>
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button mat-button type="submit" [disabled]="!register.valid" cdkFocusInitial>Register</button>
+  </form>
+</mat-dialog-content>

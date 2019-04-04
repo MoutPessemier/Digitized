@@ -36,12 +36,23 @@ export class CarouselComponent implements OnInit {
   }
 
   previous() {
-    this._index = (this._index - 1 + this._videos.length) % this._videos.length;
+    if (this.currentVid) {
+      this._index =
+        (this._index - 1 + this._videos.length) % this._videos.length;
+    } else {
+      this._index = 0;
+    }
+    console.log(this.currentVid);
     this.currentVid = this._videos[this._index];
   }
 
   next() {
-    this._index = (this._index + 1) % this._videos.length;
+    if (this.currentVid) {
+      this._index = (this._index + 1) % this._videos.length;
+    } else {
+      this._index = 0;
+    }
+    console.log(this.currentVid);
     this.currentVid = this._videos[this._index];
   }
 
