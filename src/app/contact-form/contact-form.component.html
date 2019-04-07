@@ -1,25 +1,22 @@
-<div class="container">
-  <form [formGroup]="contact" (ngSubmit)='onSubmit()'>
-    <mat-form-field>
-      <mat-select placeholder="topic" aria-label="topic" formControlName="topic">
-        <mat-option *ngFor="let topic of contactTypes" [value]="topic">
-          {{ topic }}
-        </mat-option>
-      </mat-select>
-      <mat-error>
-        {{ getErrorMessage(contact.get('topic')['errors']) }}
-      </mat-error>
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Message</mat-label>
-      <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="2"
-        cdkAutosizeMaxRows="5" class="browser-default" formControlName="message" aria-label="Message"></textarea>
-      <mat-error>
-        {{ getErrorMessage(contact.get('message')['errors']) }}
-      </mat-error>
-    </mat-form-field>
-    <button class="right" type="submit" mat-raised-button [disabled]='!contact.valid'>
-      Send <mat-icon>send</mat-icon>
-    </button>
-  </form>
+<div class="body">
+  <div class="container">
+    <form [formGroup]="contact" (ngSubmit)="onSubmit()">
+      <mat-form-field>
+        <mat-label>Topic</mat-label>
+        <mat-select placeholder="Topic" aria-label="Topic" formControlName="topic" class="browser-default">
+          <mat-option *ngFor="let topic of contactTypes" [value]="topic">
+            {{topic}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="contact.get('topic')['errors'] && contact.get('topic').touched">
+          {{ getErrorMessage(contact.get('topic')['errors']) }}
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <textarea matInput placeholder="Message" aria-label="Message" formControlName="message"
+          class="browser-default"></textarea>
+      </mat-form-field>
+      <button mat-button type="submit" [disabled]="!contact.valid">Send <mat-icon>send</mat-icon></button>
+    </form>
+  </div>
 </div>

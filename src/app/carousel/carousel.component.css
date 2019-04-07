@@ -20,3 +20,11 @@ app-video {
   width: 85%;
   padding-bottom: 2vw;
 }
+
+
+h3 {
+  color: var(--darkGreen);
+  font-family: var(--headerFont);
+  font-size: 300%;
+  text-align: center;
+}

@@ -4,16 +4,25 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
-function validateRegister(control: FormGroup): { [key: string]: any } {
+function validateEmail(control: FormGroup): { [key: string]: any } {
   var mailReg = /^([a-zA-Z]+[a-zA-Z0-9.\-_éèàùäëïöüâêîôû]*)@([a-z]+)[.]([a-z]+)([.][a-z]+)*$/g;
   if (!mailReg.test(control.get('email').value)) {
     return { noValidEmail: true };
   }
+  return null;
+}
+function validatePhone(control: FormGroup): { [key: string]: any } {
   var phoneReg = /^0{0,2}(9[976]\d|8[987530]\d|6[987]\d|5[90]\d|42\d|3[875]\d|2[98654321]\d|9[8543210]|8[6421]|6[6543210]|5[87654321]|4[987654310]|3[9643210]|2[70]|7|1)\d{7,14}$/;
   if (!phoneReg.test(control.get('phone').value)) {
     return { noValidPhone: true };
   }
-  if (control.get('password').value !== control.get('passwordConfirmation')) {
+  return null;
+}
+
+function validatePassword(control: FormGroup): { [key: string]: any } {
+  if (
+    control.get('password').value !== control.get('passwordConfirmation').value
+  ) {
     return { noMatchingPasswords: true };
   }
   return null;
@@ -33,21 +42,33 @@ export class RegisterFormComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.register = this.fb.group(
-      {
-        firstName: ['', [Validators.required, Validators.minLength(2)]],
-        lastName: ['', [Validators.required, Validators.minLength(2)]],
-        email: ['', [Validators.required, Validators.minLength(5)]],
-        phone: ['', [Validators.required, Validators.minLength(8)]],
-        country: ['', []],
-        password: ['', [Validators.required, Validators.minLength(5)]],
-        passwordConfirmation: [
-          '',
-          [Validators.required, Validators.minLength(5)]
+    this.register = this.fb.group({
+      firstName: ['', [Validators.required, Validators.minLength(2)]],
+      lastName: ['', [Validators.required, Validators.minLength(2)]],
+      email: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(5) //, validateEmail
         ]
-      },
-      { validator: validateRegister }
-    );
+      ],
+      phone: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(8) //, validatePhone
+        ]
+      ],
+      country: [''],
+      password: ['', [Validators.required, Validators.minLength(5)]],
+      passwordConfirmation: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(5) //, validatePassword
+        ]
+      ]
+    });
   }
 
   getErrorMessage(errors: any) {

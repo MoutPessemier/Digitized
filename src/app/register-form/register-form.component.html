@@ -4,49 +4,46 @@
     <mat-form-field>
       <input matInput aria-label="First name" placeholder="First name" type="text" formControlName="firstName"
         class="browser-default" required />
-      <mat-error *ngIf="register.get('firstName')['errors']">
+      <mat-error *ngIf="register.get('firstName')['errors'] && register.get('firstName').touched">
         {{ getErrorMessage(register.get('firstName')['errors']) }}
       </mat-error>
     </mat-form-field>
     <mat-form-field>
       <input matInput aria-label="Last name" placeholder="Last name" type="text" formControlName="lastName"
         class="browser-default" required />
-      <mat-error *ngIf="register.get('lastName')['errors']">
+      <mat-error *ngIf="register.get('lastName')['errors'] && register.get('lastName').touched">
         {{ getErrorMessage(register.get('lastName')['errors']) }}
       </mat-error>
     </mat-form-field>
     <mat-form-field>
       <input matInput aria-label="Email" placeholder="Email" type="text" formControlName="email" class="browser-default"
         required />
-      <mat-error *ngIf="register.get('email')['errors']">
+      <mat-error *ngIf="register.get('email')['errors'] && register.get('email').touched">
         {{ getErrorMessage(register.get('email')['errors']) }}
       </mat-error>
     </mat-form-field>
     <mat-form-field>
       <input matInput aria-label="Phone" placeholder="Phone" type="text" formControlName="phone" class="browser-default"
         required />
-      <mat-error *ngIf="register.get('phone')['errors']">
+      <mat-error *ngIf="register.get('phone')['errors'] && register.get('phone').touched">
         {{ getErrorMessage(register.get('phone')['errors']) }}
       </mat-error>
     </mat-form-field>
     <mat-form-field>
       <input matInput aria-label="Country" placeholder="Country" type="text" formControlName="country"
         class="browser-default" />
-      <mat-error *ngIf="register.get('country')['errors']">
-        {{ getErrorMessage(register.get('country')['errors']) }}
-      </mat-error>
     </mat-form-field>
     <mat-form-field>
       <input matInput aria-label="Password" placeholder="Password" type="password" formControlName="password"
         class="browser-default" required />
-      <mat-error *ngIf="register.get('password')['errors']">
+      <mat-error *ngIf="register.get('password')['errors'] && register.get('password').touched">
         {{ getErrorMessage(register.get('password')['errors']) }}
       </mat-error>
     </mat-form-field>
     <mat-form-field>
       <input matInput aria-label="Confirmation Password" placeholder="Confirmation Password" type="password"
         formControlName="passwordConfirmation" class="browser-default" required />
-      <mat-error *ngIf="register.get('passwordConfirmation')['errors']">
+      <mat-error *ngIf="register.get('passwordConfirmation')['errors'] && register.get('passwordConfirmation').touched">
         {{ getErrorMessage(register.get('passwordConfirmation')['errors']) }}
       </mat-error>
     </mat-form-field>

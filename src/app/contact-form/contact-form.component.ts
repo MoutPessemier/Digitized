@@ -1,21 +1,6 @@
-import {
-  Component,
-  OnInit,
-  Output,
-  EventEmitter,
-  ViewChild,
-  NgZone
-} from '@angular/core';
-import {
-  FormControl,
-  FormGroup,
-  Validators,
-  FormBuilder
-} from '@angular/forms';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Message } from 'src/message.model';
-import { CdkTextareaAutosize } from '@angular/cdk/text-field';
-import { take } from 'rxjs/operators';
-
 @Component({
   selector: 'app-contact-form',
   templateUrl: './contact-form.component.html',
@@ -26,7 +11,7 @@ export class ContactFormComponent implements OnInit {
   @Output() public newMessage = new EventEmitter<Message>();
   public readonly contactTypes = ['Question', 'Service', 'Feedback', 'Other'];
 
-  constructor(private fb: FormBuilder, private ngZone: NgZone) {}
+  constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
     this.contact = this.fb.group({
@@ -44,18 +29,8 @@ export class ContactFormComponent implements OnInit {
   getErrorMessage(error: any) {
     if (error.required) {
       return 'is required';
-    } else if (error.minLength) {
-      return `needs at least ${error.minLength.requiredLength}
-      characters (got ${error.minLength.actualLength})`;
+    } else if (error.minlength) {
+      return `need at least ${error.minlength.requiredLength} characters`;
     }
-  }
-
-  @ViewChild('autosize') autosize: CdkTextareaAutosize;
-
-  triggerResize() {
-    // Wait for changes to be applied, then trigger textarea resize.
-    this.ngZone.onStable
-      .pipe(take(1))
-      .subscribe(() => this.autosize.resizeToFitContent(true));
   }
 }

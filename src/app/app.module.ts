@@ -30,7 +30,8 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
-
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AppRoutingModule } from './app-routing.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +46,8 @@ import { SideNavComponent } from './side-nav/side-nav.component';
     ParallaxDirective,
     RegisterFormComponent,
     LoginFormComponent,
-    SideNavComponent
+    SideNavComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -62,7 +64,8 @@ import { SideNavComponent } from './side-nav/side-nav.component';
     MatInputModule,
     MatSelectModule,
     MatDialogModule,
-    MatSidenavModule
+    MatSidenavModule,
+    AppRoutingModule
   ],
   entryComponents: [LoginFormComponent, RegisterFormComponent],
   providers: [],

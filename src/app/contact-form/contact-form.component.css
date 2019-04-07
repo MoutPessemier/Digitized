@@ -16,3 +16,34 @@ mat-form-field {
 mat-select {
   width: 200px !important;
 }
+
+button {
+  width: 300px;
+}
+
+mat-option {
+  color: var(--darkTheme1);
+  background-color: var(--swampGreen);
+}
+
+mat-option:hover,
+mat-option:active,
+mat-option:focus {
+  background-color: var(--swampGreen) !important;
+}
+
+mat-form-field,
+mat-select {
+  color: var(--darkTheme1) !important;
+  width: 300px;
+  display: block;
+}
+
+textarea {
+  height: 15px;
+  width: 300px;
+}
+
+form {
+  text-align: center;
+}

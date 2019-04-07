@@ -19,4 +19,10 @@ export class ImageDataService {
       )
     );
   }
+
+  getImage$(id): Observable<Image> {
+    return this.http
+      .get(`${environment.apiUrl}/images/${id}`)
+      .pipe(map((item: any): Image => Image.fromJson(item)));
+  }
 }

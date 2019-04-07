@@ -20,3 +20,7 @@ mat-form-field {
 .buttonDiv {
   margin-top: 5%;
 }
+
+input {
+  color: var(--ligthTheme);
+}
