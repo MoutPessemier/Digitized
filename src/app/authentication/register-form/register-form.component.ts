@@ -5,9 +5,11 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
 function validateEmail(control: FormGroup): { [key: string]: any } {
-  var mailReg = /^([a-zA-Z]+[a-zA-Z0-9.\-_éèàùäëïöüâêîôû]*)@([a-z]+)[.]([a-z]+)([.][a-z]+)*$/g;
-  if (!mailReg.test(control.get('email').value)) {
-    return { noValidEmail: true };
+  if (control.get('email').touched) {
+    var mailReg = /^([a-zA-Z]+[a-zA-Z0-9.\-_éèàùäëïöüâêîôû]*)@([a-z]+)[.]([a-z]+)([.][a-z]+)*$/g;
+    if (!mailReg.test(control.get('email').value)) {
+      return { noValidEmail: true };
+    }
   }
   return null;
 }
@@ -39,37 +41,25 @@ export class RegisterFormComponent implements OnInit {
     public dialogRef: MatDialogRef<RegisterFormComponent>,
     private fb: FormBuilder,
     private http: HttpClient
-  ) {}
-
-  ngOnInit() {
-    this.register = this.fb.group({
-      firstName: ['', [Validators.required, Validators.minLength(2)]],
-      lastName: ['', [Validators.required, Validators.minLength(2)]],
-      email: [
-        '',
-        [
-          Validators.required,
-          Validators.minLength(5) //, validateEmail
+  ) {
+    this.register = this.fb.group(
+      {
+        firstName: ['', [Validators.required, Validators.minLength(2)]],
+        lastName: ['', [Validators.required, Validators.minLength(2)]],
+        email: ['', [Validators.required, Validators.minLength(5)]],
+        phone: ['', [Validators.required, Validators.minLength(8)]],
+        country: [''],
+        password: ['', [Validators.required, Validators.minLength(5)]],
+        passwordConfirmation: [
+          '',
+          [Validators.required, Validators.minLength(5)]
         ]
-      ],
-      phone: [
-        '',
-        [
-          Validators.required,
-          Validators.minLength(8) //, validatePhone
-        ]
-      ],
-      country: [''],
-      password: ['', [Validators.required, Validators.minLength(5)]],
-      passwordConfirmation: [
-        '',
-        [
-          Validators.required,
-          Validators.minLength(5) //, validatePassword
-        ]
-      ]
-    });
+      },
+      { validators: [validatePassword, validateEmail, validatePhone] }
+    );
   }
+
+  ngOnInit() {}
 
   getErrorMessage(errors: any) {
     if (errors.required) {
@@ -77,7 +67,7 @@ export class RegisterFormComponent implements OnInit {
     } else if (errors.noValidEmail) {
       return 'not a valid email';
     } else if (errors.noValidPhone) {
-      return 'no valid phone number';
+      return 'not a valid phone number';
     } else if (errors.noMatchingPasswords) {
       return 'passwords don\'t match';
     } else if (errors.minlength) {

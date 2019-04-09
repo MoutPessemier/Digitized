@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
-import { RegisterFormComponent } from '../register-form/register-form.component';
-import { LoginFormComponent } from '../login-form/login-form.component';
+import { RegisterFormComponent } from '../authentication/register-form/register-form.component';
+import { LoginFormComponent } from '../authentication/login-form/login-form.component';
 import { trigger, transition, animate, keyframes } from '@angular/animations';
 //import * as kf from './keyframes';
 

@@ -1,8 +1,7 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
-import { Video } from 'src/video.model';
+import { Component, OnInit, Output } from '@angular/core';
+import { Video } from '../video.model';
 import { Observable } from 'rxjs';
 import { VideoDataService } from '../video-data.service';
-import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-carousel',

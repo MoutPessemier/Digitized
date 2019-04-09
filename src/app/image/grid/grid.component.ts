@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Image } from 'src/image.model';
+import { Image } from '../image.model';
 import { Observable, Subject } from 'rxjs';
 import { ImageDataService } from '../image-data.service';
 import {

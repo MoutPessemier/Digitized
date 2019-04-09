@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Image } from 'src/image.model';
+import { Image } from './image.model';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment.prod';
 import { Observable } from 'rxjs';

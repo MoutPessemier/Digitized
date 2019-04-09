@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
-import { Message } from 'src/message.model';
+import { Message } from '../message.model';
 @Component({
   selector: 'app-contact-form',
   templateUrl: './contact-form.component.html',

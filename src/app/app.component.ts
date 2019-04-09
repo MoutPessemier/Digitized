@@ -1,7 +1,4 @@
 import { Component } from '@angular/core';
-import { ImageDataService } from './image-data.service';
-import { Image } from 'src/image.model';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -11,8 +8,4 @@ import { Observable } from 'rxjs';
 export class AppComponent {
   title = 'Digitized';
   constructor() {}
-
-  // addNewImage(image){
-  //   this._imageDataService
-  // }
 }
