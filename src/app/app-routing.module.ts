@@ -5,12 +5,12 @@ import { ContactFormComponent } from './contact/contact-form/contact-form.compon
 import { GridComponent } from './image/grid/grid.component';
 import { CarouselComponent } from './video/carousel/carousel.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { VideoResolver } from './video/video.resolver';
 
 const appRoutes: Routes = [
   { path: 'contact', component: ContactFormComponent },
   { path: 'grid/images', component: GridComponent },
-  { path: 'carousel/videos', component: CarouselComponent },
-  { path: '', redirectTo: 'image', pathMatch: 'full' },
+  //{ path: '', redirectTo: 'grid/images', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];
 

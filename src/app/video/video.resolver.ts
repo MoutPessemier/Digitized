@@ -18,6 +18,6 @@ export class VideoResolver implements Resolve<Video> {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<Video> {
-    throw new Error('Method not implemented.');
+    return this.videoService.getVideo(1);
   }
 }

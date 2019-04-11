@@ -20,23 +20,12 @@ export class GridComponent implements OnInit {
   private _fetchImages$: Observable<Image[]> = this._imageDataService.images$;
   public breakpoint: number;
   public rowH: number;
+  public loadingErrors$ = this._imageDataService.loadingError$;
 
   constructor(private _imageDataService: ImageDataService) {}
-  // this.filterImage$
-  //   .pipe(
-  //     distinctUntilChanged(),
-  //     debounceTime(400),
-  //     map(val => val.toLowerCase())
-  //   )
-  //   .subscribe(val => (this.countryFilter = val));
-  // }
-
-  // get images$(): Observable<Image[]> {
-  //   return this._fetchImages$;
-  // }
 
   get images$(): Observable<Image[]> {
-    return this._fetchImages$.pipe();
+    return this._fetchImages$;
   }
 
   ngOnInit() {

@@ -19,14 +19,16 @@
       <input matInput aria-label="Email" placeholder="Email" type="text" formControlName="email" class="browser-default"
         required />
       <mat-error *ngIf="register.get('email')['errors'] && register.get('email').touched">
-        {{ getErrorMessage(register.get('email')['errors']) }}
+        <!-- {{ getErrorMessage(register.get('email')['errors']) }} -->
+        {{ getErrorMessage(register.errors) }}
       </mat-error>
     </mat-form-field>
     <mat-form-field>
       <input matInput aria-label="Phone" placeholder="Phone" type="text" formControlName="phone" class="browser-default"
         required />
       <mat-error *ngIf="register.get('phone')['errors'] && register.get('phone').touched">
-        {{ getErrorMessage(register.get('phone')['errors']) }}
+        <!-- {{ getErrorMessage(register.get('phone')['errors']) }} -->
+        {{ getErrorMessage(register.errors) }}
       </mat-error>
     </mat-form-field>
     <mat-form-field>
@@ -44,7 +46,8 @@
       <input matInput aria-label="Confirmation Password" placeholder="Confirmation Password" type="password"
         formControlName="passwordConfirmation" class="browser-default" required />
       <mat-error *ngIf="register.get('passwordConfirmation')['errors'] && register.get('passwordConfirmation').touched">
-        {{ getErrorMessage(register.get('passwordConfirmation')['errors']) }}
+        <!-- {{ getErrorMessage(register.get('passwordConfirmation')['errors']) }} -->
+        {{ getErrorMessage(register.errors) }}
       </mat-error>
     </mat-form-field>
     <div class="buttonDiv">

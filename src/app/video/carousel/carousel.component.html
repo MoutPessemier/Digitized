@@ -1,31 +1,11 @@
-<!-- <h3>Photography</h3>
-<mat-card>
-  <mat-card-header>
-    <mat-card-title>
-      <mat-icon>location_on</mat-icon>Country
-    </mat-card-title>
-    <mat-card-subtitle>{{ date | date: 'MM/yyyy'}}</mat-card-subtitle>
-  </mat-card-header>
-  <mat-card-content> -->
-<!--carousel-->
-<!-- <p>here comes the carousel</p>
-</mat-card-content>
-<mat-card-actions>
-  <button mat-raised-button color="accent" (click)="previous()">Previous</button>
-  <button mat-raised-button color="primary" (click)="next()">Next</button>
-</mat-card-actions>
-</mat-card>  -->
-
 <div class="body">
   <h3>B-roll & Timelapse</h3>
   <div class="container">
     <div class="left navigator" (click)="previous()">
-      <!--left arrow-->
       <a class="btn-floating btn-small waves-circle waves-light"><i class="material-icons">keyboard_arrow_left</i></a>
     </div>
     <app-video [video]="currentVid"></app-video>
     <div class="right navigator" (click)="next()">
-      <!--right arrow-->
       <a class="btn-floating btn-small waves-circle waves-light"><i class="material-icons">keyboard_arrow_right</i></a>
     </div>
   </div>

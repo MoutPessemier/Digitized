@@ -64,14 +64,14 @@ export class RegisterFormComponent implements OnInit {
   getErrorMessage(errors: any) {
     if (errors.required) {
       return 'is required';
+    } else if (errors.minlength) {
+      return `need at least ${errors.minlength.requiredLength} characters`;
     } else if (errors.noValidEmail) {
       return 'not a valid email';
     } else if (errors.noValidPhone) {
       return 'not a valid phone number';
     } else if (errors.noMatchingPasswords) {
       return 'passwords don\'t match';
-    } else if (errors.minlength) {
-      return `need at least ${errors.minlength.requiredLength} characters`;
     }
   }
 

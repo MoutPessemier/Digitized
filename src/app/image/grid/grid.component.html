@@ -4,10 +4,23 @@
     <input matInput placeholder="Country" type="text" #displayImageFilter
       (keyup)="filterImage$.next($event.target.value)" class="browser-default">
   </mat-form-field> -->
-  <mat-grid-list [cols]="breakpoint" gutterSize=" 5px" [rowHeight]="rowH" (window:resize)="onResize($event)">
-    <mat-grid-tile *ngFor="let image of (images$ | async)">
-      <!-- | displayImageFilter : countryFilter )"> -->
-      <app-image [image]="image"></app-image>
-    </mat-grid-tile>
-  </mat-grid-list>
+  <div *ngIf="(images$ | async) as images">
+    <mat-grid-list [cols]="breakpoint" gutterSize=" 5px" [rowHeight]="rowH" (window:resize)="onResize($event)">
+      <mat-grid-tile *ngFor="let image of images">
+        <!-- | displayImageFilter : countryFilter )"> -->
+        <app-image [image]="image"></app-image>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
 </div>
+<ng-template #loadingOrError>
+  <mat-card>
+    <mat-error *ngIf="(loadingError$ | async) as errorMessage; else loading">
+      Error loading the recipe list: {{ errorMessage }}. <br />Please try
+      again later.
+    </mat-error>
+    <ng-template #loading>
+      <mat-spinner></mat-spinner>
+    </ng-template>
+  </mat-card>
+</ng-template>

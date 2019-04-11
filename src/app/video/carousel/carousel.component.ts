@@ -2,6 +2,7 @@ import { Component, OnInit, Output } from '@angular/core';
 import { Video } from '../video.model';
 import { Observable } from 'rxjs';
 import { VideoDataService } from '../video-data.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-carousel',
@@ -14,15 +15,15 @@ export class CarouselComponent implements OnInit {
   private _index = 0;
   private _fetchVideos$: Observable<Video[]> = this._videoDataService.videos$;
 
-  constructor(private _videoDataService: VideoDataService) {
+  constructor(
+    private _videoDataService: VideoDataService,
+    private route: ActivatedRoute
+  ) {
     this._videoDataService.videos$.subscribe(vids => (this._videos = vids));
-    // this.currentVid = this.videos$.pipe(first())[0];
-    // this.fillCurrentVideo();
+    this.route.data.subscribe(item => (this.currentVid = item['video']));
   }
 
-  ngOnInit() {
-    //this.fillCurrentVideo();
-  }
+  ngOnInit() {}
 
   get videos$(): Observable<Video[]> {
     return this._fetchVideos$;
@@ -42,6 +43,7 @@ export class CarouselComponent implements OnInit {
         (this._index - 1 + this._videos.length) % this._videos.length;
     } else {
       this._index = 0;
+      this.fillCurrentVideo();
     }
     console.log(this.currentVid);
     this.currentVid = this._videos[this._index];
@@ -52,6 +54,7 @@ export class CarouselComponent implements OnInit {
       this._index = (this._index + 1) % this._videos.length;
     } else {
       this._index = 0;
+      this.fillCurrentVideo();
     }
     console.log(this.currentVid);
     this.currentVid = this._videos[this._index];
