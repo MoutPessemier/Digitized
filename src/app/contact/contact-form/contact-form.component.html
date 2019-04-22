@@ -1,22 +1,49 @@
 <div class="body">
+  <h3>Send me a message!</h3>
   <div class="container">
     <form [formGroup]="contact" (ngSubmit)="onSubmit()">
       <mat-form-field>
         <mat-label>Topic</mat-label>
-        <mat-select placeholder="Topic" aria-label="Topic" formControlName="topic" class="browser-default">
+        <mat-select
+          placeholder="Topic"
+          aria-label="Topic"
+          formControlName="topic"
+          class="browser-default"
+        >
           <mat-option *ngFor="let topic of contactTypes" [value]="topic">
-            {{topic}}
+            {{ topic }}
           </mat-option>
         </mat-select>
-        <mat-error *ngIf="contact.get('topic')['errors'] && contact.get('topic').touched">
+        <mat-error
+          *ngIf="contact.get('topic')['errors'] && contact.get('topic').touched"
+        >
           {{ getErrorMessage(contact.get('topic')['errors']) }}
         </mat-error>
       </mat-form-field>
       <mat-form-field>
-        <textarea matInput placeholder="Message" aria-label="Message" formControlName="message"
-          class="browser-default"></textarea>
+        <textarea
+          matInput
+          placeholder="Message"
+          aria-label="Message"
+          formControlName="message"
+          class="browser-default"
+        ></textarea>
       </mat-form-field>
-      <button mat-button type="submit" [disabled]="!contact.valid">Send <mat-icon>send</mat-icon></button>
+      <button mat-button type="submit" [disabled]="!contact.valid">
+        Send <mat-icon>send</mat-icon>
+      </button>
     </form>
   </div>
 </div>
+
+<!-- <h3>Send me a message!</h3>
+<div class="container">
+  <form [formGroup]="contact" (ngSubmit)="onSubmit()">
+    <div class="input-field">
+      <select aria-placeholder="Topic" formControlName="topic">
+        <option disabled selected>Topic</option>
+        <option *ngFor="let topic of contactTypes" [value]="topic"></option>
+      </select>
+    </div>
+  </form>
+</div> -->

@@ -6,7 +6,7 @@ export class Image {
     private _aperture: string,
     private _country: string,
     private _likes: number,
-    private _content: string
+    private _path: string
   ) {}
 
   get name(): string {
@@ -17,7 +17,7 @@ export class Image {
     return this._iso;
   }
 
-  get shutter(): string {
+  get shutterSpeed(): string {
     return this._shutter;
   }
 
@@ -33,8 +33,8 @@ export class Image {
     return this._likes;
   }
 
-  get content(): string {
-    return this._content;
+  get path(): string {
+    return this._path;
   }
 
   set likes(value: number) {
@@ -49,7 +49,7 @@ export class Image {
       json.aperture,
       json.country,
       json.likes,
-      json.content
+      json.path
     );
   }
 }

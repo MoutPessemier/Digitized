@@ -1,12 +1,26 @@
 <div class="body">
   <h3>B-roll & Timelapse</h3>
   <div class="container">
-    <div class="left navigator" (click)="previous()">
-      <a class="btn-floating btn-small waves-circle waves-light"><i class="material-icons">keyboard_arrow_left</i></a>
-    </div>
-    <app-video [video]="currentVid"></app-video>
-    <div class="right navigator" (click)="next()">
-      <a class="btn-floating btn-small waves-circle waves-light"><i class="material-icons">keyboard_arrow_right</i></a>
+    <div *ngIf="(videos$|async) as videos">
+      <div class="left navigator" (click)="previous()">
+        <a class="btn-floating btn-small waves-circle waves-light"><i class="material-icons">keyboard_arrow_left</i></a>
+      </div>
+      <app-video [video]="currentVid" data-cy="videoComponent"></app-video>
+      <div class="right navigator" (click)="next()">
+        <a class="btn-floating btn-small waves-circle waves-light"><i
+            class="material-icons">keyboard_arrow_right</i></a>
+      </div>
     </div>
   </div>
 </div>
+<ng-template #loadingOrError>
+  <mat-card>
+    <mat-error *ngIf="(loadingError$ | async) as errorMessage; else loading">
+      Error loading the video carousel: {{ errorMessage }}. <br />Please try again
+      later.
+    </mat-error>
+    <ng-template #loading>
+      <mat-spinner></mat-spinner>
+    </ng-template>
+  </mat-card>
+</ng-template>

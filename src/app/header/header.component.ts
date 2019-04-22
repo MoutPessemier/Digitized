@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { RegisterFormComponent } from '../authentication/register-form/register-form.component';
 import { LoginFormComponent } from '../authentication/login-form/login-form.component';
-import { trigger, transition, animate, keyframes } from '@angular/animations';
+//import { trigger, transition, animate, keyframes } from '@angular/animations';
+import { Image } from '../image/image.model';
+import { ActivatedRoute } from '@angular/router';
+import { ImageDataService } from '../image/image-data.service';
 //import * as kf from './keyframes';
 
 @Component({
@@ -16,14 +19,26 @@ import { trigger, transition, animate, keyframes } from '@angular/animations';
   // ]
 })
 export class HeaderComponent implements OnInit {
-  animationState: string;
-  constructor(public dialog: MatDialog) {}
-
-  ngOnInit() {}
-
-  sideNav() {
-    console.log('sideNav');
+  public animationState: string;
+  public image: Image;
+  public loadComponent: boolean;
+  constructor(
+    public dialog: MatDialog,
+    private _route: ActivatedRoute,
+    private _imageService: ImageDataService
+  ) {
+    //this.loadComponent = false;
+    //_route.data.subscribe(item => (this.image = item));
   }
+
+  ngOnInit() {
+    if (window.innerWidth <= 992) {
+      this.loadComponent = true;
+    } else {
+      this.loadComponent = false;
+    }
+  }
+
   openDialogLogin(): void {
     const dialogRef = this.dialog.open(LoginFormComponent, {
       width: '300px'
@@ -40,7 +55,6 @@ export class HeaderComponent implements OnInit {
 
   startAnimation(state: string) {
     console.log(state);
-    //make sure you don't use multiple at ones
     if (!this.animationState) {
       this.animationState = state;
     }
@@ -48,5 +62,13 @@ export class HeaderComponent implements OnInit {
 
   resetAnimationState() {
     this.animationState = '';
+  }
+
+  showSideNav(event) {
+    if (window.innerWidth <= 992) {
+      this.loadComponent = true;
+    } else {
+      this.loadComponent = false;
+    }
   }
 }

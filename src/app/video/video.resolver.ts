@@ -18,6 +18,6 @@ export class VideoResolver implements Resolve<Video> {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<Video> {
-    return this.videoService.getVideo(1);
+    return this.videoService.getVideo$(1);
   }
 }

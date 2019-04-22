@@ -33,12 +33,12 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     BrowserAnimationsModule,
     ReactiveFormsModule,
     AngularFontAwesomeModule,
-    AppRoutingModule,
     ImageModule,
     VideoModule,
     MaterialModule,
     AuthenticationModule,
-    ContactModule
+    ContactModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

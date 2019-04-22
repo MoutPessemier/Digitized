@@ -1,38 +1,25 @@
 .container {
   padding: 5% 0 12% 0;
+  display: flex;
+  justify-content: center;
 }
 
 button {
   margin-top: 1%;
-  width: 40%;
   background-color: var(--darkTheme1);
   color: var(--swampGreen);
+  width: 300px;
 }
 
 mat-form-field {
   color: var(--swampGreen);
-}
-
-mat-select {
-  width: 200px !important;
-}
-
-button {
-  width: 300px;
+  display: block;
 }
 
 mat-option {
-  color: var(--darkTheme1);
-  background-color: var(--swampGreen);
+  color: var(--lightBlue);
 }
 
-mat-option:hover,
-mat-option:active,
-mat-option:focus {
-  background-color: var(--swampGreen) !important;
-}
-
-mat-form-field,
 mat-select {
   color: var(--darkTheme1) !important;
   width: 300px;
@@ -40,10 +27,25 @@ mat-select {
 }
 
 textarea {
-  height: 15px;
+  height: 90px;
   width: 300px;
+  display: block;
+  color: var(--darkTheme1) !important;
 }
 
 form {
   text-align: center;
+}
+
+h3 {
+  text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+  button {
+    margin-bottom: 18%;
+  }
+  .container {
+    margin-bottom: 25%;
+  }
 }

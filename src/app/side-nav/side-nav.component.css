@@ -1,0 +1,8 @@
+button {
+  color: var(--darkTheme1);
+  background-color: var(--filfthyYellow);
+}
+
+.mat-sidenav-container {
+  max-width: 150px !important;
+}

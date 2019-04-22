@@ -8,7 +8,7 @@ import { VideoResolver } from './video.resolver';
 
 const appRoutes: Routes = [
   {
-    path: 'carousel',
+    path: '',
     component: CarouselComponent,
     resolve: { video: VideoResolver }
   }

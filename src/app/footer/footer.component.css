@@ -21,3 +21,7 @@ a:focus {
 a:hover {
   background-color: var(--neonGreen);
 }
+
+footer {
+  box-shadow: 0px -3px 7px var(--darkTheme1);
+}

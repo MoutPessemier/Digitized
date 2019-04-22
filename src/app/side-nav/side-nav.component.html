@@ -5,6 +5,7 @@
     <mat-nav-list>
       <a mat-list-item [routerLink]="['']">Photography</a>
       <a mat-list-item [routerLink]="['']">B-roll & Timelapse</a>
+      <a mat-list-item [routerLink]="['']">Contact</a>
       <a mat-list-item [routerLink]="['']">Login</a>
       <a mat-list-item [routerLink]="['']">Register</a>
     </mat-nav-list>
@@ -14,8 +15,31 @@
       <button [...]>
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>recipeapp</span>
+<span>Digitized</span>
     </mat-toolbar>
     <ng-content></ng-content>
   </mat-sidenav-content>
 </mat-sidenav-container> -->
+
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport="true"
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="!(isHandset$ | async)"
+  >
+    <mat-nav-list>
+      <a mat-list-item [routerLink]="['images']">Photography</a>
+      <a mat-list-item [routerLink]="['videos']">B-roll & Timelapse</a>
+      <a mat-list-item [routerLink]="['contact']">Contact</a>
+      <a mat-list-item (click)="openDialogLogin()">Login</a>
+      <a mat-list-item (click)="openDialogRegister()">Register</a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <button mat-icon-button>
+    <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+  </button>
+</mat-sidenav-container>

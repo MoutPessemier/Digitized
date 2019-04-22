@@ -17,7 +17,7 @@ export class VideoDataService {
       .pipe(map((list: any[]): Video[] => list.map(Video.fromJson)));
   }
 
-  getVideo(id: number): Observable<Video> {
+  getVideo$(id: number): Observable<Video> {
     return this.http
       .get(`${environment.apiUrl}/videos/${id}`)
       .pipe(map((item: any): Video => Video.fromJson(item)));

@@ -1,14 +1,9 @@
 <div class="body">
   <h3>Photography</h3>
-  <!-- <mat-form-field>
-    <input matInput placeholder="Country" type="text" #displayImageFilter
-      (keyup)="filterImage$.next($event.target.value)" class="browser-default">
-  </mat-form-field> -->
   <div *ngIf="(images$ | async) as images">
     <mat-grid-list [cols]="breakpoint" gutterSize=" 5px" [rowHeight]="rowH" (window:resize)="onResize($event)">
       <mat-grid-tile *ngFor="let image of images">
-        <!-- | displayImageFilter : countryFilter )"> -->
-        <app-image [image]="image"></app-image>
+        <app-image [image]="image" data-cy="imageComponent"></app-image>
       </mat-grid-tile>
     </mat-grid-list>
   </div>
@@ -16,8 +11,8 @@
 <ng-template #loadingOrError>
   <mat-card>
     <mat-error *ngIf="(loadingError$ | async) as errorMessage; else loading">
-      Error loading the recipe list: {{ errorMessage }}. <br />Please try
-      again later.
+      Error loading the image grid: {{ errorMessage }}. <br />Please try again
+      later.
     </mat-error>
     <ng-template #loading>
       <mat-spinner></mat-spinner>

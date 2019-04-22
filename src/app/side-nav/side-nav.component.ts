@@ -1,32 +1,29 @@
 import { Component, OnInit } from '@angular/core';
-// import { trigger, transition, animate, keyframes } from '@angular/animations';
-// import * as kf from './keyframes';
+import { LoginFormComponent } from '../authentication/login-form/login-form.component';
+import { RegisterFormComponent } from '../authentication/register-form/register-form.component';
+import { MatDialog } from '@angular/material';
+
 @Component({
   selector: 'app-side-nav',
   templateUrl: './side-nav.component.html',
   styleUrls: ['./side-nav.component.css']
-  // animations: [
-  //   trigger('sideNavAnimator', [
-  //     transition('* =>', animate(1000, keyframes(kf.slideInLeft)))
-  //   ])
-  // ]
 })
 export class SideNavComponent implements OnInit {
-  // animationState: string;
-
-  constructor() {}
+  constructor(public dialog: MatDialog) {}
 
   ngOnInit() {}
 
-  // startAnimation(state: string) {
-  //   console.log(state);
-  //   //make sure you don't use multiple at ones
-  //   if (!this.animationState) {
-  //     this.animationState = state;
-  //   }
-  // }
+  openDialogLogin(): void {
+    const dialogRef = this.dialog.open(LoginFormComponent, {
+      width: '300px'
+    });
+    // dialogRef.afterClosed.subscribe(result => {});
+  }
 
-  // resetAnimationState() {
-  //   this.animationState = '';
-  // }
+  openDialogRegister(): void {
+    const dialogRef = this.dialog.open(RegisterFormComponent, {
+      width: '300px'
+    });
+    //dialogRef.afterClosed.subscribe(result => {});
+  }
 }

@@ -1,27 +1,40 @@
 <header>
+  <!-- <img [src]="'data:image/jpg;base64,'+image.content"> -->
   <div class="navbar-fixed">
     <nav class="nav-wrapper">
       <a href="#!" class="brand-logo center">
-        <img src="../../assets/images/Logo.png" alt="logo" class="logo center hide-on-large-only" />
+        <img
+          src="../../assets/images/Logo.png"
+          alt="logo"
+          class="logo center hide-on-large-only"
+        />
         <span class="BrandName hide-on-med-and-down">Digitized</span>
       </a>
 
-      <a href="#" class="sidenav-trigger" (click)="sideNav()">
+      <!-- <a href="#" class="sidenav-trigger" (click)="sideNav()">
         <i class="material-icons">menu</i>
-      </a>
+      </a> -->
+
+      <app-side-nav
+        data-cy="sideNavComponent"
+        class="hide-on-large-only"
+      ></app-side-nav>
 
       <ul class="left hide-on-med-and-down">
-        <li><a class="navOption" [routerLink]="['grid/images']">Photography</a></li>
+        <li><a class="navOption" [routerLink]="['images']">Photography</a></li>
         <!-- <li><a class="navOption">Digital Art</a></li> -->
-        <li><a class="navOption" [routerLink]="['carousel/videos']">B-roll & Timelapse</a></li>
+        <li>
+          <a class="navOption" [routerLink]="['videos']">B-roll & Timelapse</a>
+        </li>
         <li><a class="navOption" [routerLink]="['contact']">Contact</a></li>
       </ul>
       <ul class="right hide-on-med-and-down">
         <li><a class="navOption" (click)="openDialogLogin()">Login</a></li>
-        <li><a class="navOption" (click)="openDialogRegister()">Register</a></li>
+        <li>
+          <a class="navOption" (click)="openDialogRegister()">Register</a>
+        </li>
       </ul>
     </nav>
   </div>
 </header>
 <ng-content></ng-content>
-<!-- data-target="mobileNav" -->
