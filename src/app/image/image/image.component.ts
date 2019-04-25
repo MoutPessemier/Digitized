@@ -9,23 +9,24 @@ import { Image } from '../image.model';
 export class ImageComponent implements OnInit {
   private _icon: string;
   @Input('image') public image: Image;
+  public switch: boolean;
 
   constructor() {
     this._icon = 'favorite_border';
+    this.switch = true;
   }
 
   ngOnInit() {}
 
-  like() {
-    if (this._icon === 'favorite_border') {
-      this._icon = 'favorite';
-      this.image.likes++;
-    } else {
-      this._icon = 'favorite_border';
-      this.image.likes--;
-    }
-    console.log(this._icon);
-  }
+  // like() {
+  //   if (this._icon === 'favorite_border') {
+  //     this._icon = 'favorite';
+  //     this.image.likes++;
+  //   } else {
+  //     this._icon = 'favorite_border';
+  //     this.image.likes--;
+  //   }
+  // }
 
   get icon(): string {
     return this._icon;

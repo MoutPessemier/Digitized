@@ -12,10 +12,20 @@
       <span class="card-title">{{ image.country }}</span
       ><span class="right">{{ image.likes }}</span>
       <span class="content">
-        <h5>Specifications</h5>
-        <p>ISO: {{ image.iso }}</p>
-        <p>Shutter Speed: {{ image.shutterSpeed }}</p>
-        <p>Aperture: {{ image.aperture }}</p>
+        <div>
+          <a><mat-icon>list_alt</mat-icon></a>
+          <a><mat-icon>chat</mat-icon></a>
+        </div>
+        <!-- via subrouting het ene of het andere erin zetten -->
+        <!-- <div *ngFor="let comment of image.comments">
+          <app-comment [comment]="comment"></app-comment>
+        </div> -->
+        <!-- <div>
+          <h5>Specifications</h5>
+          <p>ISO: {{ image.iso }}</p>
+          <p>Shutter Speed: {{ image.shutterSpeed }}</p>
+          <p>Aperture: {{ image.aperture }}</p>
+        </div> -->
       </span>
     </div>
   </div>

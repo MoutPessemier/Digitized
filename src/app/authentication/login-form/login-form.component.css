@@ -1,14 +1,15 @@
 h3 {
   font-family: var(--headerFont);
+  color: var(--ligthTheme);
 }
 
 mat-form-field {
   width: 250px;
 }
 
-button[type="submit"],
-button[type="submit"]:hover,
-button[type="submit"]:active {
+button[type='submit'],
+button[type='submit']:hover,
+button[type='submit']:active {
   margin-left: 100px;
   background-color: var(--neonGreen);
 }
@@ -18,7 +19,7 @@ button {
 }
 
 input {
-  color: var(--ligthTheme)
+  color: var(--ligthTheme);
 }
 
 .buttonDiv {

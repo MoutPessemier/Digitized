@@ -17,7 +17,7 @@ export class ImageDataService {
     return this.http.get(`${environment.apiUrl}/images/`).pipe(
       catchError(error => {
         this.loadingError$.next(error.statusText);
-        return of();
+        return of(null);
       }),
       map((list: any[]): Image[] => list.map(Image.fromJson)),
       map(imgs =>

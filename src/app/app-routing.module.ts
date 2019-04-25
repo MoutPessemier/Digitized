@@ -14,8 +14,7 @@ const appRoutes: Routes = [
   declarations: [],
   imports: [
     RouterModule.forRoot(appRoutes, {
-      preloadingStrategy: PreloadAllModules,
-      enableTracing: true
+      preloadingStrategy: PreloadAllModules
     }),
     CommonModule
   ],

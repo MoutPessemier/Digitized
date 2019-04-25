@@ -1,13 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Image } from '../image.model';
 import { Observable, Subject } from 'rxjs';
 import { ImageDataService } from '../image-data.service';
-import {
-  distinctUntilChanged,
-  debounceTime,
-  map,
-  filter
-} from 'rxjs/operators';
 
 @Component({
   selector: 'app-grid',

@@ -14,6 +14,7 @@ export class CarouselComponent implements OnInit {
   @Output() public currentVid: Video;
   private _index = 0;
   private _fetchVideos$: Observable<Video[]> = this._videoDataService.videos$;
+  public loadingErrors$ = this._videoDataService.loadingError$;
 
   constructor(
     private _videoDataService: VideoDataService,

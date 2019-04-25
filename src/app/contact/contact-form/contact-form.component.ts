@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Message } from '../message.model';
 import { MatSnackBar } from '@angular/material';
+import { MessageService } from '../message.service';
 
 @Component({
   selector: 'app-contact-form',
@@ -12,8 +13,14 @@ export class ContactFormComponent implements OnInit {
   public contact: FormGroup;
   @Output() public newMessage = new EventEmitter<Message>();
   public readonly contactTypes = ['Question', 'Service', 'Feedback', 'Other'];
+  private _createdMessage: Message;
+  private _succes: boolean;
 
-  constructor(private fb: FormBuilder, private _snackBar: MatSnackBar) {}
+  constructor(
+    private fb: FormBuilder,
+    private _snackBar: MatSnackBar,
+    private _messageService: MessageService
+  ) {}
 
   ngOnInit() {
     this.contact = this.fb.group({
@@ -24,9 +31,20 @@ export class ContactFormComponent implements OnInit {
 
   onSubmit() {
     this.newMessage.emit(
-      new Message(this.contact.value.topic, this.contact.value.message)
+      (this._createdMessage = new Message(
+        this.contact.value.topic,
+        this.contact.value.message
+      ))
     );
-    this.openSnackBar('Messages succesfully sent!');
+    this._messageService
+      .sendMessage(this._createdMessage)
+      .subscribe(val => (this._succes = val));
+    if (this._succes) {
+      this.openSnackBar('Messages succesfully sent!');
+    } else {
+      this.openSnackBar('Something went wrong!');
+    }
+
     this.contact.reset();
   }
 

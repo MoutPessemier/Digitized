@@ -1,5 +1,5 @@
 .btn-floating {
-  background-color: var(--darkTheme2)
+  background-color: var(--darkTheme2);
 }
 
 .card-title {
@@ -12,5 +12,5 @@
 }
 
 .card-content {
-  height: 185px;
+  height: 250px;
 }

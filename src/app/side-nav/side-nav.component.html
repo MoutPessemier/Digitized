@@ -23,7 +23,7 @@
 
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav
-    #drawer
+    #sidenav
     class="sidenav"
     fixedInViewport="true"
     [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
@@ -39,7 +39,7 @@
     </mat-nav-list>
   </mat-sidenav>
 
-  <button mat-icon-button>
-    <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-  </button>
+  <button mat-icon-button (click)="sidenav.toggle()">
+    <mat-icon aria-label="Side nav toggle icon">menu</mat-icon></button
+  ><span class="brandName">Digitized</span>
 </mat-sidenav-container>
