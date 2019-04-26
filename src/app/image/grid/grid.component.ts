@@ -32,11 +32,11 @@ export class GridComponent implements OnInit {
     }
 
     if (window.innerWidth <= 600) {
-      this.rowH = 550;
+      this.rowH = 425;
     } else if (window.innerWidth <= 1050) {
-      this.rowH = 450;
+      this.rowH = 350;
     } else {
-      this.rowH = 500;
+      this.rowH = 400;
     }
   }
 
@@ -50,11 +50,11 @@ export class GridComponent implements OnInit {
     }
 
     if (window.innerWidth <= 600) {
-      this.rowH = 550;
+      this.rowH = 425;
     } else if (window.innerWidth <= 1050) {
-      this.rowH = 450;
+      this.rowH = 350;
     } else {
-      this.rowH = 500;
+      this.rowH = 400;
     }
   }
 }

@@ -1,5 +1,6 @@
 .brandName {
   color: var(--ligthTheme);
+  font-family: var(--headerFont);
 }
 
 .navOption {
@@ -23,8 +24,4 @@
 nav {
   background-color: var(--darkTheme2);
   box-shadow: 0px 3px 7px var(--darkTheme1);
-}
-
-app-side-nav {
-  max-width: 150px !important;
 }

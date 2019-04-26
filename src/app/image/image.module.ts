@@ -6,7 +6,7 @@ import { MaterialModule } from '../material/material.module';
 import { Routes, RouterModule } from '@angular/router';
 import { CommentComponent } from './comment/comment.component';
 
-const appRoutes: Routes = [{ path: '', component: GridComponent }];
+const appRoutes: Routes = [{ path: 'images', component: GridComponent }];
 
 @NgModule({
   declarations: [ImageComponent, GridComponent, CommentComponent],

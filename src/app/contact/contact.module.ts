@@ -7,7 +7,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 const appRoutes: Routes = [
   {
-    path: '',
+    path: 'mail',
     component: ContactFormComponent
   }
 ];

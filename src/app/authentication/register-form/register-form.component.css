@@ -11,7 +11,7 @@ button {
 
 h3 {
   font-family: var(--headerFont);
-  color: var(--ligthTheme);
+  /* color: var(--ligthTheme); */
 }
 
 mat-form-field {
@@ -22,6 +22,6 @@ mat-form-field {
   margin-top: 5%;
 }
 
-input {
+/* input {
   color: var(--ligthTheme);
-}
+} */

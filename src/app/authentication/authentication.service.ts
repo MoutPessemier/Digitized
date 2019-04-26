@@ -55,9 +55,25 @@ export class AuthenticationService {
       );
   }
 
-  register(email: string, password: string): Observable<boolean> {
+  register(
+    email: string,
+    password: string,
+    firstName: string,
+    lastName: string,
+    phoneNumber: string,
+    passwordConfirmation: string,
+    country: string = null
+  ): Observable<boolean> {
     return this._http
-      .post(`${environment.apiUrl}/account/register`, { email, password })
+      .post(`${environment.apiUrl}/account/register`, {
+        email,
+        password,
+        firstName,
+        lastName,
+        phoneNumber,
+        country,
+        passwordConfirmation
+      })
       .pipe(
         map((token: any) => {
           if (token) {

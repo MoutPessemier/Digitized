@@ -46,7 +46,7 @@ mat-sidenav-content,
   z-index: 1 !important;
 }
 
-.mat-dialog-container {
+/* .mat-dialog-container {
   background-color: var(--darkTheme2);
 }
 
@@ -54,4 +54,4 @@ mat-sidenav-content,
 .mat-form-field-underline:active,
 .mat-form-field-underline:focus {
   background-color: var(--ligthTheme) !important;
-}
+} */

@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
+import {
+  FormBuilder,
+  FormGroup,
+  Validators,
+  AbstractControl
+} from '@angular/forms';
+import { AuthenticationService } from '../authentication.service';
 
 function validateEmail(control: FormGroup): { [key: string]: any } {
   if (control.get('email').touched) {
@@ -13,6 +17,7 @@ function validateEmail(control: FormGroup): { [key: string]: any } {
   }
   return null;
 }
+
 function validatePhone(control: FormGroup): { [key: string]: any } {
   var phoneReg = /^0{0,2}(9[976]\d|8[987530]\d|6[987]\d|5[90]\d|42\d|3[875]\d|2[98654321]\d|9[8543210]|8[6421]|6[6543210]|5[87654321]|4[987654310]|3[9643210]|2[70]|7|1)\d{7,14}$/;
   if (!phoneReg.test(control.get('phone').value)) {
@@ -21,13 +26,10 @@ function validatePhone(control: FormGroup): { [key: string]: any } {
   return null;
 }
 
-function validatePassword(control: FormGroup): { [key: string]: any } {
-  if (
-    control.get('password').value !== control.get('passwordConfirmation').value
-  ) {
-    return { noMatchingPasswords: true };
-  }
-  return null;
+function comparePasswords(control: AbstractControl): { [key: string]: any } {
+  const pass = control.get('password');
+  const confPass = control.get('passwordConfirmation');
+  return pass.value === confPass.value ? null : { passwordDiffer: true };
 }
 
 @Component({
@@ -40,7 +42,7 @@ export class RegisterFormComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<RegisterFormComponent>,
     private fb: FormBuilder,
-    private http: HttpClient
+    private authenticationService: AuthenticationService
   ) {
     this.register = this.fb.group(
       {
@@ -49,13 +51,18 @@ export class RegisterFormComponent implements OnInit {
         email: ['', [Validators.required, Validators.minLength(5)]],
         phone: ['', [Validators.required, Validators.minLength(8)]],
         country: [''],
-        password: ['', [Validators.required, Validators.minLength(5)]],
-        passwordConfirmation: [
-          '',
-          [Validators.required, Validators.minLength(5)]
-        ]
+        passwordGroup: this.fb.group(
+          {
+            password: ['', [Validators.required, Validators.minLength(5)]],
+            passwordConfirmation: [
+              '',
+              [Validators.required, Validators.minLength(5)]
+            ]
+          }
+          // ,          { validator: comparePasswords }
+        )
       },
-      { validators: [validatePassword, validateEmail, validatePhone] }
+      { validators: [validateEmail, validatePhone] }
     );
   }
 
@@ -70,7 +77,7 @@ export class RegisterFormComponent implements OnInit {
       return 'not a valid email';
     } else if (errors.noValidPhone) {
       return 'not a valid phone number';
-    } else if (errors.noMatchingPasswords) {
+    } else if (errors.passwordDiffer) {
       return 'passwords don\'t match';
     }
   }
@@ -79,17 +86,5 @@ export class RegisterFormComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  onSubmit() {
-    this.http.post(`${environment.apiUrl}/register`, {
-      email: this.register.get('email').value,
-      password: this.register.get('password').value,
-      firstName: this.register.get('firstName').value,
-      lastName: this.register.get('lastName').value,
-      phoneNumber: this.register.get('phone').value,
-      country: this.register.get('country')
-        ? this.register.get('country').value
-        : '',
-      passwordConfirmation: this.register.get('passwordConfirmation').value
-    });
-  }
+  onSubmit() {}
 }

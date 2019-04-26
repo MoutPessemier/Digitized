@@ -11,6 +11,22 @@
   font-family: var(--bodyFont);
 }
 
-.card-content {
-  height: 250px;
+/* .card-content {
+  height: 350px;
+} */
+
+.routerlink {
+  text-decoration: none;
+  color: var(--darkTheme2);
+}
+
+.iconDiv {
+  display: inline-block;
+}
+
+/* .activator {
+  height: 350px;
+} */
+.active {
+  color: var(--neonGreen);
 }

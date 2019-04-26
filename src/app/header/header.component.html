@@ -21,12 +21,18 @@
       ></app-side-nav>
 
       <ul class="left hide-on-med-and-down">
-        <li><a class="navOption" [routerLink]="['images']">Photography</a></li>
+        <li>
+          <a class="navOption" [routerLink]="['grid/images']">Photography</a>
+        </li>
         <!-- <li><a class="navOption">Digital Art</a></li> -->
         <li>
-          <a class="navOption" [routerLink]="['videos']">B-roll & Timelapse</a>
+          <a class="navOption" [routerLink]="['carousel/videos']"
+            >B-roll & Timelapse</a
+          >
         </li>
-        <li><a class="navOption" [routerLink]="['contact']">Contact</a></li>
+        <li>
+          <a class="navOption" [routerLink]="['contact/mail']">Contact</a>
+        </li>
       </ul>
       <ul class="right hide-on-med-and-down">
         <li><a class="navOption" (click)="openDialogLogin()">Login</a></li>

@@ -4,6 +4,16 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
+function validateEmail(control: FormGroup): { [key: string]: any } {
+  if (control.get('email').touched) {
+    var mailReg = /^([a-zA-Z]+[a-zA-Z0-9.\-_éèàùäëïöüâêîôû]*)@([a-z]+)[.]([a-z]+)([.][a-z]+)*$/g;
+    if (!mailReg.test(control.get('email').value)) {
+      return { noValidEmail: true };
+    }
+  }
+  return null;
+}
+
 @Component({
   selector: 'app-login-form',
   templateUrl: './login-form.component.html',
@@ -36,10 +46,5 @@ export class LoginFormComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  onSubmit() {
-    this.http.post(`${environment.apiUrl}/login/`, {
-      email: this.login.get('username').value,
-      password: this.login.get('password').value
-    });
-  }
+  onSubmit() {}
 }
