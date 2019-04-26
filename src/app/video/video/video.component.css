@@ -1,17 +1,7 @@
-/* iframe {
-  width: 50%;
-  height: 50%;
-  margin: 0;
-  padding: 0;
-} */
-
-/* .video-container{
-    
-} */
 .video-container {
   width: 100%;
   height: 100%;
-  margin-bottom: 10%;
-  border: 5px solid var(--filfthyYellow);
+  border: 4px solid var(--darkTheme2);
   border-radius: 1%;
+  display: inline-block;
 }

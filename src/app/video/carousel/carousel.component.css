@@ -8,23 +8,26 @@
 }
 
 .material-icons {
-  color: var(--darkTheme2);
+  color: var(--darkGreen);
 }
-
-.container {
-  display: flex;
-  justify-content: space-between;
-}
-
-app-video {
-  width: 85%;
-  padding-bottom: 2vw;
-}
-
 
 h3 {
   color: var(--darkGreen);
   font-family: var(--headerFont);
   font-size: 300%;
   text-align: center;
+}
+
+.vidDiv {
+  margin: 7% 0;
+}
+.videoControls {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3%;
+}
+
+.controls {
+  padding: 0 15%;
+  background-color: var(--darkTheme2);
 }

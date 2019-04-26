@@ -1,24 +1,24 @@
 <div class="body">
   <h3>B-roll & Timelapse</h3>
   <div class="container">
-    <div *ngIf="(videos$ | async) as videos; else loadingOrError">
-      <div class="left navigator" (click)="previous()">
-        <a class="btn-floating btn-small waves-circle waves-light"
-          ><i class="material-icons">keyboard_arrow_left</i></a
-        >
-      </div>
-      <app-video [video]="currentVid" data-cy="videoComponent"></app-video>
-      <div class="right navigator" (click)="next()">
-        <a class="btn-floating btn-small waves-circle waves-light"
-          ><i class="material-icons">keyboard_arrow_right</i></a
-        >
+    <div *ngIf="videos$ | async as videos; else loadingOrError">
+      <div class="vidDiv">
+        <app-video [video]="currentVid"></app-video>
+        <div class="videoControls">
+          <a mat-raised-button (click)="previous()" class="controls">
+            <i class="material-icons">keyboard_arrow_left</i>
+          </a>
+          <a mat-raised-button (click)="next()" class="controls">
+            <i class="material-icons">keyboard_arrow_right</i>
+          </a>
+        </div>
       </div>
     </div>
   </div>
 </div>
 <ng-template #loadingOrError>
   <mat-card>
-    <mat-error *ngIf="(loadingError$ | async) as errorMessage; else loading">
+    <mat-error *ngIf="loadingError$ | async as errorMessage; else loading">
       Error loading the recipe list: {{ errorMessage }}. <br />
       Please try again later.
     </mat-error>

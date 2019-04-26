@@ -1,7 +1,5 @@
 <div class="video-container">
-  <iframe frameborder="0" allowfullscreen src="video.url">
+  <iframe frameborder="0" allowfullscreen [src]="video.url | safe">
     <p>Your browser does not support iframes.</p>
   </iframe>
 </div>
-
-<!-- [src]="video.url" -->
