@@ -51,8 +51,8 @@
       <mat-error
         *ngIf="register.get('email')['errors'] && register.get('email').touched"
       >
-        <!-- {{ getErrorMessage(register.get('email')['errors']) }} -->
-        {{ getErrorMessage(register.errors) }}
+        {{ getErrorMessage(register.get('email')['errors']) }}
+        <!-- {{ getErrorMessage(register.errors) }} -->
       </mat-error>
     </mat-form-field>
     <mat-form-field>
@@ -68,8 +68,8 @@
       <mat-error
         *ngIf="register.get('phone')['errors'] && register.get('phone').touched"
       >
-        <!-- {{ getErrorMessage(register.get('phone')['errors']) }} -->
-        {{ getErrorMessage(register.errors) }}
+        {{ getErrorMessage(register.get('phone')['errors']) }}
+        <!-- {{ getErrorMessage(register.errors) }} -->
       </mat-error>
     </mat-form-field>
     <mat-form-field>
@@ -82,44 +82,59 @@
         class="browser-default"
       />
     </mat-form-field>
-    <mat-form-field>
-      <input
-        matInput
-        aria-label="Password"
-        placeholder="Password"
-        type="password"
-        formControlName="password"
-        class="browser-default"
-        required
-      />
-      <mat-error
-        *ngIf="
-          register.get('password')['errors'] && register.get('password').touched
-        "
-      >
-        {{ getErrorMessage(register.get('password')['errors']) }}
-      </mat-error>
-    </mat-form-field>
-    <mat-form-field>
-      <input
-        matInput
-        aria-label="Confirmation Password"
-        placeholder="Confirmation Password"
-        type="password"
-        formControlName="passwordConfirmation"
-        class="browser-default"
-        required
-      />
-      <mat-error
-        *ngIf="
-          register.get('passwordConfirmation')['errors'] &&
-          register.get('passwordConfirmation').touched
-        "
-      >
-        <!-- {{ getErrorMessage(register.get('passwordConfirmation')['errors']) }} -->
-        {{ getErrorMessage(register.errors) }}
-      </mat-error>
-    </mat-form-field>
+    <span formGroupName="passwordGroup">
+      <mat-form-field>
+        <input
+          matInput
+          aria-label="Password"
+          placeholder="Password"
+          type="password"
+          formControlName="password"
+          class="browser-default"
+          required
+        />
+        <mat-error
+          *ngIf="
+            register.get('passwordGroup').get('password')['errors'] &&
+            register.get('passwordGroup').get('password').touched
+          "
+        >
+          {{
+            getErrorMessage(
+              register.get('passwordGroup').get('password')['errors']
+            )
+          }}
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          aria-label="Confirmation Password"
+          placeholder="Confirmation Password"
+          type="password"
+          formControlName="passwordConfirmation"
+          class="browser-default"
+          required
+        />
+        <mat-error
+          *ngIf="
+            register.get('passwordGroup').get('passwordConfirmation')[
+              'errors'
+            ] &&
+            register.get('passwordGroup').get('passwordConfirmation').touched
+          "
+        >
+          {{
+            getErrorMessage(
+              register.get('passwordGroup').get('passwordConfirmation')[
+                'errors'
+              ]
+            )
+          }}
+          <!-- {{ getErrorMessage(register.errors) }} -->
+        </mat-error>
+      </mat-form-field>
+    </span>
     <div class="buttonDiv">
       <button mat-button (click)="onNoClick()">Cancel</button>
       <button mat-button type="submit" [disabled]="!register.valid">

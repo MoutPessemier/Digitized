@@ -1,0 +1,52 @@
+.overflow {
+  overflow: scroll;
+  max-height: 219px;
+  min-height: 219px;
+  overflow-x: hidden;
+  overflow-y: visible;
+}
+
+.iconDiv {
+  display: inline-block;
+  width: 17%;
+  clear: both;
+  margin-right: -2%;
+  padding: 0;
+}
+
+.commentDiv {
+  display: inline-block;
+  margin-top: 1%;
+  margin-left: 1%;
+}
+
+.message {
+  display: inline-block;
+  font-family: var(--bodyFont);
+  width: 60%;
+  font-size: 1vw;
+}
+
+.user {
+  display: inline-block;
+  font-weight: bold;
+  font-family: var(--headerFont);
+  width: 20%;
+  font-size: 0.7vw;
+  margin-right: 1%;
+}
+
+.delete:hover {
+  color: var(--filfthyOrange);
+  cursor: pointer;
+}
+
+.edit:hover {
+  color: var(--filfthyYellow);
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--swampGreen);
+  text-align: center;
+}

@@ -1,3 +1,43 @@
-<p>
-  comment works!
-</p>
+<div class="overflow">
+  <div fxLayout="row" fxLayoutAlign="space-between">
+    <div class="commentDiv">
+      <span class="user left">Mout Pessemier: </span>
+      <div class="message left">
+        this is a test comment this is a test comment this is a test comment
+        this is a test comment this is a test comment this is a test comment
+      </div>
+    </div>
+    <div class="iconDiv right">
+      <mat-icon class="edit" (click)="editComment()">edit</mat-icon
+      ><mat-icon class="delete" (click)="deleteComment()">delete</mat-icon>
+    </div>
+
+    <div class="commentDiv">
+      <span class="user left">Nante el Vanoverbeke: </span>
+      <div class="message left">
+        this is a test comment this is a test comment this is a test comment
+        this is a test comment this is a test comment this is a test comment
+      </div>
+    </div>
+    <div class="iconDiv right">
+      <mat-icon class="edit" (click)="editComment()">edit</mat-icon
+      ><mat-icon class="delete" (click)="deleteComment()">delete</mat-icon>
+    </div>
+  </div>
+</div>
+<form [formGroup]="messageForm" (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <input
+      matInput
+      aria-label="Message"
+      placeholder="Message"
+      type="text"
+      class="browser-default"
+      formControlName="message"
+    />
+  </mat-form-field>
+
+  <button mat-icon-button type="submit"><mat-icon>send</mat-icon></button>
+</form>
+
+<!-- *ngFor="let comment of image.comments" -->

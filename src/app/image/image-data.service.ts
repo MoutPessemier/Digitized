@@ -17,7 +17,7 @@ export class ImageDataService {
     return this.http.get(`${environment.apiUrl}/images/`).pipe(
       catchError(error => {
         this.loadingError$.next(error.statusText);
-        return of(null);
+        return of(); //of moet dit of(null) zijn? want dan krijg ik een error op mijn list.map ==> cannot read property map of null
       }),
       map((list: any[]): Image[] => list.map(Image.fromJson)),
       map(imgs =>
@@ -27,8 +27,12 @@ export class ImageDataService {
   }
 
   getImage$(id): Observable<Image> {
-    return this.http
-      .get(`${environment.apiUrl}/images/${id}`)
-      .pipe(map((item: any): Image => Image.fromJson(item)));
+    return this.http.get(`${environment.apiUrl}/images/${id}`).pipe(
+      catchError(error => {
+        this.loadingError$.next(error.statusText);
+        return of();
+      }),
+      map((item: any): Image => Image.fromJson(item))
+    );
   }
 }

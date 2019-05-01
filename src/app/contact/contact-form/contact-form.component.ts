@@ -37,7 +37,7 @@ export class ContactFormComponent implements OnInit {
       ))
     );
     this._messageService
-      .sendMessage(this._createdMessage)
+      .postMessage(this._createdMessage)
       .subscribe(val => (this._succes = val));
     if (this._succes) {
       this.openSnackBar('Messages succesfully sent!');

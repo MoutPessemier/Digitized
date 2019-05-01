@@ -17,15 +17,19 @@ export class VideoDataService {
     return this.http.get(`${environment.apiUrl}/videos/`).pipe(
       catchError(error => {
         this.loadingError$.next(error.statusText);
-        return of(null);
+        return of();
       }),
       map((list: any[]): Video[] => list.map(Video.fromJson))
     );
   }
 
   getVideo$(id: number): Observable<Video> {
-    return this.http
-      .get(`${environment.apiUrl}/videos/${id}`)
-      .pipe(map((item: any): Video => Video.fromJson(item)));
+    return this.http.get(`${environment.apiUrl}/videos/${id}`).pipe(
+      catchError(error => {
+        this.loadingError$.next(error.statusText);
+        return of();
+      }),
+      map((item: any): Video => Video.fromJson(item))
+    );
   }
 }

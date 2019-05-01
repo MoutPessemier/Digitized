@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { LoginFormComponent } from '../authentication/login-form/login-form.component';
 import { RegisterFormComponent } from '../authentication/register-form/register-form.component';
 import { MatDialog } from '@angular/material';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-side-nav',
@@ -9,9 +12,16 @@ import { MatDialog } from '@angular/material';
   styleUrls: ['./side-nav.component.css']
 })
 export class SideNavComponent implements OnInit {
-  constructor(public dialog: MatDialog) {}
+  constructor(
+    public dialog: MatDialog,
+    private breakpointObserver: BreakpointObserver
+  ) {}
 
   ngOnInit() {}
+
+  isHandset$: Observable<boolean> = this.breakpointObserver
+    .observe(Breakpoints.Handset)
+    .pipe(map(result => result.matches));
 
   openDialogLogin(): void {
     const dialogRef = this.dialog.open(LoginFormComponent, {

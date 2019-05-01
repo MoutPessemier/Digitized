@@ -1,37 +1,26 @@
 <div class="container">
   <div class="card">
     <div class="card-image">
-      <img class="activator" [src]="image.path" />
-      <!-- <a
-        class="btn-floating halfway-fab waves-effect waves-light"
-        (click)="like()"
-        ><i class="material-icons red-text">{{ icon }}</i></a
-      > -->
+      <!-- <img class="activator" [src]="image.path" /> -->
+      <app-comment></app-comment>
     </div>
     <div class="card-content">
       <span class="card-title">{{ image.country }}</span>
       <div class="iconDiv right">
-        <a class="routerlink active" [routerLink]="">
+        <a class="routerlink " [routerLink]="">
           <mat-icon>image</mat-icon>
         </a>
         <a class="routerlink" [routerLink]="">
           <mat-icon>list_alt</mat-icon>
         </a>
-        <a class="routerlink" [routerLink]="">
+        <a class="routerlink active" [routerLink]="">
           <mat-icon>chat</mat-icon>
         </a>
       </div>
-      <!-- <span class="right">{{ image.likes }}</span> -->
       <span class="content">
         <!-- via subrouting het ene of het andere erin zetten -->
         <!-- <div *ngFor="let comment of image.comments">
           <app-comment [comment]="comment"></app-comment>
-        </div> -->
-        <!-- <div>
-          <h5>Specifications</h5>
-          <p>ISO: {{ image.iso }}</p>
-          <p>Shutter Speed: {{ image.shutterSpeed }}</p>
-          <p>Aperture: {{ image.aperture }}</p>
         </div> -->
       </span>
     </div>

@@ -2,18 +2,26 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Message } from './message.model';
-import { Observable } from 'rxjs';
+import { Observable, Subject, of } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MessageService {
+  public loadingError$ = new Subject();
   constructor(private _http: HttpClient) {}
 
-  sendMessage(message: Message): Observable<boolean> {
+  postMessage(message: Message): Observable<boolean> {
     return this._http.post<boolean>(
       `${environment.apiUrl}/Contact/`,
       message.toJSON()
     );
+    // .pipe(
+    //   catchError(error => {
+    //     this.loadingError$.next(error);
+    //     return false;
+    //   })
+    // );
   }
 }
