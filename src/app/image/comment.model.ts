@@ -1,6 +1,6 @@
 export class Comment {
+  private _id: number;
   constructor(
-    private _id: number,
     private _author: string,
     private _content: string,
     private _date: Date,
@@ -10,6 +10,9 @@ export class Comment {
 
   get id(): number {
     return this._id;
+  }
+  set id(value: number) {
+    this._id = value;
   }
 
   get author(): string {
@@ -33,14 +36,15 @@ export class Comment {
   }
 
   static fromJSON(json: any): Comment {
-    return new Comment(
-      json.id,
+    let comment = new Comment(
       json.author,
       json.content,
       json.date,
       json.myImageId,
       json.visitorId
     );
+    comment.id = json.id;
+    return comment;
   }
 
   toJSON(): any {

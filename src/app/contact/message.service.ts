@@ -17,11 +17,5 @@ export class MessageService {
       `${environment.apiUrl}/Contact/`,
       message.toJSON()
     );
-    // .pipe(
-    //   catchError(error => {
-    //     this.loadingError$.next(error);
-    //     return false;
-    //   })
-    // );
   }
 }

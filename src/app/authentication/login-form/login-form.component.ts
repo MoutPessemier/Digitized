@@ -1,15 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialogRef } from '@angular/material';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
+import { MatDialogRef, MatSnackBar } from '@angular/material';
+import {
+  FormBuilder,
+  FormGroup,
+  Validators,
+  FormControl
+} from '@angular/forms';
+import { AuthenticationService } from '../authentication.service';
+import { Router } from '@angular/router';
 
-function validateEmail(control: FormGroup): { [key: string]: any } {
-  if (control.get('email').touched) {
-    var mailReg = /^([a-zA-Z]+[a-zA-Z0-9.\-_éèàùäëïöüâêîôû]*)@([a-z]+)[.]([a-z]+)([.][a-z]+)*$/g;
-    if (!mailReg.test(control.get('email').value)) {
-      return { noValidEmail: true };
-    }
+function validateEmail(control: FormControl): { [key: string]: any } {
+  var mailReg = /^([a-zA-Z]+[a-zA-Z0-9.\-_éèàùäëïöüâêîôû]*)@([a-z]+)[.]([a-z]+)([.][a-z]+)*$/g;
+  if (!mailReg.test(control.value)) {
+    return { noValidEmail: true };
   }
   return null;
 }
@@ -24,12 +27,14 @@ export class LoginFormComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<LoginFormComponent>,
     private fb: FormBuilder,
-    private http: HttpClient
+    private authService: AuthenticationService,
+    private router: Router,
+    private _snackBar: MatSnackBar
   ) {}
 
   ngOnInit() {
     this.login = this.fb.group({
-      username: ['', [Validators.required]],
+      username: ['', [Validators.required, validateEmail]],
       password: ['', [Validators.required, Validators.minLength(5)]]
     });
   }
@@ -39,6 +44,8 @@ export class LoginFormComponent implements OnInit {
       return 'is required';
     } else if (errors.minlength) {
       return `need at least ${errors.minlength.requiredLength} characters`;
+    } else if (errors.noValidEmail) {
+      return `no valid email`;
     }
   }
 
@@ -46,5 +53,25 @@ export class LoginFormComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  onSubmit() {}
+  onSubmit() {
+    this.authService
+      .login(this.login.value.username, this.login.value.password)
+      .subscribe(val => {
+        if (val) {
+          if (this.authService.redirectUrl) {
+            this.router.navigateByUrl(this.authService.redirectUrl);
+            this.authService.redirectUrl = undefined;
+            this.onNoClick();
+          } else {
+            // this.router.navigate([this.authService.redirectUrl]);
+            this.openSnackbar('Oops, something went wrong. Please try again!');
+          }
+        }
+      });
+    console.log(this.authService.user$);
+  }
+
+  private openSnackbar(message: string) {
+    this._snackBar.open(message, 'Close', { duration: 2000 });
+  }
 }

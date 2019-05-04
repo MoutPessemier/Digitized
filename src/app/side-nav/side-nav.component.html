@@ -11,8 +11,22 @@
       <a mat-list-item [routerLink]="['grid/images']">Photography</a>
       <a mat-list-item [routerLink]="['carousel/videos']">B-roll & Timelapse</a>
       <a mat-list-item [routerLink]="['contact/mail']">Contact</a>
-      <a mat-list-item (click)="openDialogLogin()">Login</a>
-      <a mat-list-item (click)="openDialogRegister()">Register</a>
+      <span
+        *ngIf="loggedInUser$ | async as user; else logreg"
+        class="hide-on-small-only"
+        >{{ user }}
+        <button (click)="logout()" mat-flat-button>
+          logout
+        </button></span
+      >
+      <ng-template #logreg>
+        <ul class="right hide-on-med-and-up">
+          <li><a class="navOption" (click)="openDialogLogin()">Login</a></li>
+          <li>
+            <a class="navOption" (click)="openDialogRegister()">Register</a>
+          </li>
+        </ul>
+      </ng-template>
     </mat-nav-list>
   </mat-sidenav>
 

@@ -3,8 +3,7 @@ import { MatDialog } from '@angular/material';
 import { RegisterFormComponent } from '../authentication/register-form/register-form.component';
 import { LoginFormComponent } from '../authentication/login-form/login-form.component';
 import { Image } from '../image/image.model';
-import { ActivatedRoute } from '@angular/router';
-import { ImageDataService } from '../image/image-data.service';
+import { AuthenticationService } from '../authentication/authentication.service';
 
 @Component({
   selector: 'app-header',
@@ -14,21 +13,19 @@ import { ImageDataService } from '../image/image-data.service';
 export class HeaderComponent implements OnInit {
   public image: Image;
   public loadComponent: boolean;
+  loggedInUser$ = this._authService.user$;
+
   constructor(
     public dialog: MatDialog,
-    private _route: ActivatedRoute,
-    private _imageService: ImageDataService
-  ) {
-    //this.loadComponent = false;
-    //_route.data.subscribe(item => (this.image = item));
-  }
+    private _authService: AuthenticationService
+  ) {}
 
   ngOnInit() {
-    if (window.innerWidth <= 992) {
-      this.loadComponent = true;
-    } else {
-      this.loadComponent = false;
-    }
+    // if (window.innerWidth <= 992) {
+    //   this.loadComponent = true;
+    // } else {
+    //   this.loadComponent = false;
+    // }
   }
 
   openDialogLogin(): void {
@@ -46,10 +43,14 @@ export class HeaderComponent implements OnInit {
   }
 
   showSideNav(event) {
-    if (window.innerWidth <= 992) {
-      this.loadComponent = true;
-    } else {
-      this.loadComponent = false;
-    }
+    // if (window.innerWidth <= 992) {
+    //   this.loadComponent = true;
+    // } else {
+    //   this.loadComponent = false;
+    // }
+  }
+
+  logout() {
+    this._authService.logout();
   }
 }

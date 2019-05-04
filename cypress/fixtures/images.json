@@ -1,55 +1,101 @@
-[{
-  "id": 5,
-  "name": "DisplayPic1",
-  "iso": "ISO-100",
-  "shutterspeed": "1/1600 sec",
-  "aperture": "f/5.6",
-  "country": "Italy",
-  "content": "Gibberish",
-  "likes": 0
-}, {
-  "id": 6,
-  "name": "DisplayPic2",
-  "iso": "ISO-100",
-  "shutterspeed": "1/125 sec",
-  "aperture": "f/9",
-  "country": "Itally",
-  "content": "Gibberish",
-  "likes": 0
-}, {
-  "id": 7,
-  "name": "DisplayPic3",
-  "iso": "ISO-640",
-  "shutterspeed": "1/800 sec",
-  "aperture": "f/4.5",
-  "country": "Belgium",
-  "content": "Gibberish",
-  "likes": 0
-}, {
-  "id": 8,
-  "name": "DisplayPic4",
-  "iso": "ISO-1250",
-  "shutterspeed": "1/500 sec",
-  "aperture": "f/16",
-  "country": "Netherlands",
-  "content": "Gibberish",
-  "likes": 0
-}, {
-  "id": 9,
-  "name": "DisplayPic5",
-  "iso": "ISO-2500",
-  "shutterspeed": "1/40 sec",
-  "aperture": "f/4.5",
-  "country": "Belgium",
-  "content": "Gibberish",
-  "likes": 0
-}, {
-  "id": 10,
-  "name": "DisplayPic6",
-  "iso": "ISO-6400",
-  "shutterspeed": "1/1000 sec",
-  "aperture": "f/13",
-  "country": "France",
-  "content": "Gibberish",
-  "likes": 0
-}]
+[
+  {
+    "id": 2,
+    "name": "DisplayPic1",
+    "iso": "ISO-100",
+    "shutterSpeed": "1/200 sec",
+    "aperture": "f/10",
+    "country": "Italy",
+    "path": "../../../assets/images/DSC_2544c2.jpg",
+    "likes": 15000,
+    "comments": []
+  },
+  {
+    "id": 3,
+    "name": "DisplayPic2",
+    "iso": "ISO-100",
+    "shutterSpeed": "1/320 sec",
+    "aperture": "f/5.6",
+    "country": "Italy",
+    "path": "../../../assets/images/DSC_2648c3.jpg",
+    "likes": 123546641,
+    "comments": []
+  },
+  {
+    "id": 4,
+    "name": "DisplayPic3",
+    "iso": "ISO-500",
+    "shutterSpeed": "6 sec",
+    "aperture": "f/4.5",
+    "country": "Italy",
+    "path": "../../../assets/images/DSC_3043c2.jpg",
+    "likes": 55,
+    "comments": []
+  },
+  {
+    "id": 5,
+    "name": "DisplayPic4",
+    "iso": "ISO-100",
+    "shutterSpeed": "1/1600 sec",
+    "aperture": "f/5.6",
+    "country": "Italy",
+    "path": "../../../assets/images/DSC_2639c.jpg",
+    "likes": 55,
+    "comments": []
+  },
+  {
+    "id": 6,
+    "name": "DisplayPic5",
+    "iso": "ISO-100",
+    "shutterSpeed": "1/125 sec",
+    "aperture": "f/9",
+    "country": "Italy",
+    "path": "../../../assets/images/DSC_2682c2.jpg",
+    "likes": 1500,
+    "comments": []
+  },
+  {
+    "id": 7,
+    "name": "DisplayPic6",
+    "iso": "ISO-640",
+    "shutterSpeed": "1/800 sec",
+    "aperture": "f/4.5",
+    "country": "Belgium",
+    "path": "../../../assets/images/DSC_3698c3.jpg",
+    "likes": 9320,
+    "comments": []
+  },
+  {
+    "id": 8,
+    "name": "DisplayPic7",
+    "iso": "ISO-1250",
+    "shutterSpeed": "1/500 sec",
+    "aperture": "f/16",
+    "country": "Netherlands",
+    "path": "../../../assets/images/DSC_5088c.jpg",
+    "likes": 666,
+    "comments": []
+  },
+  {
+    "id": 9,
+    "name": "DisplayPic8",
+    "iso": "ISO-2500",
+    "shutterSpeed": "1/40 sec",
+    "aperture": "f/4.5",
+    "country": "Belgium",
+    "path": "../../../assets/images/DSC_5340.jpg",
+    "likes": 1,
+    "comments": []
+  },
+  {
+    "id": 10,
+    "name": "DisplayPic9",
+    "iso": "ISO-6400",
+    "shutterSpeed": "1/1000 sec",
+    "aperture": "f/13",
+    "country": "France",
+    "path": "../../../assets/images/DSC_5471c2.jpg",
+    "likes": 12345,
+    "comments": []
+  }
+]

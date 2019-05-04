@@ -4,15 +4,25 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment.prod';
 import { map } from 'rxjs/operators';
 
+function parseJwt(token) {
+  if (!token) {
+    return null;
+  }
+  const base64Token = token.split('.')[1];
+  const base64 = base64Token.replace(/-/g, '+').replace(/_/g, '/');
+  return JSON.parse(window.atob(base64));
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
   private readonly _tokenKey = 'currentUser';
-  private _user$: BehaviorSubject<string>;
+  private _user$: BehaviorSubject<string>; //van wanneer je subscribed, krijg je de vorige en huidige waarde door. Ook start een behaviorsubject met een waarde.npmn
+  public redirectUrl: string;
 
   constructor(private _http: HttpClient) {
-    let parsedToken = this.parseJwt(localStorage.getItem(this._tokenKey));
+    let parsedToken = parseJwt(localStorage.getItem(this._tokenKey));
     if (parsedToken) {
       const expires =
         new Date(parseInt(parsedToken.exp, 10) * 1000) < new Date();
@@ -26,19 +36,19 @@ export class AuthenticationService {
     );
   }
 
-  parseJwt(token) {
-    if (!token) {
-      return null;
-    }
-    const base64Token = token.split('.')[1];
-    const base64 = base64Token.replace(/-/g, '+').replace(/_/g, '/');
-    return JSON.parse(window.atob(base64));
+  get user$(): BehaviorSubject<string> {
+    return this._user$;
+  }
+
+  get token(): string {
+    const localToken = localStorage.getItem(this._tokenKey);
+    return !!localToken ? localToken : '';
   }
 
   login(email: string, password: string): Observable<boolean> {
     return this._http
       .post(
-        `${environment.apiUrl}/account`,
+        `${environment.apiUrl}/account/login`,
         { email, password },
         { responseType: 'text' }
       )
@@ -61,19 +71,22 @@ export class AuthenticationService {
     firstName: string,
     lastName: string,
     phoneNumber: string,
-    passwordConfirmation: string,
     country: string = null
   ): Observable<boolean> {
     return this._http
-      .post(`${environment.apiUrl}/account/register`, {
-        email,
-        password,
-        firstName,
-        lastName,
-        phoneNumber,
-        country,
-        passwordConfirmation
-      })
+      .post(
+        `${environment.apiUrl}/account/register`,
+        {
+          email,
+          password,
+          firstName,
+          lastName,
+          phoneNumber,
+          country,
+          passwordConfirmation: password
+        },
+        { responseType: 'text' }
+      )
       .pipe(
         map((token: any) => {
           if (token) {
@@ -93,4 +106,12 @@ export class AuthenticationService {
       this._user$.next(null);
     }
   }
+
+  checkUserNameAvailability = (email: string): Observable<boolean> => {
+    //dit wordt gebruikt binnen de factory method
+    return this._http.get<boolean>(
+      `${environment.apiUrl}/account/checkusername`,
+      { params: { email } }
+    );
+  };
 }

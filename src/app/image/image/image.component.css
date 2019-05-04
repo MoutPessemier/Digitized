@@ -24,9 +24,10 @@
   display: inline-block;
 }
 
-/* .activator {
-  height: 350px;
-} */
 .active {
   color: var(--neonGreen);
+}
+
+.active {
+  cursor: pointer;
 }

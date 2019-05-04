@@ -2,7 +2,8 @@ export class Message {
   constructor(
     private _topic: string,
     private _message: string,
-    private _date = new Date()
+    private _date = new Date(),
+    private _author: string
   ) {}
 
   get topic(): string {
@@ -17,11 +18,16 @@ export class Message {
     return this._date;
   }
 
+  get author(): string {
+    return this._author;
+  }
+
   toJSON(): any {
     return {
       topic: this.topic,
-      message: this.message,
-      date: this.date
+      content: this.message,
+      date: this.date,
+      author: this._author
     };
   }
 }

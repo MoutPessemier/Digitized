@@ -5,8 +5,8 @@ import { GridComponent } from './grid/grid.component';
 import { MaterialModule } from '../material/material.module';
 import { Routes, RouterModule } from '@angular/router';
 import { CommentComponent } from './comment/comment.component';
-import { SpecListComponent } from './spec-list/spec-list.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SpecsComponent } from './specs/specs.component';
 
 const appRoutes: Routes = [{ path: 'images', component: GridComponent }];
 
@@ -15,7 +15,7 @@ const appRoutes: Routes = [{ path: 'images', component: GridComponent }];
     ImageComponent,
     GridComponent,
     CommentComponent,
-    SpecListComponent
+    SpecsComponent
   ],
   imports: [
     CommonModule,

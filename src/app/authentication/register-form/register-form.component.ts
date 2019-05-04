@@ -1,13 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialogRef } from '@angular/material';
+import { MatDialogRef, MatSnackBar } from '@angular/material';
 import {
   FormBuilder,
   FormGroup,
   Validators,
   AbstractControl,
-  FormControl
+  FormControl,
+  ValidatorFn
 } from '@angular/forms';
 import { AuthenticationService } from '../authentication.service';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 function validateEmail(control: FormControl): { [key: string]: any } {
   var mailReg = /^([a-zA-Z]+[a-zA-Z0-9.\-_éèàùäëïöüâêîôû]*)@([a-z]+)[.]([a-z]+)([.][a-z]+)*$/g;
@@ -35,6 +39,22 @@ function comparePasswords(control: AbstractControl): { [key: string]: any } {
   return pass.value === confPass.value ? null : { passwordDiffer: true };
 }
 
+function serverSideValidateUsername(
+  checkAvailabilityFn: (n: string) => Observable<boolean>
+): ValidatorFn {
+  //factory method die een validator functie teruggeeft
+  return (control: AbstractControl): Observable<{ [key: string]: any }> => {
+    return checkAvailabilityFn(control.value).pipe(
+      map(available => {
+        if (available) {
+          return null;
+        }
+        return { userAlreadyExists: true };
+      })
+    );
+  };
+}
+
 @Component({
   selector: 'app-register-form',
   templateUrl: './register-form.component.html',
@@ -45,14 +65,19 @@ export class RegisterFormComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<RegisterFormComponent>,
     private fb: FormBuilder,
-    private authenticationService: AuthenticationService
+    private authenticationService: AuthenticationService,
+    private router: Router,
+    private _snackBar: MatSnackBar
   ) {
     this.register = this.fb.group({
       firstName: ['', [Validators.required, Validators.minLength(2)]],
       lastName: ['', [Validators.required, Validators.minLength(2)]],
       email: [
         '',
-        [Validators.required, Validators.minLength(5), validateEmail]
+        [Validators.required, Validators.minLength(5), validateEmail],
+        serverSideValidateUsername(
+          this.authenticationService.checkUserNameAvailability
+        )
       ],
       phone: [
         '',
@@ -85,6 +110,8 @@ export class RegisterFormComponent implements OnInit {
       return 'not a valid phone number';
     } else if (errors.passwordDiffer) {
       return 'passwords don\'t match';
+    } else if (errors.userAlreadyExists) {
+      return 'email already in use';
     }
   }
 
@@ -92,5 +119,28 @@ export class RegisterFormComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  onSubmit() {}
+  onSubmit() {
+    this.authenticationService
+      .register(
+        this.register.value.email,
+        this.register.value.passwordGroup.password,
+        this.register.value.firstName,
+        this.register.value.lastName,
+        this.register.value.phone,
+        this.register.value.country
+      )
+      .subscribe(val => {
+        if (this.authenticationService.redirectUrl) {
+          this.router.navigateByUrl(this.authenticationService.redirectUrl);
+          this.authenticationService.redirectUrl = undefined;
+          this.onNoClick();
+        } else {
+          // this.router.navigate([this.authenticationService.redirectUrl]);
+          this.openSnackbar('Oops, something went wrong. Please try again!');
+        }
+      });
+  }
+  private openSnackbar(message: string) {
+    this._snackBar.open(message, 'Close', { duration: 2000 });
+  }
 }

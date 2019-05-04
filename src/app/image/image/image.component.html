@@ -1,28 +1,35 @@
 <div class="container">
   <div class="card">
     <div class="card-image">
-      <!-- <img class="activator" [src]="image.path" /> -->
-      <app-comment></app-comment>
+      <img class="activator" [src]="image.path" />
     </div>
     <div class="card-content">
       <span class="card-title">{{ image.country }}</span>
       <div class="iconDiv right">
-        <a class="routerlink " [routerLink]="">
-          <mat-icon>image</mat-icon>
+        <a
+          class="routerlink"
+          (click)="switchToComments()"
+          [ngClass]="{ active: switch }"
+        >
+          <mat-icon class="icon">chat</mat-icon>
         </a>
-        <a class="routerlink" [routerLink]="">
-          <mat-icon>list_alt</mat-icon>
-        </a>
-        <a class="routerlink active" [routerLink]="">
-          <mat-icon>chat</mat-icon>
+        <a
+          class="routerlink"
+          (click)="switchToSpecs()"
+          [ngClass]="{ active: !switch }"
+        >
+          <mat-icon class="icon">list_alt</mat-icon>
         </a>
       </div>
-      <span class="content">
-        <!-- via subrouting het ene of het andere erin zetten -->
-        <!-- <div *ngFor="let comment of image.comments">
-          <app-comment [comment]="comment"></app-comment>
-        </div> -->
+      <span class="content" *ngIf="switch; else specs">
+        <!--*ngIf="switch; else specs">-->
+        <app-comment [image]="image"></app-comment>
       </span>
+      <ng-template #specs>
+        <span class="content">
+          <app-specs [image]="image"></app-specs>
+        </span>
+      </ng-template>
     </div>
   </div>
 </div>

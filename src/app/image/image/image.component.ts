@@ -7,12 +7,20 @@ import { Image } from '../image.model';
   styleUrls: ['./image.component.css']
 })
 export class ImageComponent implements OnInit {
-  private _icon: string;
+  // private _icon: string;
   @Input('image') public image: Image;
   public switch: boolean;
 
   constructor() {
-    this._icon = 'favorite_border';
+    // this._icon = 'favorite_border';
+    this.switch = true;
+  }
+
+  switchToSpecs() {
+    this.switch = false;
+  }
+
+  switchToComments() {
     this.switch = true;
   }
 
@@ -28,11 +36,11 @@ export class ImageComponent implements OnInit {
   //   }
   // }
 
-  get icon(): string {
-    return this._icon;
-  }
+  // get icon(): string {
+  //   return this._icon;
+  // }
 
-  set icon(value: string) {
-    this._icon = value;
-  }
+  // set icon(value: string) {
+  //   this._icon = value;
+  // }
 }

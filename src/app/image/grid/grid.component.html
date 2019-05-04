@@ -1,6 +1,6 @@
 <div class="body">
   <h3>Photography</h3>
-  <div *ngIf="(images$ | async) as images; else loadingOrError">
+  <div *ngIf="images$ | async as images; else loadingOrError">
     <mat-grid-list
       [cols]="breakpoint"
       gutterSize=" 5px"
@@ -10,8 +10,8 @@
       <mat-grid-tile *ngFor="let image of images">
         <app-image
           [image]="image"
-          class="imageComponent"
           data-cy="imageComponent"
+          class="imageComponent"
         ></app-image>
       </mat-grid-tile>
     </mat-grid-list>
@@ -19,7 +19,10 @@
 </div>
 <ng-template #loadingOrError>
   <mat-card>
-    <mat-error *ngIf="(loadingError$ | async) as errorMessage; else loading">
+    <mat-error
+      *ngIf="loadingError$ | async as errorMessage; else loading"
+      data-cy="appError"
+    >
       Error loading the recipe list: {{ errorMessage }}. <br />
       Please try again later.
     </mat-error>

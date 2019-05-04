@@ -15,6 +15,7 @@ import { FooterComponent } from './footer/footer.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { httpInterceptorProviders } from './http-interceptors';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     FlexLayoutModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

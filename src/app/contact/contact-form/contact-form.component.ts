@@ -3,6 +3,7 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Message } from '../message.model';
 import { MatSnackBar } from '@angular/material';
 import { MessageService } from '../message.service';
+import { AuthenticationService } from 'src/app/authentication/authentication.service';
 
 @Component({
   selector: 'app-contact-form',
@@ -15,12 +16,16 @@ export class ContactFormComponent implements OnInit {
   public readonly contactTypes = ['Question', 'Service', 'Feedback', 'Other'];
   private _createdMessage: Message;
   private _succes: boolean;
+  private _user: string;
 
   constructor(
     private fb: FormBuilder,
     private _snackBar: MatSnackBar,
-    private _messageService: MessageService
-  ) {}
+    private _messageService: MessageService,
+    private _authService: AuthenticationService
+  ) {
+    this._authService.user$.subscribe(usr => (this._user = usr));
+  }
 
   ngOnInit() {
     this.contact = this.fb.group({
@@ -30,22 +35,33 @@ export class ContactFormComponent implements OnInit {
   }
 
   onSubmit() {
-    this.newMessage.emit(
-      (this._createdMessage = new Message(
+    if (this._user) {
+      // this.newMessage.emit(
+      //   new Message(
+      //     this.contact.value.topic,
+      //     this.contact.value.message,
+      //     new Date(),
+      //     this._user
+      //   )
+      // );
+      this._createdMessage = new Message(
         this.contact.value.topic,
-        this.contact.value.message
-      ))
-    );
-    this._messageService
-      .postMessage(this._createdMessage)
-      .subscribe(val => (this._succes = val));
-    if (this._succes) {
-      this.openSnackBar('Messages succesfully sent!');
+        this.contact.value.message,
+        new Date(),
+        this._user
+      );
+      this._messageService
+        .postMessage(this._createdMessage)
+        .subscribe(val => (this._succes = val));
+      if (this._succes) {
+        this.openSnackBar('Messages succesfully sent!');
+      } else {
+        this.openSnackBar('Something went wrong!');
+      }
+      this.contact.reset();
     } else {
-      this.openSnackBar('Something went wrong!');
+      this.openSnackBar('You need to be logged in to send a message.');
     }
-
-    this.contact.reset();
   }
 
   getErrorMessage(error: any) {
@@ -57,6 +73,6 @@ export class ContactFormComponent implements OnInit {
   }
 
   private openSnackBar(message: string) {
-    this._snackBar.open(message, 'close', { duration: 2000 });
+    this._snackBar.open(message, 'Close', { duration: 2000 });
   }
 }
