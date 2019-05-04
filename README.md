@@ -1,27 +1,20 @@
 # Digitized
+Project around my photography and videography, made as a school project.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.2.
+## Info
+This is my first ever angular app, built for my (amateur) photography career. This task was given by HoGent: Web Applications IV
 
-## Development server
+## Practical
+Teacher login:
+- web4@hogent.be
+- gelukkiggeennetbeans
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+(luckily this is a private repo, posting passwords can be really dangerous!)
 
-## Code scaffolding
+This frontend webapp is linked with the Digitized API.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Social Media
+- Instagram (photography account): https://instagram.com/d_igitized/
+- LinkedIn: https://www.linkedin.com/in/mout-pessemier-9954a9163/
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md). 
+(The other ones aren't as important)
