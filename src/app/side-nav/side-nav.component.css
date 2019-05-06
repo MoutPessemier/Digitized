@@ -1,4 +1,4 @@
-button {
+.fab {
   color: var(--darkTheme1);
   background-color: var(--filfthyYellow);
   margin-left: 5%;
@@ -10,4 +10,21 @@ button {
   margin-left: 5%;
   display: inline-block;
   vertical-align: middle;
+}
+
+.loggedInMail {
+  margin-left: 5%;
+  font-size: 15px;
+  font-family: var(--headerFont);
+}
+
+.logoutBtn {
+  background-color: var(--darkTheme1);
+  color: var(--filfthyYellow);
+  margin-left: 5%;
+  font-family: var(--headerFont);
+}
+
+a {
+  font-family: var(--headerFont);
 }

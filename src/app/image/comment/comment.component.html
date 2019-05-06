@@ -1,27 +1,21 @@
 <div class="overflow">
-  <div fxLayout="row" fxLayoutAlign="space-between">
-    <div class="commentDiv">
-      <span class="user left">Mout Pessemier: </span>
-      <div class="message left">
-        this is a test comment this is a test comment this is a test comment
-        this is a test comment this is a test comment this is a test comment
+  <div
+    fxLayout="row"
+    fxLayoutAlign="space-between"
+    *ngFor="let comment of comments"
+  >
+    <div>
+      <div class="commentDiv">
+        <span class="user left">Mout Pessemier: </span>
+        <div class="message left">
+          this is a test comment this is a test comment this is a test comment
+          this is a test comment this is a test comment this is a test comment
+        </div>
       </div>
-    </div>
-    <div class="iconDiv right">
-      <mat-icon class="edit" (click)="editComment()">edit</mat-icon
-      ><mat-icon class="delete" (click)="deleteComment()">delete</mat-icon>
-    </div>
-
-    <div class="commentDiv">
-      <span class="user left">Nante el Vanoverbeke: </span>
-      <div class="message left">
-        this is a test comment this is a test comment this is a test comment
-        this is a test comment this is a test comment this is a test comment
+      <div class="iconDiv right" *ngIf="isAuthor(comment)">
+        <mat-icon class="edit" (click)="editComment()">edit</mat-icon
+        ><mat-icon class="delete" (click)="deleteComment()">delete</mat-icon>
       </div>
-    </div>
-    <div class="iconDiv right">
-      <mat-icon class="edit" (click)="editComment()">edit</mat-icon
-      ><mat-icon class="delete" (click)="deleteComment()">delete</mat-icon>
     </div>
   </div>
 </div>
@@ -35,6 +29,14 @@
       class="browser-default"
       formControlName="message"
     />
+    <mat-error
+      *ngIf="
+        messageForm.get('message')['errors'] &&
+        messageForm.get('message').touched
+      "
+    >
+      {{ getErrorMessage(messageForm.get('message')['errors']) }}
+    </mat-error>
   </mat-form-field>
 
   <button mat-raised-button type="submit"><mat-icon>send</mat-icon></button>

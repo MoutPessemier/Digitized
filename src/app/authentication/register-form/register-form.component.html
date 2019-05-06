@@ -134,6 +134,16 @@
           <!-- {{ getErrorMessage(register.errors) }} -->
         </mat-error>
       </mat-form-field>
+      <mat-error
+        class="error"
+        *ngIf="
+          register.get('passwordGroup').errors &&
+          register.get('passwordGroup').get('passwordConfirmation').touched &&
+          register.get('passwordGroup').get('password').touched
+        "
+      >
+        {{ getErrorMessage(register.get('passwordGroup').errors) }}
+      </mat-error>
     </span>
     <div class="buttonDiv">
       <button mat-button (click)="onNoClick()">Cancel</button>

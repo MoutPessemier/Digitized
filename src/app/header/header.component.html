@@ -36,7 +36,7 @@
       </ul>
 
       <span
-        *ngIf="loggedInUser$ | async as user; else logreg"
+        *ngIf="user$ | async as user; else logreg"
         class="hide-on-small-only right showUsr"
         >{{ user }}
         <button (click)="logout()" mat-raised-button class="logout">

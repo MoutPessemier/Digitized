@@ -12,25 +12,32 @@
       <a mat-list-item [routerLink]="['carousel/videos']">B-roll & Timelapse</a>
       <a mat-list-item [routerLink]="['contact/mail']">Contact</a>
       <span
-        *ngIf="loggedInUser$ | async as user; else logreg"
-        class="hide-on-small-only"
+        mat-list-item
+        class="show-on-small-only loggedInMail"
+        *ngIf="user$ | async as user; else logreg"
         >{{ user }}
-        <button (click)="logout()" mat-flat-button>
+        <button mat-raised-button class="logoutBtn" (click)="logout()">
           logout
         </button></span
       >
       <ng-template #logreg>
-        <ul class="right hide-on-med-and-up">
-          <li><a class="navOption" (click)="openDialogLogin()">Login</a></li>
-          <li>
-            <a class="navOption" (click)="openDialogRegister()">Register</a>
-          </li>
-        </ul>
+        <a
+          mat-list-item
+          class="navOption show-on-small-only"
+          (click)="openDialogLogin()"
+          >Login</a
+        >
+        <a
+          mat-list-item
+          class="navOption show-on-small-only"
+          (click)="openDialogRegister()"
+          >Register</a
+        >
       </ng-template>
     </mat-nav-list>
   </mat-sidenav>
 
-  <button mat-icon-button (click)="sidenav.toggle()">
+  <button mat-icon-button class="fab" (click)="sidenav.toggle()">
     <mat-icon aria-label="Side nav toggle icon">menu</mat-icon></button
   ><span class="brandName">Digitized</span>
 </mat-sidenav-container>

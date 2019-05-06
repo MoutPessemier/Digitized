@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { AuthenticationService } from '../authentication/authentication.service';
 
 @Component({
   selector: 'app-side-nav',
@@ -12,9 +13,11 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./side-nav.component.css']
 })
 export class SideNavComponent implements OnInit {
+  user$ = this._authService.user$;
   constructor(
     public dialog: MatDialog,
-    private breakpointObserver: BreakpointObserver
+    private breakpointObserver: BreakpointObserver,
+    private _authService: AuthenticationService
   ) {}
 
   ngOnInit() {}
@@ -35,5 +38,9 @@ export class SideNavComponent implements OnInit {
       width: '300px'
     });
     //dialogRef.afterClosed.subscribe(result => {});
+  }
+
+  logout() {
+    this._authService.logout();
   }
 }

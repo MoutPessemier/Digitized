@@ -13,7 +13,7 @@ import { AuthenticationService } from '../authentication/authentication.service'
 export class HeaderComponent implements OnInit {
   public image: Image;
   public loadComponent: boolean;
-  loggedInUser$ = this._authService.user$;
+  user$ = this._authService.user$;
 
   constructor(
     public dialog: MatDialog,

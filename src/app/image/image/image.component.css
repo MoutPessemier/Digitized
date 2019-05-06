@@ -11,9 +11,9 @@
   font-family: var(--bodyFont);
 }
 
-/* .card-content {
-  height: 350px;
-} */
+.card-content {
+  height: 250px;
+}
 
 .routerlink {
   text-decoration: none;
@@ -28,6 +28,6 @@
   color: var(--neonGreen);
 }
 
-.active {
+.icon {
   cursor: pointer;
 }

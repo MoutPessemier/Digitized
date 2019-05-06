@@ -8,6 +8,7 @@ import {
 } from '@angular/forms';
 import { AuthenticationService } from '../authentication.service';
 import { Router } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
 
 function validateEmail(control: FormControl): { [key: string]: any } {
   var mailReg = /^([a-zA-Z]+[a-zA-Z0-9.\-_éèàùäëïöüâêîôû]*)@([a-z]+)[.]([a-z]+)([.][a-z]+)*$/g;
@@ -24,6 +25,8 @@ function validateEmail(control: FormControl): { [key: string]: any } {
 })
 export class LoginFormComponent implements OnInit {
   public login: FormGroup;
+  public errorMsg: string;
+
   constructor(
     public dialogRef: MatDialogRef<LoginFormComponent>,
     private fb: FormBuilder,
@@ -56,18 +59,33 @@ export class LoginFormComponent implements OnInit {
   onSubmit() {
     this.authService
       .login(this.login.value.username, this.login.value.password)
-      .subscribe(val => {
-        if (val) {
-          if (this.authService.redirectUrl) {
-            this.router.navigateByUrl(this.authService.redirectUrl);
-            this.authService.redirectUrl = undefined;
-            this.onNoClick();
-          } else {
-            // this.router.navigate([this.authService.redirectUrl]);
-            this.openSnackbar('Oops, something went wrong. Please try again!');
+      .subscribe(
+        val => {
+          if (val) {
+            if (this.authService.redirectUrl) {
+              this.router.navigateByUrl(this.authService.redirectUrl);
+              this.authService.redirectUrl = undefined;
+              this.onNoClick();
+            } else {
+              this.router.navigate([this.authService.redirectUrl]);
+            }
           }
+        },
+        (err: HttpErrorResponse) => {
+          console.log(err);
+          if (err.error instanceof Error) {
+            this.errorMsg = `Error while trying to login user ${
+              this.login.value.username
+            }: ${err.error.message}`;
+          } else {
+            this.errorMsg = `Error ${err.status} while trying to login user ${
+              this.login.value.username
+            }: ${err.error}`;
+          }
+          this.openSnackbar('Oops, something went wrong. Please try again!');
+          // this.openSnackbar(this.errorMsg);
         }
-      });
+      );
     console.log(this.authService.user$);
   }
 

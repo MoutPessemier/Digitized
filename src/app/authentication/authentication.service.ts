@@ -3,6 +3,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment.prod';
 import { map } from 'rxjs/operators';
+import { User } from './user.model';
 
 function parseJwt(token) {
   if (!token) {
@@ -20,6 +21,7 @@ export class AuthenticationService {
   private readonly _tokenKey = 'currentUser';
   private _user$: BehaviorSubject<string>; //van wanneer je subscribed, krijg je de vorige en huidige waarde door. Ook start een behaviorsubject met een waarde.npmn
   public redirectUrl: string;
+  private _loggedInUser: User;
 
   constructor(private _http: HttpClient) {
     let parsedToken = parseJwt(localStorage.getItem(this._tokenKey));
@@ -49,14 +51,16 @@ export class AuthenticationService {
     return this._http
       .post(
         `${environment.apiUrl}/account/login`,
-        { email, password },
-        { responseType: 'text' }
+        { email, password }
+        // ,        { responseType: 'text' }
       )
       .pipe(
         map((token: any) => {
-          if (token) {
-            localStorage.setItem(this._tokenKey, token);
+          if (token.token) {
+            localStorage.setItem(this._tokenKey, token.token.toString());
             this._user$.next(email);
+            this._loggedInUser = User.fromJSON(token.user);
+            console.log(this._loggedInUser);
             return true;
           } else {
             return false;
@@ -105,6 +109,10 @@ export class AuthenticationService {
       localStorage.removeItem('currentUser');
       this._user$.next(null);
     }
+  }
+
+  get loggedInUser(): User {
+    return this._loggedInUser;
   }
 
   checkUserNameAvailability = (email: string): Observable<boolean> => {

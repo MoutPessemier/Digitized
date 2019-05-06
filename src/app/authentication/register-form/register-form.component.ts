@@ -12,6 +12,7 @@ import { AuthenticationService } from '../authentication.service';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
 
 function validateEmail(control: FormControl): { [key: string]: any } {
   var mailReg = /^([a-zA-Z]+[a-zA-Z0-9.\-_éèàùäëïöüâêîôû]*)@([a-z]+)[.]([a-z]+)([.][a-z]+)*$/g;
@@ -62,6 +63,7 @@ function serverSideValidateUsername(
 })
 export class RegisterFormComponent implements OnInit {
   public register: FormGroup;
+  public errorMsg: string;
   constructor(
     public dialogRef: MatDialogRef<RegisterFormComponent>,
     private fb: FormBuilder,
@@ -129,16 +131,31 @@ export class RegisterFormComponent implements OnInit {
         this.register.value.phone,
         this.register.value.country
       )
-      .subscribe(val => {
-        if (this.authenticationService.redirectUrl) {
-          this.router.navigateByUrl(this.authenticationService.redirectUrl);
-          this.authenticationService.redirectUrl = undefined;
-          this.onNoClick();
-        } else {
-          // this.router.navigate([this.authenticationService.redirectUrl]);
+      .subscribe(
+        val => {
+          if (this.authenticationService.redirectUrl) {
+            this.router.navigateByUrl(this.authenticationService.redirectUrl);
+            this.authenticationService.redirectUrl = undefined;
+            this.onNoClick();
+          } else {
+            this.router.navigate([this.authenticationService.redirectUrl]);
+          }
+        },
+        (err: HttpErrorResponse) => {
+          console.log(err);
+          if (err.error instanceof Error) {
+            this.errorMsg = `Error while trying to login user ${
+              this.register.value.email
+            }: ${err.error.message}`;
+          } else {
+            this.errorMsg = `Error ${err.status} while trying to login user ${
+              this.register.value.email
+            }: ${err.error}`;
+          }
           this.openSnackbar('Oops, something went wrong. Please try again!');
+          // this.openSnackbar(this.errorMsg);
         }
-      });
+      );
   }
   private openSnackbar(message: string) {
     this._snackBar.open(message, 'Close', { duration: 2000 });
