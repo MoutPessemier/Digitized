@@ -6,20 +6,19 @@
   >
     <div>
       <div class="commentDiv">
-        <span class="user left">Mout Pessemier: </span>
-        <div class="message left">
-          this is a test comment this is a test comment this is a test comment
-          this is a test comment this is a test comment this is a test comment
-        </div>
+        <span class="user left">{{ comment.author }}: </span>
+        <span>{{ comment.content }}</span>
       </div>
       <div class="iconDiv right" *ngIf="isAuthor(comment)">
-        <mat-icon class="edit" (click)="editComment()">edit</mat-icon
-        ><mat-icon class="delete" (click)="deleteComment()">delete</mat-icon>
+        <mat-icon class="edit" (click)="editComment(comment)">edit</mat-icon
+        ><mat-icon class="delete" (click)="deleteComment(comment.id)"
+          >delete</mat-icon
+        >
       </div>
     </div>
   </div>
 </div>
-<form [formGroup]="messageForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="messageForm" (ngSubmit)="onSubmit()" data-cy="commentForm">
   <mat-form-field>
     <input
       matInput
@@ -39,7 +38,7 @@
     </mat-error>
   </mat-form-field>
 
-  <button mat-raised-button type="submit"><mat-icon>send</mat-icon></button>
+  <button mat-raised-button type="submit" [disabled]="!messageForm.valid">
+    <mat-icon>send</mat-icon>
+  </button>
 </form>
-
-<!-- *ngFor="let comment of image.comments" -->

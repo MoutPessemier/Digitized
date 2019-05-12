@@ -21,7 +21,7 @@ export class AuthenticationService {
   private readonly _tokenKey = 'currentUser';
   private _user$: BehaviorSubject<string>; //van wanneer je subscribed, krijg je de vorige en huidige waarde door. Ook start een behaviorsubject met een waarde.npmn
   public redirectUrl: string;
-  private _loggedInUser: User;
+  private _loggedInUser$: BehaviorSubject<User>;
 
   constructor(private _http: HttpClient) {
     let parsedToken = parseJwt(localStorage.getItem(this._tokenKey));
@@ -35,6 +35,22 @@ export class AuthenticationService {
     }
     this._user$ = new BehaviorSubject<string>(
       parsedToken && parsedToken.unique_name
+    );
+    this._loggedInUser$ = new BehaviorSubject<User>(
+      localStorage.getItem('visitor')
+        ? User.fromJSON(localStorage.getItem('visitor'))
+        : // JSON.parse(localStorage.getItem('visitor')).map(u => {
+          //   return new User(
+          //     u.id,
+          //     u.firstName,
+          //     u.lastName,
+          //     u.email,
+          //     u.phoneNumber,
+          //     u.country,
+          //     u.comments
+          //   );
+          // })
+          null
     );
   }
 
@@ -56,11 +72,14 @@ export class AuthenticationService {
       )
       .pipe(
         map((token: any) => {
-          if (token.token) {
-            localStorage.setItem(this._tokenKey, token.token.toString());
+          if (token) {
+            localStorage.setItem(this._tokenKey, token);
             this._user$.next(email);
-            this._loggedInUser = User.fromJSON(token.user);
-            console.log(this._loggedInUser);
+            this.getUser(email).subscribe(usr => {
+              // localStorage.setItem('visitor', usr.toJSON());
+              localStorage.setItem('visitor', JSON.stringify(usr));
+              this._loggedInUser$.next(usr);
+            });
             return true;
           } else {
             return false;
@@ -96,6 +115,11 @@ export class AuthenticationService {
           if (token) {
             localStorage.setItem(this._tokenKey, token);
             this._user$.next(email);
+            this.getUser(email).subscribe(usr => {
+              // localStorage.setItem('visitor', usr.toJSON());
+              localStorage.setItem('visitor', JSON.stringify(usr));
+              this._loggedInUser$.next(usr);
+            });
             return true;
           } else {
             return false;
@@ -111,8 +135,8 @@ export class AuthenticationService {
     }
   }
 
-  get loggedInUser(): User {
-    return this._loggedInUser;
+  get loggedInUser$(): BehaviorSubject<User> {
+    return this._loggedInUser$;
   }
 
   checkUserNameAvailability = (email: string): Observable<boolean> => {
@@ -122,4 +146,14 @@ export class AuthenticationService {
       { params: { email } }
     );
   };
+
+  getUser(email: string): Observable<User> {
+    return this._http.get(`${environment.apiUrl}/account/${email}`).pipe(
+      map((json: any) => {
+        if (json) {
+          return User.fromJSON(json);
+        }
+      })
+    );
+  }
 }

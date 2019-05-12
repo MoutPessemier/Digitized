@@ -36,8 +36,8 @@ export class CommentDataService {
       );
   }
 
-  postComment(imageId: number, comment: Comment) {
-    return this.http.post(
+  postComment(imageId: number, comment: Comment): Observable<Comment> {
+    return this.http.post<Comment>(
       `${environment.apiUrl}/images/${imageId}/comments`,
       comment.toJSON()
     );
@@ -50,10 +50,9 @@ export class CommentDataService {
     );
   }
 
-  deleteComment(imageId: number, id: number, comment: Comment) {
+  deleteComment(imageId: number, id: number) {
     return this.http.delete(
-      `${environment.apiUrl}/images/${imageId}/comments/${id}`,
-      comment.toJSON()
+      `${environment.apiUrl}/images/${imageId}/comments/${id}`
     );
   }
 }

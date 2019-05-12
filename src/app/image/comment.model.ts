@@ -4,7 +4,7 @@ export class Comment {
     private _author: string,
     private _content: string,
     private _date: Date,
-    private _imageID: number,
+    private _imageId: number,
     private _visitorId: number
   ) {}
 
@@ -28,7 +28,7 @@ export class Comment {
   }
 
   get imageId(): number {
-    return this._imageID;
+    return this._imageId;
   }
 
   get visitorId(): number {
@@ -53,7 +53,7 @@ export class Comment {
       author: this._author,
       content: this._content,
       date: this._date,
-      myImageId: this._imageID,
+      myImageId: this._imageId,
       visitorId: this._visitorId
     };
   }

@@ -20,7 +20,7 @@
 <ng-template #loadingOrError>
   <mat-card>
     <mat-error
-      *ngIf="loadingError$ | async as errorMessage; else loading"
+      *ngIf="loadingErrors$ | async as errorMessage; else loading"
       data-cy="appError"
     >
       Error loading the recipe list: {{ errorMessage }}. <br />

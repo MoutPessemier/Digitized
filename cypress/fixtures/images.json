@@ -8,7 +8,32 @@
     "country": "Italy",
     "path": "../../../assets/images/DSC_2544c2.jpg",
     "likes": 15000,
-    "comments": []
+    "comments": [
+      {
+        "id": 1,
+        "author": "Mout Pessemier",
+        "content": "Damn son, nice work!",
+        "date": "0001-01-01T00:00:00",
+        "myImageId": 2,
+        "visitorId": 1
+      },
+      {
+        "id": 18,
+        "author": "Nante Vermeulen",
+        "content": "Good job",
+        "date": "0001-01-01T00:00:00",
+        "myImageId": 2,
+        "visitorId": 3
+      },
+      {
+        "id": 19,
+        "author": "Tom Clarys",
+        "content": "It's a very nice",
+        "date": "0001-01-01T00:00:00",
+        "myImageId": 2,
+        "visitorId": 4
+      }
+    ]
   },
   {
     "id": 3,
@@ -19,7 +44,24 @@
     "country": "Italy",
     "path": "../../../assets/images/DSC_2648c3.jpg",
     "likes": 123546641,
-    "comments": []
+    "comments": [
+      {
+        "id": 16,
+        "author": "Bram Vanoverbeker",
+        "content": "AYYY LMAO, LMFAO, LMBOA",
+        "date": "0001-01-01T00:00:00",
+        "myImageId": 3,
+        "visitorId": 6
+      },
+      {
+        "id": 17,
+        "author": "Jef Malfliet",
+        "content": "Echt een beestig goeie foto!",
+        "date": "0001-01-01T00:00:00",
+        "myImageId": 3,
+        "visitorId": 5
+      }
+    ]
   },
   {
     "id": 4,
@@ -30,7 +72,16 @@
     "country": "Italy",
     "path": "../../../assets/images/DSC_3043c2.jpg",
     "likes": 55,
-    "comments": []
+    "comments": [
+      {
+        "id": 15,
+        "author": "Robbe Van de Vyver",
+        "content": "Ik kan niet goed programmeren",
+        "date": "0001-01-01T00:00:00",
+        "myImageId": 4,
+        "visitorId": 7
+      }
+    ]
   },
   {
     "id": 5,
@@ -41,7 +92,32 @@
     "country": "Italy",
     "path": "../../../assets/images/DSC_2639c.jpg",
     "likes": 55,
-    "comments": []
+    "comments": [
+      {
+        "id": 12,
+        "author": "Tom Clarys",
+        "content": "Ik begin zonder inspiratie te zitten",
+        "date": "0001-01-01T00:00:00",
+        "myImageId": 5,
+        "visitorId": 4
+      },
+      {
+        "id": 13,
+        "author": "Willem Hendrickx",
+        "content": "Ik werk niets af",
+        "date": "0001-01-01T00:00:00",
+        "myImageId": 5,
+        "visitorId": 9
+      },
+      {
+        "id": 14,
+        "author": "Indy Van Canegem",
+        "content": "CSS",
+        "date": "0001-01-01T00:00:00",
+        "myImageId": 5,
+        "visitorId": 8
+      }
+    ]
   },
   {
     "id": 6,
@@ -52,7 +128,24 @@
     "country": "Italy",
     "path": "../../../assets/images/DSC_2682c2.jpg",
     "likes": 1500,
-    "comments": []
+    "comments": [
+      {
+        "id": 11,
+        "author": "Mout Pessemier",
+        "content": "Me Like",
+        "date": "0001-01-01T00:00:00",
+        "myImageId": 6,
+        "visitorId": 1
+      },
+      {
+        "id": 20,
+        "author": "Bram Vanoverbeke",
+        "content": "Ik bEn eEn ToP sPoRtEr",
+        "date": "0001-01-01T00:00:00",
+        "myImageId": 6,
+        "visitorId": 6
+      }
+    ]
   },
   {
     "id": 7,
@@ -63,7 +156,48 @@
     "country": "Belgium",
     "path": "../../../assets/images/DSC_3698c3.jpg",
     "likes": 9320,
-    "comments": []
+    "comments": [
+      {
+        "id": 5,
+        "author": "Willem Hendrickx",
+        "content": "Wa is ne widows server?",
+        "date": "0001-01-01T00:00:00",
+        "myImageId": 7,
+        "visitorId": 9
+      },
+      {
+        "id": 6,
+        "author": "Indy Van Canegem",
+        "content": "Cars Website",
+        "date": "0001-01-01T00:00:00",
+        "myImageId": 7,
+        "visitorId": 8
+      },
+      {
+        "id": 7,
+        "author": "Robbe Van de Vyver",
+        "content": "Netwerken is de beste richting",
+        "date": "0001-01-01T00:00:00",
+        "myImageId": 7,
+        "visitorId": 7
+      },
+      {
+        "id": 8,
+        "author": "Jef Malfliet",
+        "content": "KLJ Rocks",
+        "date": "0001-01-01T00:00:00",
+        "myImageId": 7,
+        "visitorId": 5
+      },
+      {
+        "id": 9,
+        "author": "Nante Vermeulen",
+        "content": "WiSkUnDe iS lEuK",
+        "date": "0001-01-01T00:00:00",
+        "myImageId": 7,
+        "visitorId": 3
+      }
+    ]
   },
   {
     "id": 8,
@@ -74,7 +208,24 @@
     "country": "Netherlands",
     "path": "../../../assets/images/DSC_5088c.jpg",
     "likes": 666,
-    "comments": []
+    "comments": [
+      {
+        "id": 3,
+        "author": "Mout Pessemier",
+        "content": "Zeker wel!",
+        "date": "0001-01-01T00:00:00",
+        "myImageId": 8,
+        "visitorId": 1
+      },
+      {
+        "id": 4,
+        "author": "Tom Clarys",
+        "content": "Nog is gaan snowboarden?",
+        "date": "0001-01-01T00:00:00",
+        "myImageId": 8,
+        "visitorId": 4
+      }
+    ]
   },
   {
     "id": 9,
@@ -85,7 +236,32 @@
     "country": "Belgium",
     "path": "../../../assets/images/DSC_5340.jpg",
     "likes": 1,
-    "comments": []
+    "comments": [
+      {
+        "id": 2,
+        "author": "Bram Vanoverbeke",
+        "content": "Ik ga een jaartje pauze pakken",
+        "date": "0001-01-01T00:00:00",
+        "myImageId": 9,
+        "visitorId": 6
+      },
+      {
+        "id": 10,
+        "author": "Nante Vermeulen",
+        "content": "Ik ben slim maar studeer niet graag",
+        "date": "0001-01-01T00:00:00",
+        "myImageId": 9,
+        "visitorId": 3
+      },
+      {
+        "id": 21,
+        "author": "Jef Malfliet",
+        "content": "Mr Shmancy Pants",
+        "date": "0001-01-01T00:00:00",
+        "myImageId": 9,
+        "visitorId": 5
+      }
+    ]
   },
   {
     "id": 10,
@@ -96,6 +272,63 @@
     "country": "France",
     "path": "../../../assets/images/DSC_5471c2.jpg",
     "likes": 12345,
-    "comments": []
+    "comments": [
+      {
+        "id": 2,
+        "author": "Nante Vermeulen",
+        "content": "Ik ski liever",
+        "date": "0001-01-01T00:00:00",
+        "myImageId": 10,
+        "visitorId": 3
+      },
+      {
+        "id": 3,
+        "author": "Mout Pessemier",
+        "content": "I'm rocking that",
+        "date": "0001-01-01T00:00:00",
+        "myImageId": 10,
+        "visitorId": 1
+      },
+      {
+        "id": 4,
+        "author": "Jef Malfliet",
+        "content": "Teach me please!",
+        "date": "0001-01-01T00:00:00",
+        "myImageId": 10,
+        "visitorId": 9
+      },
+      {
+        "id": 5,
+        "author": "Indy Van Canegem",
+        "content": "I love it <3",
+        "date": "0001-01-01T00:00:00",
+        "myImageId": 10,
+        "visitorId": 8
+      },
+      {
+        "id": 6,
+        "author": "Robbe Van de Vyver",
+        "content": "Let it all loose",
+        "date": "0001-01-01T00:00:00",
+        "myImageId": 10,
+        "visitorId": 7
+      },
+      {
+        "id": 27,
+        "author": "Tom Clarys",
+        "content": "Ooouh, kill 'em",
+        "date": "0001-01-01T00:00:00",
+        "myImageId": 10,
+        "visitorId": 4
+      },
+      {
+        "id": 28,
+        "author": "Jef Malfliet",
+        "content": "Bah, sneeuw",
+        "date": "0001-01-01T00:00:00",
+        "myImageId": 10,
+        "visitorId": 5
+      }
+    ]
   }
 ]

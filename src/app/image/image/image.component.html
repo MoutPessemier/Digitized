@@ -10,6 +10,7 @@
           class="routerlink"
           (click)="switchToComments()"
           [ngClass]="{ active: switch }"
+          data-cy="commentIcon"
         >
           <mat-icon class="icon">chat</mat-icon>
         </a>
@@ -17,17 +18,21 @@
           class="routerlink"
           (click)="switchToSpecs()"
           [ngClass]="{ active: !switch }"
+          data-cy="specsIcon"
         >
           <mat-icon class="icon">list_alt</mat-icon>
         </a>
       </div>
       <span class="content" *ngIf="switch; else specs">
-        <!--*ngIf="switch; else specs">-->
-        <app-comment [comments]="image.comments"></app-comment>
+        <app-comment
+          [comments]="image.comments"
+          [imageId]="image.id"
+          data-cy="comments"
+        ></app-comment>
       </span>
       <ng-template #specs>
         <span class="content">
-          <app-specs [image]="image"></app-specs>
+          <app-specs [image]="image" data-cy="specs"></app-specs>
         </span>
       </ng-template>
     </div>

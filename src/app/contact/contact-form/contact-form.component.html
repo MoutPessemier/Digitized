@@ -9,6 +9,7 @@
           aria-label="Topic"
           formControlName="topic"
           class="browser-default"
+          data-cy="topic"
         >
           <mat-option *ngFor="let topic of contactTypes" [value]="topic">
             {{ topic }}
@@ -27,9 +28,15 @@
           aria-label="Message"
           formControlName="message"
           class="browser-default"
+          data-cy="message"
         ></textarea>
       </mat-form-field>
-      <button mat-button type="submit" [disabled]="!contact.valid">
+      <button
+        mat-button
+        type="submit"
+        [disabled]="!contact.valid"
+        data-cy="sendButton"
+      >
         Send <mat-icon>send</mat-icon>
       </button>
     </form>

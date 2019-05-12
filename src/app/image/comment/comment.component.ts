@@ -1,11 +1,10 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CommentDataService } from '../comment-data.service';
-import { Image } from '../image.model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { EventEmitter } from 'protractor';
 import { Comment } from '../comment.model';
 import { AuthenticationService } from 'src/app/authentication/authentication.service';
 import { MatSnackBar } from '@angular/material';
+import { User } from 'src/app/authentication/user.model';
 
 @Component({
   selector: 'app-comment',
@@ -14,9 +13,10 @@ import { MatSnackBar } from '@angular/material';
 })
 export class CommentComponent implements OnInit {
   @Input('comments') comments: Comment[];
-  private messageForm: FormGroup;
+  @Input('imageId') imageId: number;
+  public messageForm: FormGroup;
   private _user: string;
-  // @Output() public newComment = new EventEmitter<Comment>();
+  public loggedInUser: User;
 
   constructor(
     private _commentDataService: CommentDataService,
@@ -34,8 +34,6 @@ export class CommentComponent implements OnInit {
         ]
       ]
     });
-
-    this._authService.user$.subscribe(usr => (this._user = usr));
   }
 
   getErrorMessage(error: any) {
@@ -48,14 +46,36 @@ export class CommentComponent implements OnInit {
     }
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this._authService.user$.subscribe(usr => (this._user = usr));
+    this._authService.loggedInUser$.subscribe(user => {
+      this.loggedInUser = user;
+      console.log(user);
+    });
+  }
 
-  editComment() {}
+  editComment(comment: Comment) {
+    this._commentDataService.putComment(comment.imageId, this.imageId, comment);
+  }
 
-  deleteComment() {}
+  deleteComment(id: number) {
+    this._commentDataService.deleteComment(id, this.imageId);
+  }
 
   onSubmit() {
     if (this._user) {
+      this._commentDataService
+        .postComment(
+          this.imageId,
+          new Comment(
+            this.loggedInUser.firstName + ' ' + this.loggedInUser.lastName,
+            this.messageForm.value.message,
+            new Date(),
+            this.imageId,
+            this.loggedInUser.id
+          )
+        )
+        .subscribe(com => console.log(com));
     } else {
       this.openSnackBar('You need to be logged in to send a message.');
     }
@@ -66,6 +86,9 @@ export class CommentComponent implements OnInit {
   }
 
   isAuthor(comment: Comment): boolean {
-    return comment.visitorId === this._authService.loggedInUser.id;
+    if (this.loggedInUser) {
+      return comment.visitorId === this.loggedInUser.id;
+    }
+    return false;
   }
 }
