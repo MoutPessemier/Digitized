@@ -18,3 +18,6 @@ This frontend webapp is linked with the Digitized API.
 - LinkedIn: https://www.linkedin.com/in/mout-pessemier-9954a9163/
 
 (The other ones aren't as important)
+
+## Firebase link
+https://dogwood-rigging-233919.firebaseapp.com/grid/images
