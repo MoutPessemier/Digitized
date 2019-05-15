@@ -50,7 +50,7 @@ export class CommentComponent implements OnInit {
     this._authService.user$.subscribe(usr => (this._user = usr));
     this._authService.loggedInUser$.subscribe(user => {
       this.loggedInUser = user;
-      console.log(user);
+      // console.log(user);
     });
   }
 

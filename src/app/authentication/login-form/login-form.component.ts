@@ -86,7 +86,7 @@ export class LoginFormComponent implements OnInit {
           // this.openSnackbar(this.errorMsg);
         }
       );
-    console.log(this.authService.user$);
+    // console.log(this.authService.user$);
   }
 
   private openSnackbar(message: string) {

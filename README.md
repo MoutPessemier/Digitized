@@ -20,4 +20,4 @@ This frontend webapp is linked with the Digitized API.
 (The other ones aren't as important)
 
 ## Firebase link
-https://dogwood-rigging-233919.firebaseapp.com/grid/images
+https://d-igitized.firebaseapp.com/grid/images

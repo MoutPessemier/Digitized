@@ -37,20 +37,12 @@ export class AuthenticationService {
       parsedToken && parsedToken.unique_name
     );
     this._loggedInUser$ = new BehaviorSubject<User>(
-      localStorage.getItem('visitor')
-        ? User.fromJSON(localStorage.getItem('visitor'))
-        : // JSON.parse(localStorage.getItem('visitor')).map(u => {
-          //   return new User(
-          //     u.id,
-          //     u.firstName,
-          //     u.lastName,
-          //     u.email,
-          //     u.phoneNumber,
-          //     u.country,
-          //     u.comments
-          //   );
-          // })
-          null
+      parsedToken
+        ? localStorage.getItem('visitor')
+          ? //User.fromJSON(localStorage.getItem('visitor'))
+            User.fromJSON(JSON.parse(localStorage.getItem('visitor')))
+          : null
+        : null
     );
   }
 
@@ -76,8 +68,9 @@ export class AuthenticationService {
             localStorage.setItem(this._tokenKey, token);
             this._user$.next(email);
             this.getUser(email).subscribe(usr => {
+              // console.log(usr);
+              // localStorage.setItem('visitor', JSON.stringify(usr));
               // localStorage.setItem('visitor', usr.toJSON());
-              localStorage.setItem('visitor', JSON.stringify(usr));
               this._loggedInUser$.next(usr);
             });
             return true;
@@ -117,7 +110,7 @@ export class AuthenticationService {
             this._user$.next(email);
             this.getUser(email).subscribe(usr => {
               // localStorage.setItem('visitor', usr.toJSON());
-              localStorage.setItem('visitor', JSON.stringify(usr));
+              // localStorage.setItem('visitor', JSON.stringify(usr));
               this._loggedInUser$.next(usr);
             });
             return true;
@@ -151,6 +144,8 @@ export class AuthenticationService {
     return this._http.get(`${environment.apiUrl}/account/${email}`).pipe(
       map((json: any) => {
         if (json) {
+          // console.log(json);
+          localStorage.setItem('visitor', JSON.stringify(json));
           return User.fromJSON(json);
         }
       })
