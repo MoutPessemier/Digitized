@@ -1,7 +1,7 @@
 button[type='submit'],
 button[type='submit']:hover,
 button[type='submit']:active {
-  margin-left: 37%;
+  margin-left: 34%;
   background-color: var(--neonGreen);
 }
 

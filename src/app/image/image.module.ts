@@ -7,6 +7,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { CommentComponent } from './comment/comment.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SpecsComponent } from './specs/specs.component';
+import { ChangeCommentComponent } from './change-comment/change-comment.component';
+import { DeleteCommentComponent } from './delete-comment/delete-comment.component';
 
 const appRoutes: Routes = [{ path: 'images', component: GridComponent }];
 
@@ -15,13 +17,16 @@ const appRoutes: Routes = [{ path: 'images', component: GridComponent }];
     ImageComponent,
     GridComponent,
     CommentComponent,
-    SpecsComponent
+    SpecsComponent,
+    ChangeCommentComponent,
+    DeleteCommentComponent
   ],
   imports: [
     CommonModule,
     MaterialModule,
     RouterModule.forChild(appRoutes),
     ReactiveFormsModule
-  ]
+  ],
+  entryComponents: [ChangeCommentComponent, DeleteCommentComponent]
 })
 export class ImageModule {}

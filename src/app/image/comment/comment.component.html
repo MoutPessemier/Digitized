@@ -5,13 +5,14 @@
     *ngFor="let comment of comments"
   >
     <div>
-      <div class="commentDiv">
+      <div class="commentDiv" data-cy="comments">
         <span class="user left">{{ comment.author }}: </span>
         <span>{{ comment.content }}</span>
       </div>
       <div class="iconDiv right" *ngIf="isAuthor(comment)">
-        <mat-icon class="edit" (click)="editComment(comment)">edit</mat-icon
-        ><mat-icon class="delete" (click)="deleteComment(comment.id)"
+        <mat-icon class="edit" (click)="openChangeDialog(comment)"
+          >edit</mat-icon
+        ><mat-icon class="delete" (click)="openDeleteDialog(comment)"
           >delete</mat-icon
         >
       </div>

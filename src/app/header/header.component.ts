@@ -20,13 +20,7 @@ export class HeaderComponent implements OnInit {
     private _authService: AuthenticationService
   ) {}
 
-  ngOnInit() {
-    // if (window.innerWidth <= 992) {
-    //   this.loadComponent = true;
-    // } else {
-    //   this.loadComponent = false;
-    // }
-  }
+  ngOnInit() {}
 
   openDialogLogin(): void {
     const dialogRef = this.dialog.open(LoginFormComponent, {
@@ -40,14 +34,6 @@ export class HeaderComponent implements OnInit {
       width: '300px'
     });
     //dialogRef.afterClosed.subscribe(result => {});
-  }
-
-  showSideNav(event) {
-    // if (window.innerWidth <= 992) {
-    //   this.loadComponent = true;
-    // } else {
-    //   this.loadComponent = false;
-    // }
   }
 
   logout() {

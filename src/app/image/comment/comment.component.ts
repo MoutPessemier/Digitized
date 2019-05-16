@@ -3,8 +3,10 @@ import { CommentDataService } from '../comment-data.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Comment } from '../comment.model';
 import { AuthenticationService } from 'src/app/authentication/authentication.service';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar, MatDialog } from '@angular/material';
 import { User } from 'src/app/authentication/user.model';
+import { ChangeCommentComponent } from '../change-comment/change-comment.component';
+import { DeleteCommentComponent } from '../delete-comment/delete-comment.component';
 
 @Component({
   selector: 'app-comment',
@@ -22,16 +24,13 @@ export class CommentComponent implements OnInit {
     private _commentDataService: CommentDataService,
     private fb: FormBuilder,
     private _authService: AuthenticationService,
+    public dialog: MatDialog,
     private _snackBar: MatSnackBar
   ) {
     this.messageForm = this.fb.group({
       message: [
         '',
-        [
-          Validators.required,
-          Validators.minLength(3),
-          Validators.maxLength(250)
-        ]
+        [Validators.required, Validators.minLength(3), Validators.maxLength(75)]
       ]
     });
   }
@@ -54,13 +53,17 @@ export class CommentComponent implements OnInit {
     });
   }
 
-  editComment(comment: Comment) {
-    this._commentDataService.putComment(comment.imageId, this.imageId, comment);
-  }
+  // editComment(comment: Comment) {
+  //   this._commentDataService
+  //     .putComment(comment.imageId, this.imageId, comment)
+  //     .subscribe(com => console.log(com));
+  // }
 
-  deleteComment(id: number) {
-    this._commentDataService.deleteComment(id, this.imageId);
-  }
+  // deleteComment(id: number) {
+  //   this._commentDataService
+  //     .deleteComment(id, this.imageId)
+  //     .subscribe(com => console.log(com));
+  // }
 
   onSubmit() {
     if (this._user) {
@@ -90,5 +93,21 @@ export class CommentComponent implements OnInit {
       return comment.visitorId === this.loggedInUser.id;
     }
     return false;
+  }
+
+  openChangeDialog(comment: Comment) {
+    const dialogRef = this.dialog.open(ChangeCommentComponent, {
+      width: '300px',
+      data: { comment: comment }
+    });
+  }
+
+  openDeleteDialog(comment: Comment) {
+    console.log(comment);
+    const dialogRef = this.dialog.open(DeleteCommentComponent, {
+      width: '300px',
+      height: '200px',
+      data: { comment: comment }
+    });
   }
 }

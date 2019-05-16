@@ -1,0 +1,33 @@
+<h2 mat-dialog-title>Change comment</h2>
+<mat-dialog-content>
+  <form [formGroup]="changeComment" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <input
+        matInput
+        aria-label="Change comment"
+        placeholder="Change comment"
+        type="text"
+        formControlName="change"
+        class="browser-default"
+        required
+      />
+      <mat-error
+        *ngIf="
+          changeComment.get('change')['errors'] &&
+          changeComment.get('change').touched
+        "
+      >
+        {{ getErrorMessage(changeComment.get('change')['errors']) }}
+      </mat-error>
+    </mat-form-field>
+
+    <button
+      mat-raised-button
+      type="submit"
+      class="submitBtn"
+      [disabled]="!changeComment.valid"
+    >
+      <mat-icon class="icon">send</mat-icon>
+    </button>
+  </form>
+</mat-dialog-content>

@@ -1,0 +1,9 @@
+.yesBtn {
+  background-color: var(--neonGreen);
+  margin-left: 40% !important;
+}
+
+.noBtn {
+  background-color: var(--filfthyOrange);
+  margin-left: 2%;
+}

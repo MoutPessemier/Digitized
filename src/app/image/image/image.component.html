@@ -27,12 +27,11 @@
         <app-comment
           [comments]="image.comments"
           [imageId]="image.id"
-          data-cy="comments"
         ></app-comment>
       </span>
       <ng-template #specs>
         <span class="content">
-          <app-specs [image]="image" data-cy="specs"></app-specs>
+          <app-specs [image]="image"></app-specs>
         </span>
       </ng-template>
     </div>
