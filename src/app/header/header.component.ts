@@ -26,14 +26,12 @@ export class HeaderComponent implements OnInit {
     const dialogRef = this.dialog.open(LoginFormComponent, {
       width: '300px'
     });
-    // dialogRef.afterClosed.subscribe(result => {});
   }
 
   openDialogRegister(): void {
     const dialogRef = this.dialog.open(RegisterFormComponent, {
       width: '300px'
     });
-    //dialogRef.afterClosed.subscribe(result => {});
   }
 
   logout() {

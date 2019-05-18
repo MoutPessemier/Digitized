@@ -17,7 +17,7 @@ export class ImageDataService {
     return this.http.get(`${environment.apiUrl}/images/`).pipe(
       catchError(error => {
         this.loadingError$.next(error.statusText);
-        return of(); //of moet dit of(null) zijn? want dan krijg ik een error op mijn list.map ==> cannot read property map of null
+        return of();
       }),
       map((list: any[]): Image[] => list.map(Image.fromJson)),
       map(imgs =>

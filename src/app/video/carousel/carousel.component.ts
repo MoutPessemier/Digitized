@@ -46,7 +46,6 @@ export class CarouselComponent implements OnInit {
       this._index = 0;
       this.fillCurrentVideo();
     }
-    // console.log(this.currentVid);
     this.currentVid = this._videos[this._index];
   }
 
@@ -57,7 +56,6 @@ export class CarouselComponent implements OnInit {
       this._index = 0;
       this.fillCurrentVideo();
     }
-    // console.log(this.currentVid);
     this.currentVid = this._videos[this._index];
   }
 

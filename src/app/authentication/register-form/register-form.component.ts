@@ -133,12 +133,8 @@ export class RegisterFormComponent implements OnInit {
       )
       .subscribe(
         val => {
-          if (this.authenticationService.redirectUrl) {
-            this.router.navigateByUrl(this.authenticationService.redirectUrl);
-            this.authenticationService.redirectUrl = undefined;
+          if (val) {
             this.onNoClick();
-          } else {
-            this.router.navigate([this.authenticationService.redirectUrl]);
           }
         },
         (err: HttpErrorResponse) => {
@@ -153,7 +149,6 @@ export class RegisterFormComponent implements OnInit {
             }: ${err.error}`;
           }
           this.openSnackbar('Oops, something went wrong. Please try again!');
-          // this.openSnackbar(this.errorMsg);
         }
       );
   }

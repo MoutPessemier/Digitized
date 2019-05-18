@@ -36,14 +36,6 @@ export class ContactFormComponent implements OnInit {
 
   onSubmit() {
     if (this._user) {
-      // this.newMessage.emit(
-      //   new Message(
-      //     this.contact.value.topic,
-      //     this.contact.value.message,
-      //     new Date(),
-      //     this._user
-      //   )
-      // );
       this._createdMessage = new Message(
         this.contact.value.topic,
         this.contact.value.message,

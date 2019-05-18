@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
 import { CommentDataService } from '../comment-data.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Comment } from '../comment.model';
@@ -49,21 +49,8 @@ export class CommentComponent implements OnInit {
     this._authService.user$.subscribe(usr => (this._user = usr));
     this._authService.loggedInUser$.subscribe(user => {
       this.loggedInUser = user;
-      // console.log(user);
     });
   }
-
-  // editComment(comment: Comment) {
-  //   this._commentDataService
-  //     .putComment(comment.imageId, this.imageId, comment)
-  //     .subscribe(com => console.log(com));
-  // }
-
-  // deleteComment(id: number) {
-  //   this._commentDataService
-  //     .deleteComment(id, this.imageId)
-  //     .subscribe(com => console.log(com));
-  // }
 
   onSubmit() {
     if (this._user) {
@@ -78,7 +65,10 @@ export class CommentComponent implements OnInit {
             this.loggedInUser.id
           )
         )
-        .subscribe(com => console.log(com));
+        .subscribe(com => {
+          console.log(com);
+          this.comments.push(com);
+        });
     } else {
       this.openSnackBar('You need to be logged in to send a message.');
     }
@@ -98,16 +88,19 @@ export class CommentComponent implements OnInit {
   openChangeDialog(comment: Comment) {
     const dialogRef = this.dialog.open(ChangeCommentComponent, {
       width: '300px',
-      data: { comment: comment }
+      data: {
+        comment,
+        array: this.comments,
+        index: this.comments.indexOf(comment)
+      }
     });
   }
 
   openDeleteDialog(comment: Comment) {
-    console.log(comment);
     const dialogRef = this.dialog.open(DeleteCommentComponent, {
       width: '300px',
       height: '200px',
-      data: { comment: comment }
+      data: { comment, array: this.comments }
     });
   }
 }

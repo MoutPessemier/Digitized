@@ -11,6 +11,7 @@
   clear: both;
   margin-right: -2%;
   padding: 0;
+  height: 20px;
 }
 
 .commentDiv {
@@ -19,13 +20,6 @@
   margin-left: 1%;
   width: 80%;
 }
-
-/* .message {
-  display: inline-block;
-  font-family: var(--bodyFont);
-  width: 60%;
-  font-size: 1vw;
-} */
 
 .user {
   display: inline-block;
@@ -48,11 +42,13 @@
 button {
   margin-left: 2%;
   width: 1vw;
+  text-align: center;
 }
 
-button:hover {
+button:hover,
+button:active,
+button:focus {
   background-color: var(--green);
-  text-align: center;
 }
 
 mat-form-field {

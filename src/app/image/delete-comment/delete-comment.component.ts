@@ -13,9 +13,7 @@ export class DeleteCommentComponent implements OnInit {
     private _commentDataService: CommentDataService,
     private _snackBar: MatSnackBar,
     @Inject(MAT_DIALOG_DATA) public data: any
-  ) {
-    console.log(this.data);
-  }
+  ) {}
 
   ngOnInit() {}
 
@@ -30,6 +28,7 @@ export class DeleteCommentComponent implements OnInit {
       .subscribe(c => {
         console.log(c);
         if (c) {
+          this.data.array.pop(c);
           this.openSnackbar('Comment succesfully deleted.');
         } else {
           this.openSnackbar(

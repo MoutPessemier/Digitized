@@ -62,13 +62,7 @@ export class LoginFormComponent implements OnInit {
       .subscribe(
         val => {
           if (val) {
-            if (this.authService.redirectUrl) {
-              this.router.navigateByUrl(this.authService.redirectUrl);
-              this.authService.redirectUrl = undefined;
-              this.onNoClick();
-            } else {
-              this.router.navigate([this.authService.redirectUrl]);
-            }
+            this.onNoClick();
           }
         },
         (err: HttpErrorResponse) => {
@@ -83,10 +77,8 @@ export class LoginFormComponent implements OnInit {
             }: ${err.error}`;
           }
           this.openSnackbar('Oops, something went wrong. Please try again!');
-          // this.openSnackbar(this.errorMsg);
         }
       );
-    // console.log(this.authService.user$);
   }
 
   private openSnackbar(message: string) {

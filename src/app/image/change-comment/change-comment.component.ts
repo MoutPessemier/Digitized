@@ -53,9 +53,9 @@ export class ChangeCommentComponent implements OnInit {
       this.data.comment.visitorId
     );
     c.id = this.data.comment.id;
-    console.log(c);
     this._commentDataService.putComment(c.imageId, c.id, c).subscribe(c => {
       if (c) {
+        this.data.array[this.data.index] = c;
         this.openSnackbar('Succesfull changed your comment.');
       } else {
         this.openSnackbar('Something went wrong, please try again!');

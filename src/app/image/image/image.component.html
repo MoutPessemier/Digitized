@@ -11,6 +11,7 @@
           (click)="switchToComments()"
           [ngClass]="{ active: switch }"
           data-cy="commentIcon"
+          matTooltip="Comments"
         >
           <mat-icon class="icon">chat</mat-icon>
         </a>
@@ -19,6 +20,7 @@
           (click)="switchToSpecs()"
           [ngClass]="{ active: !switch }"
           data-cy="specsIcon"
+          matTooltip="Specifications"
         >
           <mat-icon class="icon">list_alt</mat-icon>
         </a>
