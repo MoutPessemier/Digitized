@@ -11,7 +11,6 @@ import { AuthenticationModule } from './authentication/authentication.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { DigitalArtComponent } from './digital-art/digital-art.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -22,7 +21,6 @@ import { httpInterceptorProviders } from './http-interceptors';
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    DigitalArtComponent,
     SideNavComponent,
     PageNotFoundComponent
   ],

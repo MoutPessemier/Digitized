@@ -10,17 +10,13 @@ mat-form-field {
 button[type='submit'],
 button[type='submit']:hover,
 button[type='submit']:active {
-  margin-left: 100px;
+  margin-left: 30%;
   background-color: var(--neonGreen);
 }
 
 button {
   background-color: var(--filfthyOrange);
 }
-
-/* input {
-  color: var(--ligthTheme);
-} */
 
 .buttonDiv {
   margin-top: 5%;

@@ -50,7 +50,7 @@ export class ContactFormComponent implements OnInit {
       } else {
         this.openSnackBar('Something went wrong!');
       }
-      this.contact.reset();
+      // this.contact.reset();
     } else {
       this.openSnackBar('You need to be logged in to send a message.');
     }

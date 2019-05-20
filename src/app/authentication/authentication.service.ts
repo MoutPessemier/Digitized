@@ -58,8 +58,8 @@ export class AuthenticationService {
     return this._http
       .post(
         `${environment.apiUrl}/account/login`,
-        { email, password },
-        { responseType: 'text' }
+        { email, password }
+        // ,        { responseType: 'text' }
       )
       .pipe(
         map((token: any) => {
@@ -96,8 +96,8 @@ export class AuthenticationService {
           phoneNumber,
           country,
           passwordConfirmation: password
-        },
-        { responseType: 'text' }
+        }
+        // ,        { responseType: 'text' }
       )
       .pipe(
         map((token: any) => {
