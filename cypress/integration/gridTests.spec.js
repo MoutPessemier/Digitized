@@ -1,5 +1,4 @@
 /// <reference types="Cypress" />
-
 describe('Grid Tests', function() {
   it('mock display image get', function() {
     cy.server();

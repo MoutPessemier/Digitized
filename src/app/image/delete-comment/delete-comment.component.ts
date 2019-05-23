@@ -28,7 +28,7 @@ export class DeleteCommentComponent implements OnInit {
       .subscribe(c => {
         console.log(c);
         if (c) {
-          this.data.array.pop(c);
+          this.data.array.splice(this.data.index, 1);
           this.openSnackbar('Comment succesfully deleted.');
         } else {
           this.openSnackbar(

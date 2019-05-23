@@ -12,10 +12,8 @@ import { AuthenticationService } from 'src/app/authentication/authentication.ser
 })
 export class ContactFormComponent implements OnInit {
   public contact: FormGroup;
-  @Output() public newMessage = new EventEmitter<Message>();
   public readonly contactTypes = ['Question', 'Service', 'Feedback', 'Other'];
   private _createdMessage: Message;
-  private _succes: boolean;
   private _user: string;
 
   constructor(
@@ -42,15 +40,24 @@ export class ContactFormComponent implements OnInit {
         new Date(),
         this._user
       );
-      this._messageService
-        .postMessage(this._createdMessage)
-        .subscribe(val => (this._succes = val));
-      if (this._succes) {
-        this.openSnackBar('Messages succesfully sent!');
-      } else {
-        this.openSnackBar('Something went wrong!');
-      }
-      // this.contact.reset();
+      this._messageService.postMessage(this._createdMessage).subscribe(val => {
+        if (val) {
+          this.openSnackBar('Messages succesfully sent!');
+        } else {
+          this.openSnackBar('Something went wrong!');
+        }
+
+        this.contact.reset({
+          topic: { value: null },
+          message: '     '
+        });
+        this.contact.markAsUntouched();
+        this.contact.setErrors({
+          required: false,
+          minlength: false
+        });
+        this.contact.markAsPristine();
+      });
     } else {
       this.openSnackBar('You need to be logged in to send a message.');
     }

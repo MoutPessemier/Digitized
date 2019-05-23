@@ -30,6 +30,13 @@
           class="browser-default"
           data-cy="message"
         ></textarea>
+        <mat-error
+          *ngIf="
+            contact.get('message')['errors'] && contact.get('message').touched
+          "
+        >
+          {{ getErrorMessage(contact.get('message')['errors']) }}
+        </mat-error>
       </mat-form-field>
       <button
         mat-button

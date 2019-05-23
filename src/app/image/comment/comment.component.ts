@@ -66,8 +66,17 @@ export class CommentComponent implements OnInit {
           )
         )
         .subscribe(com => {
-          console.log(com);
           this.comments.push(com);
+          this.messageForm.reset({
+            message: '   '
+          });
+          this.messageForm.markAsUntouched();
+          this.messageForm.setErrors({
+            required: false,
+            minlength: false,
+            maxlength: false
+          });
+          this.messageForm.markAsPristine();
         });
     } else {
       this.openSnackBar('You need to be logged in to send a message.');
@@ -100,7 +109,11 @@ export class CommentComponent implements OnInit {
     const dialogRef = this.dialog.open(DeleteCommentComponent, {
       width: '300px',
       height: '200px',
-      data: { comment, array: this.comments }
+      data: {
+        comment,
+        array: this.comments,
+        index: this.comments.indexOf(comment)
+      }
     });
   }
 }
