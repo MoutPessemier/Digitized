@@ -12,6 +12,7 @@ Teacher login:
 (luckily this is a private repo, posting passwords can be really dangerous!)
 
 This frontend webapp is linked with the Digitized API.
+(https://github.com/Web-IV/web4-20182019-gent-2a1-MoutPessemier-Digitized-backend)
 
 ## Social Media
 - Instagram (photography account): https://instagram.com/d_igitized/
@@ -19,5 +20,6 @@ This frontend webapp is linked with the Digitized API.
 
 (The other ones aren't as important)
 
-## Firebase link
+## Firebase link (you can choose)
 https://d-igitized.firebaseapp.com/grid/images
+https://d-igitized.web.app
