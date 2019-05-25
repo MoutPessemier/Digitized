@@ -22,6 +22,7 @@ This frontend webapp is linked with the Digitized API.
 
 ## Firebase link (you can choose)
 https://d-igitized.firebaseapp.com/grid/images
+
 https://d-igitized.web.app
 
 I'll see you at the exam!
