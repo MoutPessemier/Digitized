@@ -1,25 +1,15 @@
 # Digitized
-Project around my photography and videography, made as a school project.
 
-## Info
-This is my first ever angular app, built for my (amateur) photography career. This task was given by HoGent: Web Applications IV
+## About
+This website was made as a school project for my photography account @d_igitized on Instagram. It's the first time that I've ever used Angular and I'm sure there will be some redundant code, bad practices, ... (same goes for the API we had to write)
 
-## Practical
-Teacher login:
-- web4@hogent.be
-- gelukkiggeennetbeans
+I think it's an okay project for a first time and I sure as hell will be upadting and working on it even more!
 
-(luckily this is a private repo, posting passwords can be really dangerous!)
+## Techniques
+Angular
+My own API
 
-This frontend webapp is linked with the Digitized API.
-(https://github.com/Web-IV/web4-20182019-gent-2a1-MoutPessemier-Digitized-backend)
+## Legal
+You're free to clone this site and use the code. Images will be on my API. If you use my logo or any of them, please link my account and give me a shoutout!
 
-## Social Media
-- Instagram (photography account): https://instagram.com/d_igitized/
-- LinkedIn: https://www.linkedin.com/in/mout-pessemier-9954a9163/
-
-(The other ones aren't as important)
-
-## Firebase link (you can choose)
-https://d-igitized.firebaseapp.com/grid/images
-https://d-igitized.web.app
+https://www.instagram.com/d_igitized/
