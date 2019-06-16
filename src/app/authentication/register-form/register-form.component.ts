@@ -68,7 +68,6 @@ export class RegisterFormComponent implements OnInit {
     public dialogRef: MatDialogRef<RegisterFormComponent>,
     private fb: FormBuilder,
     private authenticationService: AuthenticationService,
-    private router: Router,
     private _snackBar: MatSnackBar
   ) {
     this.register = this.fb.group({

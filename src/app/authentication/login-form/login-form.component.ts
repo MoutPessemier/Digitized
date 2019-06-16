@@ -31,7 +31,6 @@ export class LoginFormComponent implements OnInit {
     public dialogRef: MatDialogRef<LoginFormComponent>,
     private fb: FormBuilder,
     private authService: AuthenticationService,
-    private router: Router,
     private _snackBar: MatSnackBar
   ) {}
 

@@ -19,7 +19,7 @@ function parseJwt(token) {
 })
 export class AuthenticationService {
   private readonly _tokenKey = 'currentUser';
-  private _user$: BehaviorSubject<string>; //van wanneer je subscribed, krijg je de vorige en huidige waarde door. Ook start een behaviorsubject met een waarde.npmn
+  private _user$: BehaviorSubject<string>; //van wanneer je subscribed, krijg je de vorige en huidige waarde door. Ook start een behaviorsubject met een waarde
   public redirectUrl: string;
   private _loggedInUser$: BehaviorSubject<User>;
 
@@ -56,11 +56,7 @@ export class AuthenticationService {
 
   login(email: string, password: string): Observable<boolean> {
     return this._http
-      .post(
-        `${environment.apiUrl}/account/login`,
-        { email, password }
-        // ,        { responseType: 'text' }
-      )
+      .post(`${environment.apiUrl}/account/login`, { email, password })
       .pipe(
         map((token: any) => {
           if (token) {
@@ -86,19 +82,15 @@ export class AuthenticationService {
     country: string = null
   ): Observable<boolean> {
     return this._http
-      .post(
-        `${environment.apiUrl}/account/register`,
-        {
-          email,
-          password,
-          firstName,
-          lastName,
-          phoneNumber,
-          country,
-          passwordConfirmation: password
-        }
-        // ,        { responseType: 'text' }
-      )
+      .post(`${environment.apiUrl}/account/register`, {
+        email,
+        password,
+        firstName,
+        lastName,
+        phoneNumber,
+        country,
+        passwordConfirmation: password
+      })
       .pipe(
         map((token: any) => {
           if (token) {
@@ -128,7 +120,7 @@ export class AuthenticationService {
   }
 
   checkUserNameAvailability = (email: string): Observable<boolean> => {
-    //dit wordt gebruikt binnen de factory method
+    //dit wordt gebruikt binnen de factory method, daarmee arrow notation
     return this._http.get<boolean>(
       `${environment.apiUrl}/account/checkusername`,
       { params: { email } }

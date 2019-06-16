@@ -51,6 +51,7 @@ export class ContactFormComponent implements OnInit {
           topic: { value: null },
           message: '     '
         });
+
         this.contact.markAsUntouched();
         this.contact.setErrors({
           required: false,
