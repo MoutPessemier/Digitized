@@ -12,9 +12,6 @@ export class MessageService {
   constructor(private _http: HttpClient) {}
 
   postMessage(message: Message): Observable<boolean> {
-    return this._http.post<boolean>(
-      `${environment.apiUrl}/Contact/`,
-      message.toJSON()
-    );
+    return this._http.post<boolean>(`${environment.apiUrl}/Contact/`, message.toJSON());
   }
 }

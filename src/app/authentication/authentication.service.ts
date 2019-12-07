@@ -19,23 +19,20 @@ function parseJwt(token) {
 })
 export class AuthenticationService {
   private readonly _tokenKey = 'currentUser';
-  private _user$: BehaviorSubject<string>; //van wanneer je subscribed, krijg je de vorige en huidige waarde door. Ook start een behaviorsubject met een waarde
+  private _user$: BehaviorSubject<string>;
   public redirectUrl: string;
   private _loggedInUser$: BehaviorSubject<User>;
 
   constructor(private _http: HttpClient) {
     let parsedToken = parseJwt(localStorage.getItem(this._tokenKey));
     if (parsedToken) {
-      const expires =
-        new Date(parseInt(parsedToken.exp, 10) * 1000) < new Date();
+      const expires = new Date(parseInt(parsedToken.exp, 10) * 1000) < new Date();
       if (expires) {
         localStorage.removeItem(this._tokenKey);
         parsedToken = null;
       }
     }
-    this._user$ = new BehaviorSubject<string>(
-      parsedToken && parsedToken.unique_name
-    );
+    this._user$ = new BehaviorSubject<string>(parsedToken && parsedToken.unique_name);
     this._loggedInUser$ = new BehaviorSubject<User>(
       parsedToken
         ? localStorage.getItem('visitor')
@@ -55,22 +52,20 @@ export class AuthenticationService {
   }
 
   login(email: string, password: string): Observable<boolean> {
-    return this._http
-      .post(`${environment.apiUrl}/account/login`, { email, password })
-      .pipe(
-        map((token: any) => {
-          if (token) {
-            localStorage.setItem(this._tokenKey, token);
-            this._user$.next(email);
-            this.getUser(email).subscribe(usr => {
-              this._loggedInUser$.next(usr);
-            });
-            return true;
-          } else {
-            return false;
-          }
-        })
-      );
+    return this._http.post(`${environment.apiUrl}/account/login`, { email, password }).pipe(
+      map((token: any) => {
+        if (token) {
+          localStorage.setItem(this._tokenKey, token);
+          this._user$.next(email);
+          this.getUser(email).subscribe(usr => {
+            this._loggedInUser$.next(usr);
+          });
+          return true;
+        } else {
+          return false;
+        }
+      })
+    );
   }
 
   register(
@@ -120,11 +115,7 @@ export class AuthenticationService {
   }
 
   checkUserNameAvailability = (email: string): Observable<boolean> => {
-    //dit wordt gebruikt binnen de factory method, daarmee arrow notation
-    return this._http.get<boolean>(
-      `${environment.apiUrl}/account/checkusername`,
-      { params: { email } }
-    );
+    return this._http.get<boolean>(`${environment.apiUrl}/account/checkusername`, { params: { email } });
   };
 
   getUser(email: string): Observable<User> {

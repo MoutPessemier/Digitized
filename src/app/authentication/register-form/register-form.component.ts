@@ -1,17 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef, MatSnackBar } from '@angular/material';
-import {
-  FormBuilder,
-  FormGroup,
-  Validators,
-  AbstractControl,
-  FormControl,
-  ValidatorFn
-} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, AbstractControl, FormControl, ValidatorFn } from '@angular/forms';
 import { AuthenticationService } from '../authentication.service';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 
 function validateEmail(control: FormControl): { [key: string]: any } {
@@ -40,9 +32,7 @@ function comparePasswords(control: AbstractControl): { [key: string]: any } {
   return pass.value === confPass.value ? null : { passwordDiffer: true };
 }
 
-function serverSideValidateUsername(
-  checkAvailabilityFn: (n: string) => Observable<boolean>
-): ValidatorFn {
+function serverSideValidateUsername(checkAvailabilityFn: (n: string) => Observable<boolean>): ValidatorFn {
   //factory method die een validator functie teruggeeft
   return (control: AbstractControl): Observable<{ [key: string]: any }> => {
     return checkAvailabilityFn(control.value).pipe(
@@ -76,22 +66,14 @@ export class RegisterFormComponent implements OnInit {
       email: [
         '',
         [Validators.required, Validators.minLength(5), validateEmail],
-        serverSideValidateUsername(
-          this.authenticationService.checkUserNameAvailability
-        )
+        serverSideValidateUsername(this.authenticationService.checkUserNameAvailability)
       ],
-      phone: [
-        '',
-        [Validators.required, Validators.minLength(8), validatePhone]
-      ],
+      phone: ['', [Validators.required, Validators.minLength(8), validatePhone]],
       country: [''],
       passwordGroup: this.fb.group(
         {
           password: ['', [Validators.required, Validators.minLength(5)]],
-          passwordConfirmation: [
-            '',
-            [Validators.required, Validators.minLength(5)]
-          ]
+          passwordConfirmation: ['', [Validators.required, Validators.minLength(5)]]
         },
         { validator: comparePasswords }
       )
@@ -139,13 +121,9 @@ export class RegisterFormComponent implements OnInit {
         (err: HttpErrorResponse) => {
           console.log(err);
           if (err.error instanceof Error) {
-            this.errorMsg = `Error while trying to login user ${
-              this.register.value.email
-            }: ${err.error.message}`;
+            this.errorMsg = `Error while trying to login user ${this.register.value.email}: ${err.error.message}`;
           } else {
-            this.errorMsg = `Error ${err.status} while trying to login user ${
-              this.register.value.email
-            }: ${err.error}`;
+            this.errorMsg = `Error ${err.status} while trying to login user ${this.register.value.email}: ${err.error}`;
           }
           this.openSnackbar('Oops, something went wrong. Please try again!');
         }

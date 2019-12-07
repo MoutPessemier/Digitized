@@ -1,10 +1,5 @@
 export class Message {
-  constructor(
-    private _topic: string,
-    private _message: string,
-    private _date = new Date(),
-    private _author: string
-  ) {}
+  constructor(private _topic: string, private _message: string, private _date = new Date(), private _author: string) {}
 
   get topic(): string {
     return this._topic;

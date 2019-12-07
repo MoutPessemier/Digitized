@@ -36,13 +36,7 @@ export class Comment {
   }
 
   static fromJSON(json: any): Comment {
-    let comment = new Comment(
-      json.author,
-      json.content,
-      json.date,
-      json.myImageId,
-      json.visitorId
-    );
+    let comment = new Comment(json.author, json.content, json.date, json.myImageId, json.visitorId);
     comment.id = json.id;
     return comment;
   }

@@ -20,9 +20,7 @@ export class ImageDataService {
         return of();
       }),
       map((list: any[]): Image[] => list.map(Image.fromJson)),
-      map(imgs =>
-        imgs.filter(img => img.name.toLowerCase().startsWith('display'))
-      )
+      map(imgs => imgs.filter(img => img.name.toLowerCase().startsWith('display')))
     );
   }
 

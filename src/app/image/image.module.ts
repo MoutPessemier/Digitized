@@ -21,12 +21,7 @@ const appRoutes: Routes = [{ path: 'images', component: GridComponent }];
     ChangeCommentComponent,
     DeleteCommentComponent
   ],
-  imports: [
-    CommonModule,
-    MaterialModule,
-    RouterModule.forChild(appRoutes),
-    ReactiveFormsModule
-  ],
+  imports: [CommonModule, MaterialModule, RouterModule.forChild(appRoutes), ReactiveFormsModule],
   entryComponents: [ChangeCommentComponent, DeleteCommentComponent]
 })
 export class ImageModule {}

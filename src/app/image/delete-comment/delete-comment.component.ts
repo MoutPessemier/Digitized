@@ -23,19 +23,15 @@ export class DeleteCommentComponent implements OnInit {
   }
 
   delete() {
-    this._commentDataService
-      .deleteComment(this.data.comment.myImageId, this.data.comment.id)
-      .subscribe(c => {
-        console.log(c);
-        if (c) {
-          this.data.array.splice(this.data.index, 1);
-          this.openSnackbar('Comment succesfully deleted.');
-        } else {
-          this.openSnackbar(
-            'Something went wrong deleting the comment, please try again.'
-          );
-        }
-      });
+    this._commentDataService.deleteComment(this.data.comment.myImageId, this.data.comment.id).subscribe(c => {
+      console.log(c);
+      if (c) {
+        this.data.array.splice(this.data.index, 1);
+        this.openSnackbar('Comment succesfully deleted.');
+      } else {
+        this.openSnackbar('Something went wrong deleting the comment, please try again.');
+      }
+    });
     this.onNoClick();
   }
 

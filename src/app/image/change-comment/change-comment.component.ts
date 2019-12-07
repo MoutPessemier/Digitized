@@ -21,10 +21,7 @@ export class ChangeCommentComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.changeComment = this._fb.group({
-      change: [
-        this.data.comment.content,
-        [Validators.required, Validators.minLength(3), Validators.maxLength(75)]
-      ]
+      change: [this.data.comment.content, [Validators.required, Validators.minLength(3), Validators.maxLength(75)]]
     });
   }
 

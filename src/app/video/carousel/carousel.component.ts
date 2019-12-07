@@ -16,10 +16,7 @@ export class CarouselComponent implements OnInit {
   private _fetchVideos$: Observable<Video[]> = this._videoDataService.videos$;
   public loadingErrors$ = this._videoDataService.loadingError$;
 
-  constructor(
-    private _videoDataService: VideoDataService,
-    private route: ActivatedRoute
-  ) {
+  constructor(private _videoDataService: VideoDataService, private route: ActivatedRoute) {
     this._videoDataService.videos$.subscribe(vids => (this._videos = vids));
     this.route.data.subscribe(item => (this.currentVid = item['video']));
   }
@@ -40,8 +37,7 @@ export class CarouselComponent implements OnInit {
 
   previous() {
     if (this.currentVid) {
-      this._index =
-        (this._index - 1 + this._videos.length) % this._videos.length;
+      this._index = (this._index - 1 + this._videos.length) % this._videos.length;
     } else {
       this._index = 0;
       this.fillCurrentVideo();

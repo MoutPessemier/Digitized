@@ -1,20 +1,13 @@
 <div class="overflow">
-  <div
-    fxLayout="row"
-    fxLayoutAlign="space-between"
-    *ngFor="let comment of comments"
-  >
+  <div fxLayout="row" fxLayoutAlign="space-between" *ngFor="let comment of comments">
     <div>
       <div class="commentDiv" data-cy="comments">
         <span class="user left">{{ comment.author }}: </span>
         <span>{{ comment.content }}</span>
       </div>
       <div class="iconDiv right" *ngIf="isAuthor(comment)">
-        <mat-icon class="edit" (click)="openChangeDialog(comment)"
-          >edit</mat-icon
-        ><mat-icon class="delete" (click)="openDeleteDialog(comment)"
-          >delete</mat-icon
-        >
+        <mat-icon class="edit" (click)="openChangeDialog(comment)">edit</mat-icon
+        ><mat-icon class="delete" (click)="openDeleteDialog(comment)">delete</mat-icon>
       </div>
     </div>
   </div>
@@ -29,12 +22,7 @@
       class="browser-default"
       formControlName="message"
     />
-    <mat-error
-      *ngIf="
-        messageForm.get('message')['errors'] &&
-        messageForm.get('message').touched
-      "
-    >
+    <mat-error *ngIf="messageForm.get('message')['errors'] && messageForm.get('message').touched">
       {{ getErrorMessage(messageForm.get('message')['errors']) }}
     </mat-error>
   </mat-form-field>

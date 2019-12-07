@@ -28,10 +28,7 @@ export class CommentComponent implements OnInit {
     private _snackBar: MatSnackBar
   ) {
     this.messageForm = this.fb.group({
-      message: [
-        '',
-        [Validators.required, Validators.minLength(3), Validators.maxLength(75)]
-      ]
+      message: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(75)]]
     });
   }
 

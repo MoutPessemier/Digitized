@@ -26,10 +26,7 @@
         </a>
       </div>
       <span class="content" *ngIf="switch; else specs">
-        <app-comment
-          [comments]="image.comments"
-          [imageId]="image.id"
-        ></app-comment>
+        <app-comment [comments]="image.comments" [imageId]="image.id"></app-comment>
       </span>
       <ng-template #specs>
         <span class="content">

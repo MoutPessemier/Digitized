@@ -5,20 +5,10 @@
       <div class="vidDiv">
         <app-video [video]="currentVid" data-cy="videoComponent"></app-video>
         <div class="videoControls">
-          <a
-            mat-raised-button
-            (click)="previous()"
-            class="controls"
-            data-cy="buttonPrevious"
-          >
+          <a mat-raised-button (click)="previous()" class="controls" data-cy="buttonPrevious">
             <i class="material-icons">keyboard_arrow_left</i>
           </a>
-          <a
-            mat-raised-button
-            (click)="next()"
-            class="controls"
-            data-cy="buttonNext"
-          >
+          <a mat-raised-button (click)="next()" class="controls" data-cy="buttonNext">
             <i class="material-icons">keyboard_arrow_right</i>
           </a>
         </div>
@@ -28,10 +18,7 @@
 </div>
 <ng-template #loadingOrError>
   <mat-card>
-    <mat-error
-      *ngIf="loadingErrors$ | async as errorMessage; else loading"
-      data-cy="appError"
-    >
+    <mat-error *ngIf="loadingErrors$ | async as errorMessage; else loading" data-cy="appError">
       Error loading the carousel: {{ errorMessage }}. <br />
       Please try again later.
     </mat-error>

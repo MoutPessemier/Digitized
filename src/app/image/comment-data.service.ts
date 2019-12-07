@@ -13,46 +13,34 @@ export class CommentDataService {
   constructor(private http: HttpClient) {}
 
   getComments$(imageId: number): Observable<Comment[]> {
-    return this.http
-      .get(`${environment.apiUrl}/images/${imageId}/comments`)
-      .pipe(
-        catchError(error => {
-          this.loadingError$.next(error);
-          return of();
-        }),
-        map((list: any[]): Comment[] => list.map(Comment.fromJSON))
-      );
+    return this.http.get(`${environment.apiUrl}/images/${imageId}/comments`).pipe(
+      catchError(error => {
+        this.loadingError$.next(error);
+        return of();
+      }),
+      map((list: any[]): Comment[] => list.map(Comment.fromJSON))
+    );
   }
 
   getComment$(imageId: number, id: number): Observable<Comment> {
-    return this.http
-      .get(`${environment.apiUrl}/images/${imageId}/comments/${id}`)
-      .pipe(
-        catchError(error => {
-          this.loadingError$.next(error.statusText);
-          return of();
-        }),
-        map((item: any): Comment => Comment.fromJSON(item))
-      );
+    return this.http.get(`${environment.apiUrl}/images/${imageId}/comments/${id}`).pipe(
+      catchError(error => {
+        this.loadingError$.next(error.statusText);
+        return of();
+      }),
+      map((item: any): Comment => Comment.fromJSON(item))
+    );
   }
 
   postComment(imageId: number, comment: Comment): Observable<Comment> {
-    return this.http.post<Comment>(
-      `${environment.apiUrl}/images/${imageId}/comments`,
-      comment.toJSON()
-    );
+    return this.http.post<Comment>(`${environment.apiUrl}/images/${imageId}/comments`, comment.toJSON());
   }
 
   putComment(imageId: number, id: number, comment: Comment) {
-    return this.http.put(
-      `${environment.apiUrl}/images/${imageId}/comments/${id}`,
-      comment.toJSON()
-    );
+    return this.http.put(`${environment.apiUrl}/images/${imageId}/comments/${id}`, comment.toJSON());
   }
 
   deleteComment(imageId: number, id: number) {
-    return this.http.delete(
-      `${environment.apiUrl}/images/${imageId}/comments/${id}`
-    );
+    return this.http.delete(`${environment.apiUrl}/images/${imageId}/comments/${id}`);
   }
 }

@@ -11,12 +11,7 @@
         class="browser-default"
         required
       />
-      <mat-error
-        *ngIf="
-          register.get('firstName')['errors'] &&
-          register.get('firstName').touched
-        "
-      >
+      <mat-error *ngIf="register.get('firstName')['errors'] && register.get('firstName').touched">
         {{ getErrorMessage(register.get('firstName')['errors']) }}
       </mat-error>
     </mat-form-field>
@@ -30,11 +25,7 @@
         class="browser-default"
         required
       />
-      <mat-error
-        *ngIf="
-          register.get('lastName')['errors'] && register.get('lastName').touched
-        "
-      >
+      <mat-error *ngIf="register.get('lastName')['errors'] && register.get('lastName').touched">
         {{ getErrorMessage(register.get('lastName')['errors']) }}
       </mat-error>
     </mat-form-field>
@@ -48,9 +39,7 @@
         class="browser-default"
         required
       />
-      <mat-error
-        *ngIf="register.get('email')['errors'] && register.get('email').touched"
-      >
+      <mat-error *ngIf="register.get('email')['errors'] && register.get('email').touched">
         {{ getErrorMessage(register.get('email')['errors']) }}
         <!-- {{ getErrorMessage(register.errors) }} -->
       </mat-error>
@@ -65,9 +54,7 @@
         class="browser-default"
         required
       />
-      <mat-error
-        *ngIf="register.get('phone')['errors'] && register.get('phone').touched"
-      >
+      <mat-error *ngIf="register.get('phone')['errors'] && register.get('phone').touched">
         {{ getErrorMessage(register.get('phone')['errors']) }}
         <!-- {{ getErrorMessage(register.errors) }} -->
       </mat-error>
@@ -99,11 +86,7 @@
             register.get('passwordGroup').get('password').touched
           "
         >
-          {{
-            getErrorMessage(
-              register.get('passwordGroup').get('password')['errors']
-            )
-          }}
+          {{ getErrorMessage(register.get('passwordGroup').get('password')['errors']) }}
         </mat-error>
       </mat-form-field>
       <mat-form-field>
@@ -118,19 +101,11 @@
         />
         <mat-error
           *ngIf="
-            register.get('passwordGroup').get('passwordConfirmation')[
-              'errors'
-            ] &&
+            register.get('passwordGroup').get('passwordConfirmation')['errors'] &&
             register.get('passwordGroup').get('passwordConfirmation').touched
           "
         >
-          {{
-            getErrorMessage(
-              register.get('passwordGroup').get('passwordConfirmation')[
-                'errors'
-              ]
-            )
-          }}
+          {{ getErrorMessage(register.get('passwordGroup').get('passwordConfirmation')['errors']) }}
           <!-- {{ getErrorMessage(register.errors) }} -->
         </mat-error>
       </mat-form-field>

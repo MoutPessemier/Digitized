@@ -45,13 +45,3 @@ mat-sidenav-content,
 .brand-logo {
   z-index: 1 !important;
 }
-
-/* .mat-dialog-container {
-  background-color: var(--darkTheme2);
-}
-
-.mat-form-field-underline,
-.mat-form-field-underline:active,
-.mat-form-field-underline:focus {
-  background-color: var(--ligthTheme) !important;
-} */

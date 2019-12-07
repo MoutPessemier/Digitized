@@ -34,12 +34,7 @@ export class ContactFormComponent implements OnInit {
 
   onSubmit() {
     if (this._user) {
-      this._createdMessage = new Message(
-        this.contact.value.topic,
-        this.contact.value.message,
-        new Date(),
-        this._user
-      );
+      this._createdMessage = new Message(this.contact.value.topic, this.contact.value.message, new Date(), this._user);
       this._messageService.postMessage(this._createdMessage).subscribe(val => {
         if (val) {
           this.openSnackBar('Messages succesfully sent!');

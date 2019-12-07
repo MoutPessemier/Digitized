@@ -17,13 +17,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { httpInterceptorProviders } from './http-interceptors';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    FooterComponent,
-    SideNavComponent,
-    PageNotFoundComponent
-  ],
+  declarations: [AppComponent, HeaderComponent, FooterComponent, SideNavComponent, PageNotFoundComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

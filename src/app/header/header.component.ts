@@ -15,10 +15,7 @@ export class HeaderComponent implements OnInit {
   public loadComponent: boolean;
   user$ = this._authService.user$;
 
-  constructor(
-    public dialog: MatDialog,
-    private _authService: AuthenticationService
-  ) {}
+  constructor(public dialog: MatDialog, private _authService: AuthenticationService) {}
 
   ngOnInit() {}
 
