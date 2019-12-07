@@ -9,7 +9,6 @@ import { AuthenticationService } from './authentication.service';
 export class AuthGuard implements CanActivate {
   constructor(private authService: AuthenticationService, private router: Router) {}
 
-  // Is the user allowed to visit that route?
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     if (this.authService.user$.getValue()) {
       return true;

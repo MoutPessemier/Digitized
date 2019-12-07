@@ -33,7 +33,6 @@ function comparePasswords(control: AbstractControl): { [key: string]: any } {
 }
 
 function serverSideValidateUsername(checkAvailabilityFn: (n: string) => Observable<boolean>): ValidatorFn {
-  //factory method die een validator functie teruggeeft
   return (control: AbstractControl): Observable<{ [key: string]: any }> => {
     return checkAvailabilityFn(control.value).pipe(
       map(available => {

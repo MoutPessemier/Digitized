@@ -24,6 +24,7 @@
     "font-awesome": "^4.7.0",
     "hammerjs": "^2.0.8",
     "rxjs": "~6.3.3",
+    "serialize-javascript": "^2.1.1",
     "tslib": "^1.10.0",
     "zone.js": "~0.8.26"
   },
