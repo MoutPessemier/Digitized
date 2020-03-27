@@ -2,7 +2,7 @@
 
 ## About
 
-This Angular website is made as a school project for my photography account @d_gitized on Instagram.
+This Angular website is made as a school project for my photography account [@d_gitized](https://www.instagram.com/d_igitized/) on Instagram.
 Sadly, since my student credits are expired on Azure, the site doesn't have any content left. Unit the migration of my api from C# to Firebase is done, this website will be rather empty.
 
 ## Techniques
