@@ -118,7 +118,6 @@ export class RegisterFormComponent implements OnInit {
           }
         },
         (err: HttpErrorResponse) => {
-          console.log(err);
           if (err.error instanceof Error) {
             this.errorMsg = `Error while trying to login user ${this.register.value.email}: ${err.error.message}`;
           } else {
