@@ -22,5 +22,3 @@ You're free to clone this site and use the code. The images can be found in the 
 ## URL
 
 https://d-igitized.web.app
-
-Copyright 2019 © by Mout Pessemier
