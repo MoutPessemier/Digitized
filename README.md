@@ -16,7 +16,7 @@ You're free to clone this site and use the code. The images can be found in the 
 
 ## Social Media
 
-- [Instagram (photography account)](https://instagram.com/d_igitized/)
+- [Instagram](https://instagram.com/moutpessemierstudios)
 - [LinkedIn](https://www.linkedin.com/in/moutpessemier/)
 
 ## URL
